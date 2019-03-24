@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作者中心</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/index_main.css">
+    <link rel="stylesheet" href="../css/author_center.css">
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/main1.js" type="text/javascript">
+    </script>
+    <script src="../js/index_style.js" type="text/javascript">
+    </script>
+</head>
+<body>
+        <div class="header">
+                <div class="header_top">
+                    <div class="header_top_content">
+                        <a href="#">侵权投诉</a>
+                        <span class="split_icon"></span>
+                        <a href="#">代理合作</a>
+                        <span class="split_icon"></span>
+                        <a href="#">广告推广</a>
+                    </div>   
+                </div>
+                <div class="search">
+                    
+                    <a href="#" class="logo">
+                        <img src="../img/logo.png" alt="多点资讯">
+                    </a>
+                    
+                    <div class="search_box">
+                        <input type="text" class="search_input" placeholder="大家都在搜">
+        
+                        <div class="suggestion">
+                            <div class="inner_block_box">
+        
+                            <a class="items item_1" href="#">
+                                <div class=" index icon_1">1</div>
+                                <div class="item_content">
+                                <div class="hot_search_word">宁泽涛退役</div>
+                                </div>
+                            </a>
+                            
+                            <a class="items item_2" href="#">
+                                <div class=" index icon_2">2</div>
+                                <div class="item_content">
+                                <div class="hot_search_word">王刚道歉红烧娃娃鱼</div>
+                                </div>
+                            </a>
+                            
+                            <a class="items item_3" href="#">
+                                <div class=" index icon_3">3</div>
+                                <div class="item_content">
+                                <div class="hot_search_word">运营商回应提速降费</div>
+                                </div>
+                            </a>
+                            
+                            <a class="items item_4" href="#">
+                                <div class="index  icon">4</div>
+                                <div class="item_content">
+                                <div class="hot_search_word">南航客机中断起飞</div>
+                                </div>
+                            </a>
+                            
+                            <a class="items item_5" href="#">
+                                <div class=" index icon">5</div>
+                                <div class="item_content">
+                                <div class="hot_search_word">郑晓龙谈偷税漏税</div>
+                                </div>
+                            </a>
+                            
+                            <a class="items item_6" href="#">
+                                <div class=" index  icon">6</div>
+                                <div class="item_content">
+                                <div class="hot_search_word">昆凌称周杰伦是小公主</div>
+                                </div>
+                            </a>
+                            
+                            <a class="items item_7" href="#">
+                                <div class=" index icon">7</div>
+                                <div class="item_content">
+                                <div class="hot_search_word">伦敦交通枢纽炸弹</div>
+                                </div>
+                            </a>
+                            
+                            <a class="items item_8" href="#">
+                                <div class=" index  icon">8</div>
+                                <div class="item_content">
+                                <div class="hot_search_word">辽宁爆冷不敌吉林</div>
+                                </div>
+                            </a>
+                                  
+                        </div>
+                        </div>
+                    </div>
+                    <input type="submit" class="btn_search" value="搜索">
+                    <div class="setup">
+                    <a href="javascript:;" class="btn login_btn">登录</a>
+                    <span class="split_icon"></span>
+                    <a href="javascript:;" class="btn register_btn">注册</a>
+                    </div>
+                    <!-- 用户登录后信息显示部分,将登录和注册替换 -->
+                    <div class="user_info">
+                        <img src="../img/person.jpeg" class="info_icon" >
+                        <span class="info_name">慢慢</span>
+                        <span class="info_select_list">v</span>
+                        <div class="user_info_menu" >
+                                <a href="../html/user.html" target="_blank">个人中心</a>
+                                <a href="#">我的收藏</a>
+                                <a href="#" class="logout_btn"
+                                onclick="logout();">退出</a>
+                            </div>
+                        </div>
+                    
+                </div>
+                <div class="banner">
+                    <div class="list">
+                        <a href="#" class="item" categaryid=''>推荐</a>
+                        <a href="#" class="item">热点</a>
+                        <a href="#" class="item">科技</a>
+                        <a href="#" class="item">娱乐</a>
+                        <a href="#" class="item">游戏</a>
+                        <a href="#" class="item">体育</a>
+                        <a href="#" class="item">军事</a>
+                        <a href="#" class="item">动漫</a>
+                        <a href="#" class="item three">新时代</a>
+                        <a href="#" class="item ">财经</a>
+                        <a href="#" class="item ">搞笑</a>
+                        <span class="more_item">更多</span>
+                    </div>
+                        
+                </div>
+            </div>
+    <!-- <div class="header">
+        <div class="header_top">
+            <div class="header_top_content">
+                <a href="#">侵权投诉</a>
+                <span class="split_icon"></span>
+                <a href="#">代理合作</a>
+                <span class="split_icon"></span>
+                <a href="#">广告推广</a>
+            </div>   
+        </div>
+        <div class="search">
+            
+            <a href="#" class="logo">
+                <img src="../img/logo.png" alt="多点资讯">
+            </a>
+            
+            <div class="search_box">
+                <input type="text" placeholder="大家都在搜">
+            </div>
+            <input type="submit" class="btn_search" value="搜索">
+            <div class="setup">
+            <a href="javascript:;" class="btn login_btn">登录</a>
+            <span class="split_icon"></span>
+            <a href="javascript:;" class="btn register_btn">注册</a>
+            </div>
+            <!-- 用户登录后信息显示部分,将登录和注册替换 -->
+            <!-- <a class="user_info">
+                <img src="../img/person.jpeg" class="info_icon" >
+                <span class="info_name">慢慢</span>
+                <span class="info_select_list">v</span>
+            </a>
+            <div class="user_info_menu" >
+                <a href="#">个人中心</a>
+                <a href="#">我的收藏</a>
+                <a href="#" class="logout_btn">退出</a>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="list">
+                <a href="#" class="item">推荐</a>
+                <a href="#" class="item">热点</a>
+                <a href="#" class="item">科技</a>
+                <a href="#" class="item">娱乐</a>
+                <a href="#" class="item">游戏</a>
+                <a href="#" class="item">体育</a>
+                <a href="#" class="item">军事</a>
+                <a href="#" class="item">动漫</a>
+                <a href="#" class="item three">新时代</a>
+                <a href="#" class="item ">财经</a>
+                <a href="#" class="item ">搞笑</a>
+            </div>
+                <span>更多</span>
+        </div>
+    </div> --> 
+    <div class="wrapper">
+        <div class="wrapper_header">
+            <a href="#"><img class='bg_header'src="../img/bg_profile.png" alt=""></a>
+            <div class="author_head">
+                <a href="#"><img class="author_avatar" src="../img/person.jpeg" alt=""></a>
+                <a href="#"><div class="author_nickname">环球网</div></a>
+                <div class="focus_status">
+                <a href="#" class="focus">
+                        <i>+</i>关注
+                    </a>
+                <a href="#" class="unfocus">
+                    <i>-</i>取消关注
+                    </a>
+                </div>
+            </div>
+            <div class="left">
+                <div class="tab">
+                   <ul class="tab tab-0"> 
+                       <li code="a" idx="0" class="active">文章</li>
+                       <li code="d" idx="2" class="">他的关注</li>
+                       <li code="b" idx="1" class="">粉丝</li>
+                     </ul>
+                </div>
+            <div class="author_about">
+              <ul class="articles">
+                <li class="article">
+                        <a href="#" class="article_prc"><img src="../img/ww.jpg"></a>
+                        
+                <div class="rbox-inner"> <div class="title-box"> <a class='title-box' href="#"target="_blank" >日本史上最大IPO之一要来了：软银计划将手机业务分拆上市软银计划将手机业务分拆上市</a> </div>  <div class="y-box footer"> <div class="y-left">  <a class="lbtn" target="_blank" href="#" >950阅读&nbsp;⋅</a>  <a class="lbtn" href="#" target="_blank" >&nbsp;0评论&nbsp;</a> <div class="time">2019-01-01 00:00:00</div>     </div>  </div> </div>   </li>
+                <li class="article">
+                        <div class="rbox-inner"> <div class="title-box"> <a class='title-box' href="#"target="_blank" >日本史上最大IPO之一要来了：软银计划将手机业务分拆上市软银计划将手机业务分拆上市</a> </div>  <div class="y-box footer"> <div class="y-left">  <a class="lbtn" target="_blank" href="#" >950阅读&nbsp;⋅</a>  <a class="lbtn" href="#" target="_blank" >&nbsp;0评论&nbsp;</a> <div class="time">2019-01-01 00:00:00</div>     </div>  </div> 
+                    </div>   
+                </li>     
+                <li class="article">
+                        <a href="#" class="article_prc"><img src="../img/ww.jpg"></a>
+                        
+                        <div class="rbox-inner"> <div class="title-box"> <a class='title-box' href="#"target="_blank" >日本史上最大IPO之一要来了：软银计划将手机业务分拆上市软银计划将手机业务分拆上市</a> </div>  <div class="y-box footer"> <div class="y-left">  <a class="lbtn" target="_blank" href="#" >950阅读&nbsp;⋅</a>  <a class="lbtn" href="#" target="_blank" >&nbsp;0评论&nbsp;</a> <div class="time">2019-01-01 00:00:00</div>     </div>  </div> 
+                    </div>   
+                </li>          
+              </ul>  
+            </div>
+            </div>
+           <div class="right">
+                <dl class="statistics"> <dt> 
+                    <a ga_event="nav_user_list" href="/c/user/relation/51045089537/?tab=following"> <h3 riot-tag="number" number="9"><em class="y-number"><i>9</i></em></h3> <p>关注</p> </a> </dt> <dd> <a ga_event="nav_user_list" href="/c/user/relation/51045089537/?tab=followed"> <h3 riot-tag="number" number="9610315"><em class="y-number"><i>961</i>万</em></h3> <p>粉丝</p> </a> </dd> </dl>
+                <div class="riot-tag="recent"">
+                <div class="recent"> <h2>近期最佳文章</h2> 
+                    
+                    <ul>
+                        <li> <div class="line ">  <div class="rbox"> <div class="rbox-inner"> <a target="_blank" title="中国探月工程总设计师：“玉兔”前进路上坑较多，会保证安全" href="/item/6664044932174447112/">中国探月工程总设计师：“玉兔”前进路上坑较多，会保证安全</a> <span>68阅读</span>  </div> </div> </div> </li>
+                        <li> <div class="line image"> <a class="lbox" target="_blank" href="/item/6664037596051538436/"> <img alt="" src="../img/ww.jpg">   </a> <div class="rbox"> <div class="rbox-inner"> <a target="_blank" title="回首中国球员五大联赛进球之路：收获处子球的武磊前路光明" href="/item/6664037596051538436/">回首中国球员五大联赛进球之路：收获处子球的武磊前路光明</a> <span>58阅读</span>  </div> </div> </div> </li> 
+                    </ul>
+                    </div> </div>
+                        </div>
+        </div>
+    </div>

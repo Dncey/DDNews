@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户中心</title>
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	
+	<link rel="stylesheet" type="text/css" href="../css/user.css">
+	<!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../css/detail.css">
+	<script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.form.min.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+</head>
+<body>
+	<div class="headers">
+			<div class="banner_top">
+				<a href="#" class="logo">
+					<img src="../img/logo1.png" alt="多点资讯">
+				</a>
+				<div class="categroy">
+					<a href="#" class="item">首页</a>
+					<a href="#" class="item">热点</a>
+					<a href="#" class="item">科技</a>
+					<a href="#" class="item">娱乐</a>
+					<a href="#" class="item">游戏</a>
+					<a href="#" class="item">体育</a>
+					<a href="#" class="item">军事</a>
+					<a href="#" class="item">动漫</a>
+						<a href="#" class="item three">新时代</a>
+					<a href="#" class="item ">财经</a> 
+					<a href="#" class="item ">搞笑</a>
+				<!-- 用户登录后信息显示部分,将登录和注册替换 -->
+				<a class="user_info">
+					<img src="../img/person.jpeg" class="info_icon" >
+					<span class="info_name">慢慢</span>
+					<span class="info_select_list">v</span>
+				</a>
+				<div class="user_info_menu" >
+					<a href="#">个人中心</a>
+					<a href="#">我的收藏</a>
+					<a href="#" class="logout_btn">退出</a>
+				</div>
+				</div>
+				<span class="search_icon"></span>
+				<a href="javascript:;" class="btn login_btn">登录</a>
+				<!-- <div class="search_box">
+					<input type="text" placeholder="大家都在搜">
+				</div> -->
+				
+			</div>     
+		</div>
+	
+	<div class="conter_con">
+		<div class="user_menu_con fl">
+			<div class="user_center_pic">
+				<img src="../img/person.jpeg" alt="用户图片">
+			</div>
+			<div class="user_center_name">用户张山</div>
+
+			<ul class="option_list">
+				<li class="active"><a href="user_baseinfo.html" target="main_frame">基本资料</a></li>
+				<li><a href="user_follow.html" target="main_frame">我的关注</a></li>
+				<li><a href="user_collection.html" target="main_frame">我的收藏</a></li>
+				<li ><a href="user_pass_info.html" target="main_frame">密码修改</a></li>
+				
+				<li><a href="user_news_edit.html" target="main_frame">新闻发布</a></li>
+				<li><a href="user_news_list.html" target="main_frame">新闻列表</a></li>
+			</ul>
+		</div>
+
+		<div class="user_con fr">
+			<iframe src="user_news_edit.html" frameborder="0" name="main_frame" class="main_frame" id="main_frame"></iframe>
+		</div>		
+	</div>
+	<div class="footer">		
+		<div class="footer_links">
+			<a href="">关于我们</a>
+			<span>|</span>
+			<a href="">联系我们</a>
+			<span>|</span>
+			<a href="">招聘人才</a>
+			<span>|</span>
+			<a href="">友情链接</a>
+		</div>
+		<p class="copyright">
+			CopyRight © 2018 新经资讯信息技术有限公司 All Rights Reserved<br />
+电话：010-****888    京ICP备*******8号
+		</p>
+	</div>
+</body>
+</html>

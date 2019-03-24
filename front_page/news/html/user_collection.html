@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户中心</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.pagination.min.js"></script>
+</head>
+<body class="inframe_body">
+    <div class="my_collect">
+        <h3>我的收藏</h3>
+        <ul class="like-list">
+            <li class="image">
+                <a href="/article/0LQenMYh" target="_blank" class="img-link">
+                    <img src="../img/zz.jpg"></a>
+                <div class="doc-items-wrapper">
+                    <div class="doc-items">
+                        <a href="/article/0LQenMYh" target="_blank">
+                            <h4>朱立伦敏感时刻拜访韩国瑜 台媒直言政治意味浓厚</h4>
+                        </a><p><span>中国台湾网</span><span>0评</span><span>6小时前</span>
+                <span class="like-remove">
+                    <span class="rmcol">取消收藏</span>
+                    <i class="iconfont" data-id="0LQenMYh" >
+
+                    </i>
+                </span></p></div></div>
+                    </li>        
+            </ul>
+
+
+
+        <div id="pagination" class="page"></div>
+        <script>
+            $(function() {
+                $("#pagination").pagination({
+                    currentPage: 2,
+                    totalPage: 3,
+                    callback: function(current) {
+                        alert('ok!');
+                    }
+                });
+            });
+        </script>
+
+    </div>
+</body>
+</html>
