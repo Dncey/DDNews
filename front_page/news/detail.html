@@ -169,64 +169,100 @@
         
     </div>
 </div>
+    <!-- 下面是登录表单页面 -->
     <div class="login_form_main">
             <div class="close_icon">
-                    <a href="javascript:;" class="shutoff"></a>   
+                    <a href="javascript:;" class="shutoff"></a>
             </div>
             <div class="logo_register">
                 <img src="img/logo.png" alt="多点资讯">
             </div>
             <form  class="login_form">
-                <input type="text" class="login_phonenum" name="login_phone_num" placeholder="手机号">
-                <input type="password" class="login_password" name="password" placeholder="密码">
+                <input type="text" class="lgoin_text" name="login_phone_num" placeholder="手机号/用户名/邮箱">
+                <input type="password" class="password" name="password" placeholder="密码">
+                <input type="checkbox" id="rem_user"> <p>是否记住登录状态</p>
                 <p class="error_msg"></p>
                 <div class="subs">
                 <input type="submit" id="login_sub" value="登录">
-                </div> 
+                </div>
                 <div class="down_link">还没有账号？<a href="javascript:;" class="to_register">立即注册</a></div>
-                <div class="forget_passwd"><a href="#">忘记密码</a></div>  
+                <div class="forget_passwd"><a >忘记密码</a></div>
             </form>
     </div>
     <!-- 下面是注册表单页面 -->
     <div class="register_form_main">
         <div class="close_icon">
-                <a href="javascript:;" class="shutoff"></a>   
+                <a href="javascript:;" class="shutoff"></a>
         </div>
         <div class="logo_register">
             <img src="img/logo.png" alt="多点资讯">
         </div>
         <form class="register_form">
             <div class="phone_number">
-                <input type="text" class="input_phone" name="register_phone_num" placeholder="手机号">
+                <input type="text" class="phonenum" name="register_phone_num" placeholder="手机号">
             </div>
             <div class="checkcode_box">
-                <input type="text"  id="input_code" name='input_checkcode'placeholder="验证码">
+                <input type="text"  class="input_code" name='input_checkcode'placeholder="验证码">
                 <div class="imgcode">
-                    <img src="img/code.png" class="img_checkcode">
+                    <img src ="" class="img_checkcode">
                 </div>
             </div>
                 <div class="input_phonecodetext">
-                    <input type="text" id="input_phonecode"name="phone_numbercode" placeholder="手机验证码">
+                    <input type="text" class="input_phonecode"name="phone_numbercode" placeholder="手机验证码">
                     <div class="phone_checkcode">
-                            <button type="button" class="btn_get_checkcode">发送验证码</button>
+                            <div class="btn_get_checkcode">发送验证码</div>
                     </div>
                 </div>
                 <div class="user_password" >
-                    <input type="password" name="userpassword" placeholder="请输入密码(不少于6位)">
+                    <input type="password" class="register_password" name="userpassword" placeholder="请输入密码(不少于6位)">
                 </div>
                 <div class="confirm_password">
-                    <input type="password" name="confirm_password" placeholder="请确认密码">
+                    <input type="password" name="confirm_password" placeholder="请确认密码" class="confirmed_password">
                 </div>
                 <p class="error_msg"></p>
                 <div class="login_check">
                         <input type="checkbox" id="agree_check" checked >
                         <p>同意使用条款，并已阅读"跟帖评论自律管理承诺书"</p>
                 </div>
-            <input type="submit" value="注册" id="register_sub">    
+            <input type="submit" value="注册" id="register_sub">
             <div class="down_link">已有账号？
                 <a href="javascript:;" class="to_login">立即登陆</a>
                 </div>
         </form>
+    </div>
+    <!-- 忘记密码 -->
+    <div class="forget_form_main">
+            <div class="close_icon">
+                    <a href="javascript:;" class="shutoff"></a>
+            </div>
+            <div class="forget_register">
+                <h3>忘记密码</h3>
+            </div>
+            <form  class="forget_form">
+
+                <input type="text" class="phonenum" name="forget_phone_num" placeholder="手机号">
+                <div class="checkcode_box">
+                        <input type="text"  class="input_code" name='input_checkcode'placeholder="验证码">
+                        <div class="imgcode">
+                            <img src="img/code.png" class="img_checkcode">
+                        </div>
+                    </div>
+                <div class="input_phonecodetext">
+                    <input type="text" class="sms_code"  name="phone_numbercode" placeholder="手机验证码">
+                    <div class="phone_checkcode">
+                            <button type="button" class="btn_checkcode"
+                            >发送验证码</button>
+                    </div>
+                </div>
+                <div class="user_password" >
+                        <input type="password" class="forget_password" name="userpassword" placeholder="请输入密码(不少于6位)">
+                </div>
+                <p class="error_msg"></p>
+                <div class="subs">
+                <input type="submit" id="forget_sub" value="提交">
+                </div>
+                <div class="down_link"><a href="javascript:;" class="to_login">返回登录  </a></div>
+            </form>
     </div>
     <div class="mask"></div>
 </body>

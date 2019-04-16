@@ -2,7 +2,8 @@ from django.shortcuts import render
 from news.models import NewsCategory,News,Slide_image,Search_keywords
 from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView
-from .serializers import Get_Newslist_Serializer
+from rest_framework.viewsets import ModelViewSet
+from .serializers import Get_Newslist_Serializer,New_Detail_Serializer
 from DDNews.utils.pagination import Newlist_Paginations
 from rest_framework.filters import OrderingFilter
 from rest_framework.response import Response
@@ -83,3 +84,12 @@ class Get_Newslist_ListApiView(ListAPIView):
             'format': self.format_kwarg,
             'view': self
         }
+
+
+#新闻详情页数据的获取,添加修改，删除
+class New_Detail_ViewSet(ModelViewSet):
+    serializer_class = New_Detail_Serializer
+    def get_object(self):
+        pk = self.kwargs["pk"]
+        #审核状态通过
+        return News.objects.filter(id=pk,status=0).first()

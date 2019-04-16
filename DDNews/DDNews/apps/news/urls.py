@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from . import views
+from rest_framework.routers import DefaultRouter
 
 urlpatterns = [
     #获取新闻列表
@@ -14,6 +15,14 @@ urlpatterns = [
     #获取搜索关键字
     url(r'^keysword/$', views.Get_Search_Keyswords.as_view()),
 
+
+
 ]
+
+router = DefaultRouter()
+#获取新闻详情页数据
+router.register('detail',views.New_Detail_ViewSet,base_name='newsdeatil_manager')
+
+urlpatterns +=router.urls
 
 print(urlpatterns)
