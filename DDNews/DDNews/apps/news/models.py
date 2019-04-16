@@ -22,10 +22,10 @@ class User(BaseModel):
         (1, "男"),
         (2, "女"),
     )
-    name = models.CharField(max_length=32, unique=True, verbose_name='用户昵称')
+    username = models.CharField(max_length=32, unique=True, verbose_name='用户昵称')
     avatar_url = models.CharField(max_length=256, verbose_name='用户头像路径')
     mobile = models.CharField(max_length=11, null=False, unique=True, verbose_name='用户手机号')
-    password = models.CharField(max_length=128, db_column='password_hash', verbose_name='用户密码')  # 用户密码加密后的hash
+    password = models.CharField(max_length=128, db_column='password_md5', verbose_name='用户密码')  # 用户密码加密后的hash
     email = models.CharField(max_length=128, null=True, verbose_name='用户邮箱')
     signature = models.CharField(max_length=50, null=True, verbose_name='用户签名')
     gender = models.SmallIntegerField(choices=GENDER_CHOICES, default=1, verbose_name='用户性别')
@@ -33,8 +33,7 @@ class User(BaseModel):
     is_admin = models.BooleanField(default=False, verbose_name='是否是管理员')
 
     # 多对多收藏关系  related为关联的另一张表反向查询自己的字段
-    collect_new = models.ManyToManyField('News', through='User_Collection', through_fields=('user', 'new'),
-                                         related_name='collected_user')
+    collect_new = models.ManyToManyField('News', through='User_Collection', through_fields=('user', 'new'),related_name='collected_user')
 
     class Meta:
         db_table = 'tb_user'
@@ -85,6 +84,8 @@ class News(BaseModel):
     report_time = models.DateTimeField(verbose_name='发布时间')
     # 新闻关键字 通过jieba进行分词
     digest_label = models.CharField(max_length=256, verbose_name='新闻关键字')
+    is_spider = models.BooleanField(default=True,verbose_name='是否是爬取的新闻')
+    source_avatar_url = models.ImageField(default='null',verbose_name='来源用户的头像')
 
     # 外键--------------------------
     user = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='作者id', default='1')  # 爬取的默认为管理员id=1
@@ -140,8 +141,7 @@ class Comment(BaseModel):
     is_show = models.BooleanField(default=False, verbose_name='是否展示')
 
     # 评论关系表
-    reply_content = models.ManyToManyField('self', through='Comment_Relation', through_fields=('commenter', 'replier'),
-                                           symmetrical=False)
+    reply_content = models.ManyToManyField('self', through='Comment_Relation', through_fields=('commenter', 'replier'), symmetrical=False)
 
     class Meta:
         db_table = 'tb_comment'
@@ -175,3 +175,35 @@ class Comment_Relation(models.Model):
 
     def __str__(self):
         return '%s: %s' % (self.id, self.commenter)
+
+class Slide_image(models.Model):
+    """
+    广告轮播图表
+    """
+    new = models.ForeignKey(News,verbose_name='轮播的新闻id')
+    title = models.CharField(max_length=30, null=False, verbose_name='轮播图标题')
+    url = models.CharField(max_length=128,verbose_name="轮播图图片url")
+    is_recommend =models.BooleanField(default=False,verbose_name='图片是否显示')
+
+    class Meta:
+        db_table = 'tb_slide_show'
+        verbose_name = '轮播广告表'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return '%s: %s' % (self.id, self.title)
+
+class Search_keywords(models.Model):
+    """
+    搜索关键字表
+    """
+    key_wrods = models.CharField(max_length=128,verbose_name='搜索关键字')
+    search_times = models.IntegerField(verbose_name='搜索次数')
+
+    class Meta:
+        db_table = 'tb_search_keywords'
+        verbose_name = ' 搜索关键字表'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return '%s: %s' % (self.id, self.key_wrods)

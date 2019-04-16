@@ -121,7 +121,7 @@ body .forget_form_main{
     display: none;
 }
 .header1 .user_info{
-    display: block;
+    display: none;
 }
 .header1 .item{
     color: black;
@@ -163,5 +163,5 @@ body .forget_form_main{
     text-align: center;
 }
 .header1_login{
-    display: none;
+    display: block;
 }

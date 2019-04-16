@@ -20,5 +20,6 @@ import news
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
     # url(r'^/', news.views.IndexView),
-    url(r'^$', include('news.urls')),
+    url(r'^news/', include('news.urls')),
+    url(r'^passport/', include('passport.urls')),
 ]

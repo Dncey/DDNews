@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import datetime
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # 生成django自带静态文件路径
@@ -45,11 +47,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
+    'corsheaders',
+
     'news.apps.NewsConfig',
+    'user.apps.UserConfig',
+    'passport.apps.PassportConfig',
+
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
+    #跨域相关放到中间件第一个
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -147,12 +156,17 @@ REST_FRAMEWORK = {
     #     'rest_framework.permissions.IsAuthenticated',
     # ),
     #
-    # 'DEFAULT_AUTHENTICATION_CLASSES': (
-    #     'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-    #     'rest_framework.authentication.SessionAuthentication',
-    #     'rest_framework.authentication.BasicAuthentication',
-    # ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+'DEFAULT_PAGINATION_CLASS': 'DDNews.utils.pagination.Default_Paginations',
+}
 
+#token有效期
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
 }
 
 
@@ -226,3 +240,10 @@ LOGGING = {
         },
     }
 }
+
+# CORS 允许跨域请求的域名和端口
+CORS_ORIGIN_WHITELIST = (
+    '127.0.0.1:8080',
+
+)
+CORS_ALLOW_CREDENTIALS = True  # 允许携带cookie
