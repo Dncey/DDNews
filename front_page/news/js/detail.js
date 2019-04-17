@@ -18,8 +18,8 @@ function GetRequest() {
         return theRequest;
     }
 
-
-$(function () {
+//获取详情页新闻信息
+function GetDetailNew() {
     var data = GetRequest();
     if(data["new_id"]){
         var new_id = data["new_id"];
@@ -47,16 +47,62 @@ $(function () {
 
 
          }).fail(function (resp) {
-             alert('hello');
+             console.log("hello");
          })
-
-
     }else {
-        return location.href="/";
+        location.href="/" ;
     }
 
+}
+
+//获取当前用户是否关注该作者
+function GetFollow() {
+    $.ajax({
+        url:host+"/user/author/"+GetRequest().new_id+"/followed/",
+        type: "get",
+        headers:{
+            "Authorization": "JWT " + token
+        },
+        ContentType:"application/json"
+    }).done(function (resp) {
+        console.log("zz")
+    }).fail(function (resp) {
+        console.log("mm")
+    })
+}
+//获取收藏信息
+function GetCollected() {
+    params = {
+        "new_id":GetRequest()
+    };
+     $.ajax({
+        url:host+"/new/collected/",
+        type: "post",
+        data:JSON.stringify(params),
+        headers:{
+            "Authorization": "Bearer " + token
+        },
+        ContentType:"application/json"
+    });
+}
+
+
+$(function () {
+
+    GetDetailNew();
+
+    GetFollow();
+
      //判断用户是否登录
-    judge_user();
+    if(judge_user()){
+    //    发送请求判断该用户是否关注该作者
+    }else {
+    //   将关注显示
+        $(".unfocus").css({"display":"none"});
+    }
+
+
+
 
     //获取分类信息
     getCategoryinfo();

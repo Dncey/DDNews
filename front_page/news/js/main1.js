@@ -1,6 +1,14 @@
 var imageCodeId = "";
 //匹配手机号的正则
 var phone_Rex = /^1[3-9]\d{9}$/;
+
+
+
+
+var username = sessionStorage.username || localStorage.username;
+var user_id = sessionStorage.user_id || localStorage.user_id;
+var token = sessionStorage.token || localStorage.token;
+var avatar_url = sessionStorage.avatar_url || localStorage.avatar_url;
 // // 图片验证码
 // var check_code = $(".input_code").val();
 
@@ -105,7 +113,7 @@ function generateImageCode() {
 function logout() {
     sessionStorage.clear();
     localStorage.clear();
-    location.href = "/";
+    location.reload();
 }
 
 //获取搜索关键字
@@ -141,10 +149,7 @@ function getSearchKeys() {
 
 //判断用户登录状态
 function judge_user() {
-    var username = sessionStorage.username || localStorage.username;
-    var user_id = sessionStorage.user_id || localStorage.user_id;
-    var token = sessionStorage.token || localStorage.token;
-    var avatar_url = sessionStorage.avatar_url || localStorage.avatar_url;
+
     if(! avatar_url){
         avatar_url = "img/person.jpeg";
     }
@@ -156,13 +161,15 @@ function judge_user() {
         $(".header1 .user_info").css({"display":"block"})
         //更换用户头像
         $(".info_icon").attr("src",avatar_url);
-        $(".info_name").html(username)
+        $(".info_name").html(username);
+        return true;
 
     }else {
         $(".setup").css({"display":"block"});
         $(".user_info").css({"display":"none"});
         $(".header1_login").css({"display":"block"});
-        $(".header1 .user_info").css({"display":"none"})
+        $(".header1 .user_info").css({"display":"none"});
+        return false;
     }
 
 
@@ -575,12 +582,14 @@ $(function(){
                     //如果记住user信息存在localStorage中,否则存储到sessionStorage中
                     if(remuser){
                         sessionStorage.clear();
+                        localStorage.clear();
                         localStorage.token = resp.data.token;
                         localStorage.user_id = resp.data.user_id;
                         localStorage.username = resp.data.username;
                         localStorage.avatar_url = resp.data.avatar_url
                     }else {
                         localStorage.clear();
+                        sessionStorage.clear();
                      　　sessionStorage.token = resp.data.token;
                         sessionStorage.user_id = resp.data.user_id;
                         sessionStorage.username = resp.data.username;             sessionStorage.avatar_url = resp.data.avatar_url

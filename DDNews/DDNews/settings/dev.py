@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'passport.apps.PassportConfig',
 
     'rest_framework',
+    'rest_framework.authtoken', # 设置token
 ]
 
 MIDDLEWARE = [
@@ -166,7 +167,9 @@ REST_FRAMEWORK = {
 
 #token有效期
 JWT_AUTH = {
+    # 'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
+    'JWT_AUTH_HEADER_PREFIX': 'JWT',
 }
 
 

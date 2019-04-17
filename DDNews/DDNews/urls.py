@@ -22,4 +22,5 @@ urlpatterns = [
     # url(r'^/', news.views.IndexView),
     url(r'^news/', include('news.urls')),
     url(r'^passport/', include('passport.urls')),
+    url(r'^user/', include('user.urls')),
 ]
