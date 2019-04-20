@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from rest_framework.response import Response
 from django.shortcuts import render
+
 from news.models import User
 import random
 import re
@@ -243,7 +244,6 @@ class User_Register(APIView):
 
 
 #用户登录
-
 class User_Login(APIView):
     def post(self,request):
         login_text = request.data.get('login_text')

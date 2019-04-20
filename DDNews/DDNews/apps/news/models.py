@@ -1,4 +1,3 @@
-from django.db import models
 
 # Create your models here.
 from django.db import models
@@ -13,8 +12,7 @@ class BaseModel(models.Model):
     class Meta:
         abstract = True  # 说明是抽象模型类, 用于继承使用，数据库迁移时不会创建BaseModel的表
 
-
-class User(BaseModel):
+class User(AbstractUser):
     """
     用户表
     """
@@ -22,18 +20,15 @@ class User(BaseModel):
         (1, "男"),
         (2, "女"),
     )
-    username = models.CharField(max_length=32, unique=True, verbose_name='用户昵称')
+
     avatar_url = models.CharField(max_length=256, verbose_name='用户头像路径')
     mobile = models.CharField(max_length=11, null=False, unique=True, verbose_name='用户手机号')
-    password = models.CharField(max_length=128, db_column='password_md5', verbose_name='用户密码')  # 用户密码加密后的hash
-    email = models.CharField(max_length=128, null=True, verbose_name='用户邮箱')
     signature = models.CharField(max_length=50, null=True, verbose_name='用户签名')
     gender = models.SmallIntegerField(choices=GENDER_CHOICES, default=1, verbose_name='用户性别')
-    is_active = models.BooleanField(default=False, verbose_name='用户邮箱绑定状态')
-    is_admin = models.BooleanField(default=False, verbose_name='是否是管理员')
-
+    email_active = models.BooleanField(default=False, verbose_name='用户邮箱绑定状态')
     # 多对多收藏关系  related为关联的另一张表反向查询自己的字段
-    collect_new = models.ManyToManyField('News', through='User_Collection', through_fields=('user', 'new'),related_name='collected_user')
+    collect_new = models.ManyToManyField('News', through='User_Collection', through_fields=('user', 'new'),
+                                         related_name='collected_user')
 
     class Meta:
         db_table = 'tb_user'
@@ -41,7 +36,25 @@ class User(BaseModel):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return '%s: %s' % (self.id, self.name)
+        return '%s: %s' % (self.id, self.username)
+
+
+# Create your models here.
+
+
+class User_Fans(models.Model):
+    """
+    用户关注表
+    """
+    follow = models.ForeignKey(User, verbose_name='关注', on_delete=models.CASCADE, related_name='follows')
+    fan = models.ForeignKey(User, verbose_name='粉丝', on_delete=models.CASCADE, related_name='fans')
+
+    class Meta:
+        db_table = 'tb_user_fans'
+        verbose_name = '用户关注表'
+        verbose_name_plural = verbose_name
+
+
 
 
 class NewsCategory(BaseModel):
@@ -101,7 +114,6 @@ class News(BaseModel):
 def __str__(self):
     return '%s: %s' % (self.id, self.title)
 
-
 class User_Collection(models.Model):
     """
     用户收藏表
@@ -115,18 +127,6 @@ class User_Collection(models.Model):
         verbose_name_plural = verbose_name
 
 
-class User_Fans(models.Model):
-    """
-    用户关注表
-    """
-    follow = models.ForeignKey(User, verbose_name='关注', on_delete=models.CASCADE, related_name='follows',
-                               primary_key=True)
-    fan = models.ForeignKey(User, verbose_name='粉丝', on_delete=models.CASCADE, related_name='fans')
-
-    class Meta:
-        db_table = 'tb_user_fans'
-        verbose_name = '用户关注表'
-        verbose_name_plural = verbose_name
 
 
 class Comment(BaseModel):
@@ -138,10 +138,9 @@ class Comment(BaseModel):
     content = models.CharField(max_length=200, null=False, verbose_name='评论内容')
     like = models.IntegerField(default=0, verbose_name='点赞数')
     # 评论信息的举报
-    is_show = models.BooleanField(default=False, verbose_name='是否展示')
-
-    # 评论关系表
-    reply_content = models.ManyToManyField('self', through='Comment_Relation', through_fields=('commenter', 'replier'), symmetrical=False)
+    is_show = models.BooleanField(default=True, verbose_name='是否展示')
+    #父评论信息
+    parent = models.ForeignKey('self', on_delete=models.SET_NULL, related_name='subs', null=True, blank=True,verbose_name='父评论的id')
 
     class Meta:
         db_table = 'tb_comment'
@@ -158,23 +157,14 @@ class Comment_report(BaseModel):
     comment = models.ForeignKey(Comment, verbose_name='评论id')
     reason = models.CharField(max_length=200, null=False, verbose_name='举报原因')
 
-
-class Comment_Relation(models.Model):
-    """
-    评论关系表
-    """
-    # 当有评论的回复就产生该集合
-    commenter = models.OneToOneField(Comment, verbose_name='评论信息父id', related_name='commenter', on_delete=models.PROTECT,primary_key=True)
-
-    replier = models.OneToOneField(Comment, verbose_name='回复评论信息id', related_name='replier',on_delete=models.PROTECT,null=True)
-    new = models.ForeignKey(News, verbose_name='评论的新闻')
     class Meta:
-        db_table = 'tb_comment_relation'
-        verbose_name = '评论关系表'
+        db_table = 'Comment_report'
+        verbose_name = '评论举报表'
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return '%s: %s' % (self.id, self.commenter)
+        return '%s: %s' % (self.id, self.content)
+
 
 class Slide_image(models.Model):
     """

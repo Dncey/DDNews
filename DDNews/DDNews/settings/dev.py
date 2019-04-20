@@ -167,11 +167,19 @@ REST_FRAMEWORK = {
 
 #token有效期
 JWT_AUTH = {
-    # 'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
-    'JWT_AUTH_HEADER_PREFIX': 'JWT',
+    # 'JWT_RESPONSE_PAYLOAD_HANDLER':
+    # 'users.utils.jwt_response_payload_handler',
+    # 'JWT_EXPIRATION_DELTA': datetime.timedelta(minutes=10),
+    # 'JWT_AUTH_HEADER_PREFIX': 'JWT',
 }
 
+#修改jwt认证的模型类
+AUTH_USER_MODEL = 'news.User'
+
+AUTHENTICATION_BACKENDS = [
+    'user.utils.UsernameMobileAuthBackend',
+]
 
 #redis配置
 CACHES = {

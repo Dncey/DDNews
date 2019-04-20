@@ -154,6 +154,7 @@ a:hover{
     cursor: pointer;
 }
 .unfocus{
+    display: none;
     color: #fff;
     background: gray;
     font-size: 16px;
@@ -161,7 +162,6 @@ a:hover{
     line-height: 36px;
     padding: 0 17px 0 38px;
     border-radius: 20px;
-    display: inline-block;
     position: relative;
     cursor: pointer;
 }
@@ -240,7 +240,7 @@ h2{
     color: #fff;
     text-align: center;
     border-radius: 3px;
-    margin-top: 20px;
+
 }
 .img{
     width: 300px;
@@ -301,7 +301,6 @@ h2{
     background: #f9f9f9;
     color: #666;
     padding: 15px;
-    margin-top: 15px;
     position: relative;
 }
 .ft_blue  {
@@ -314,3 +313,62 @@ h2{
     border-radius: 100%;
     margin-right: 25px;
 }
+.reply_textarea{
+    width: 541px;
+    height: 60px;
+    line-height: 20px;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    resize: none;
+    font-size: 13px;
+    float: left;
+    display: inline-block;
+    margin-left: 67px;
+}
+ .reply_input p {
+    width: 93%;
+    background: #fbfbfb;
+    height: 35px;
+    position: relative;
+    margin: 0;
+    float: left;
+    display: inline-block;
+}
+
+
+ .add-reply-btn{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 70px;
+    height: 35px;
+    line-height: 35px;
+    background: #da3838;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+     cursor: pointer;
+}
+
+ .reply_list .comment_report{
+    font-size: 12px;
+    color: #999;
+     float: right;
+ }
+ .reply_list .comment_like{
+     font-size: 12px;
+    color: #999;
+     float: right;
+ }
+ .subs_reply_textarea{
+     width: 473px;
+    height: 60px;
+    line-height: 20px;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    resize: none;
+    font-size: 13px;
+    float: left;
+    display: inline-block;
+    /* margin-left: 67px; */
+ }

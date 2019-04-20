@@ -10,9 +10,6 @@ $(function () {
     //获取首页广告轮播图
     updateNewsSlideshow();
 
-    //获取分类信息
-    getCategoryinfo();
-
     //  解决dom生成html无法触发js事件
     $(document).on("click",".item",function(){//修改成这样的写法
     var clickCid = $(this).attr("category_id");

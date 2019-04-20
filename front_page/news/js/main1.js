@@ -147,9 +147,26 @@ function getSearchKeys() {
         })
 }
 
-//判断用户登录状态
-function judge_user() {
+//发送jwt判断有效期
+function judge_jwt() {
+    $.ajax({
+        url:host+"/judge_jwt/",
+        type:"post",
+        data:JSON.stringify({
+            "token":token
+        }),
+        contentType:"application/json"
+    }).done(function () {
+        return true;
+    }).fail(function(){
+        sessionStorage.clear();
+        localStorage.clear();
+        return false;
+    })
+}
 
+//判断用户登录状态设置样式
+function judge_user() {
     if(! avatar_url){
         avatar_url = "img/person.jpeg";
     }
@@ -158,7 +175,7 @@ function judge_user() {
         $(".setup").css({"display":"none"});
         $(".user_info").css({"display":"block"});
         $(".header1_login").css({"display":"none"});
-        $(".header1 .user_info").css({"display":"block"})
+        $(".header1 .user_info").css({"display":"block"});
         //更换用户头像
         $(".info_icon").attr("src",avatar_url);
         $(".info_name").html(username);
@@ -183,8 +200,15 @@ function search() {
 
 $(function(){
 
+    //获取分类信息
+    getCategoryinfo();
+
+    //判断jwt是否过期
+    judge_jwt();
+
     // 获取搜索热度关键字
     getSearchKeys();
+
      //判断用户是否登录
     judge_user();
      //搜索关键字跳转
@@ -592,7 +616,8 @@ $(function(){
                         sessionStorage.clear();
                      　　sessionStorage.token = resp.data.token;
                         sessionStorage.user_id = resp.data.user_id;
-                        sessionStorage.username = resp.data.username;             sessionStorage.avatar_url = resp.data.avatar_url
+                        sessionStorage.username = resp.data.username;
+                        sessionStorage.avatar_url = resp.data.avatar_url
                     }
                     location.reload();
 

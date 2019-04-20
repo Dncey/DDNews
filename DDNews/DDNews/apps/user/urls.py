@@ -6,7 +6,8 @@ urlpatterns = [
     # url(r'^$', views.IndexView),
 
     # 查询该用户是否关注该作者
-    url(r'^author/(?P<pk>\d+)/followed/$', views.GetUserfollowd.as_view()),
+    url(r'^author/(?P<pk>\d+)/follow/$', views.GetUserfollowd.as_view()),
+    url(r'^author/followed/$', views.User_Followed.as_view()),
 ]
 
 print(urlpatterns)

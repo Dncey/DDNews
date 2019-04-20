@@ -15,6 +15,10 @@ urlpatterns = [
     #获取搜索关键字
     url(r'^keysword/$', views.Get_Search_Keyswords.as_view()),
 
+    #添加评论信息
+    url(r'^comment/$', views.New_Comment.as_view()),
+
+
 
 
 ]
@@ -22,6 +26,7 @@ urlpatterns = [
 router = DefaultRouter()
 #获取新闻详情页数据
 router.register('detail',views.New_Detail_ViewSet,base_name='newsdeatil_manager')
+
 
 urlpatterns +=router.urls
 

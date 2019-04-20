@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from news.models import NewsCategory,News,Slide_image,Search_keywords
+from news.models import NewsCategory,News,Slide_image,Search_keywords,Comment
 from rest_framework.views import APIView
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView,CreateAPIView
 from rest_framework.viewsets import ModelViewSet
-from .serializers import Get_Newslist_Serializer,New_Detail_Serializer
+from .serializers import Get_Newslist_Serializer,New_Detail_Serializer, New_Add_Comment_Serializer,New_Get_Comment_Serializer
 from DDNews.utils.pagination import Newlist_Paginations
 from rest_framework.filters import OrderingFilter
 from rest_framework.response import Response
@@ -91,5 +91,36 @@ class New_Detail_ViewSet(ModelViewSet):
     serializer_class = New_Detail_Serializer
     def get_object(self):
         pk = self.kwargs["pk"]
+        new = News.objects.filter(id=pk, status=0).first()
+        new.clicks += 1
+        new.save()
         #审核状态通过
-        return News.objects.filter(id=pk,status=0).first()
+        return new
+
+#新闻评论
+class New_Comment(ListAPIView,CreateAPIView):
+    pagination_class = Newlist_Paginations
+    def get_serializer_class(self):
+        # print(self.request.method)
+        if self.request.method == 'POST':
+            return New_Add_Comment_Serializer
+        if self.request.method == 'GET':
+            return New_Get_Comment_Serializer
+
+    def get_queryset(self):
+        new_id = self.request.query_params.get('new_id')
+        all_comment = Comment.objects.filter(new_id=new_id, parent_id__isnull=True).all().order_by('-create_time')
+        return all_comment
+
+    def list(self, request, *args, **kwargs):
+
+        #先通过new_id查询所有的评论
+        queryset = self.filter_queryset(self.get_queryset())
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+
+            return self.get_paginated_response(serializer.data)
+        serializer = self.get_serializer(queryset, many=True)
+        print(serializer.data)
+        return Response(serializer.data)
