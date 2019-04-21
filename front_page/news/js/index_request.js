@@ -100,7 +100,7 @@ $(function () {
         //阻止父类点击对自己的影响，阻止事件冒泡
         event.stopPropagation();
         var user_id = $(this).attr("author_id");
-        location.href ="author_center.html?user_id="+user_id;
+        location.href ="author_center.html?author_id="+user_id;
     });
 
     //跳转新闻详情页

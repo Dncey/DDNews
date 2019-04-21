@@ -192,6 +192,39 @@ function judge_user() {
 
 }
 
+
+//获取查询字符串的值
+function GetRequest() {
+    var url = location.search;
+            //获取url中"?"符后的字串
+    var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+        for(var i = 0; i < strs.length; i ++) {
+            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+            }
+        }else {
+            //如果没有查询字符串跳转到首页
+            return location.href="/";
+        }
+        return theRequest;
+    }
+
+//关注的鼠标移入移除样式
+function FocusStyle() {
+    $(".unfocus").mouseover(function () {
+        $(".unfocus > .out").css({"display":"none"});
+        $(".unfocus > .over").css({"display":"block"});
+    }).mouseout(function () {
+        $(".unfocus > .out").css({"display":"block"});
+        $(".unfocus > .over").css({"display":"none"});
+    })
+}
+
+
+
+
 function search() {
 
 }

@@ -1,5 +1,4 @@
 
-var currentCid = 0; // 当前分类 id
 var cur_page = 1; // 当前页
 var total_page = 1;  // 总页数
 var page_size = 10;
@@ -61,28 +60,7 @@ function GetDetailNew() {
 
 }
 
-//获取当前用户是否关注该作者
-function GetFollow() {
-    $.ajax({
-        url:host+"/user/author/"+GetRequest().new_id+"/follow/",
-        type: "get",
-        headers:{
-            "Authorization": "JWT " + token
-        },
-        ContentType:"application/json"
-    }).done(function (resp) {
-        if(resp.data=="true"){
-            $(".unfocus").css({"display":"inline-block"});
-            $(".focus").css({"display":"none"});
-        }else{
-            $(".unfocus").css({"display":"none"});
-        $(".focus").css({"display":"inline-block"});
-        }
-    }).fail(function (resp) {
-        console.log("获取信息失败")
 
-    })
-}
 //获取收藏信息
 function GetCollected() {
     params = {
@@ -126,6 +104,29 @@ function Followed() {
     })
 }
 
+//获取当前用户是否关注该作者
+function GetFollow() {
+    $.ajax({
+        url:host+"/user/author/"+GetRequest().new_id+"/follow/",
+        type: "get",
+        headers:{
+            "Authorization": "JWT " + token
+        },
+        ContentType:"application/json"
+    }).done(function (resp) {
+        if(resp.data=="true"){
+            $(".unfocus").css({"display":"inline-block"});
+            $(".focus").css({"display":"none"});
+        }else{
+            $(".unfocus").css({"display":"none"});
+        $(".focus").css({"display":"inline-block"});
+        }
+    }).fail(function (resp) {
+        console.log("获取信息失败")
+
+    })
+}
+
 //取消关注
 function Remove_Follow() {
     params = {
@@ -149,16 +150,7 @@ function Remove_Follow() {
         }
 });}
 
-//关注的鼠标移入移除样式
-function FocusStyle() {
-    $(".unfocus").mouseover(function () {
-        $(".unfocus > .out").css({"display":"none"});
-        $(".unfocus > .over").css({"display":"block"});
-    }).mouseout(function () {
-        $(".unfocus > .out").css({"display":"block"});
-        $(".unfocus > .over").css({"display":"none"});
-    })
-}
+
 
 //发送评论(包含父和子)
 function Add_comment(parent_id,comment) {
@@ -239,8 +231,6 @@ function subs_Addcomment(parent_id,comment,replay_name) {
     })
 }
 
-
-
 //递归显示子评论
 function generate(data,replay_name) {
     if(!data){
@@ -280,6 +270,17 @@ function Show_New_Comment() {
         data:data
     }).done(function (resp) {
         total_page = resp.total_page;
+
+        //判断评论是否已经到底了
+        if(cur_page<total_page){
+        $(".is_bottom").hide();
+        $(".comment_tip").show();
+    }else{
+          $(".is_bottom").show();
+        $(".comment_tip").hide();
+        }
+
+
          for(i=0;i<resp.data.length;i++){
                 var contents = resp.data[i];
               content = "<li data_id='"+contents.id+"'>";
@@ -331,6 +332,16 @@ function Show_New_Comment() {
 
 
 $(function () {
+
+    //判断评论是否已经到底了
+    $(".comment_tip").click(function () {
+        cur_page += 1;
+        //获取评论信息
+        Show_New_Comment();
+    });
+
+
+
     //获取新闻内容
     GetDetailNew();
 

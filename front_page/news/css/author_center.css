@@ -88,6 +88,8 @@ ul{
 }
 .focus_status{
     float: right;
+    width: 200px;
+
 }
 .left{
     display: table-cell;

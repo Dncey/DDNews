@@ -18,6 +18,9 @@ urlpatterns = [
     #添加评论信息
     url(r'^comment/$', views.New_Comment.as_view()),
 
+    #获取作者新闻列表
+    url(r'^author/(?P<pk>\d+)/list/$', views.Author_Newlist.as_view()),
+
 
 
 

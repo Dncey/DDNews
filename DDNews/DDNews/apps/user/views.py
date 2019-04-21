@@ -1,12 +1,18 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.generics import RetrieveAPIView,ListAPIView,GenericAPIView
 from news.models import User_Fans,News,User
 from rest_framework.response import Response
 import rest_framework_jwt.authentication
+from .serializers import GetAuthor_Info_Serializer,Author_Fans_Followed
 
 
-#查询是否关注
+
+#查询是new_id否关注
+
+
+
 class GetUserfollowd(APIView):
     def get(self,request,pk):
         new_id =pk
@@ -70,3 +76,45 @@ class User_Followed(APIView):
 
         user_fans.delete()
         return Response({'errmsg':'OK'})
+
+
+#author_id是否关注
+class GetUserfollow(APIView):
+    def get(self,request,pk):
+
+        author_id = pk
+        user = request.user
+        user_id = user.id
+        try:
+            user_fan = User_Fans.objects.filter(follow_id=author_id,fan_id=user_id)
+        except:
+            return Response({'errmsg':'查询数据失败'})
+
+        if not user_fan:
+            return Response({'data':'false'})
+        return Response({'data':'true'})
+
+#获取作者信息
+class GetAuthor_Info(RetrieveAPIView):
+    serializer_class = GetAuthor_Info_Serializer
+    def get_object(self):
+        pk = self.kwargs['pk']
+        try:
+            User.objects.get(id=pk)
+        except:
+            return Response({'errmsg':'参数错误'})
+
+        return User.objects.get(id=pk)
+
+#获取作者的粉丝
+class GetAuthor_Fans(ListAPIView):
+    serializer_class = Author_Fans_Followed
+    def get_queryset(self):
+        pk = self.kwargs['pk']
+        return User_Fans.objects.filter(follow_id=pk)
+
+#获取作者的关注
+class GetAuthor_Followed(APIView):
+    def get_queryset(self):
+        pk = self.kwargs['pk']
+        return User_Fans.objects.filter(fan_id=pk)

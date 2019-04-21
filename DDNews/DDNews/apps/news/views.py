@@ -124,3 +124,27 @@ class New_Comment(ListAPIView,CreateAPIView):
         serializer = self.get_serializer(queryset, many=True)
         print(serializer.data)
         return Response(serializer.data)
+
+
+#作者新闻页新闻获取
+class Author_Newlist(ListAPIView):
+    serializer_class = Get_Newslist_Serializer
+    pagination_class = Newlist_Paginations
+    # 注册排序的使用
+    filter_backends = [OrderingFilter]
+    # 排序指定字段
+    ordering = ['report_time']
+
+    def get_queryset(self):
+        pk = self.kwargs['pk']
+        return News.objects.filter(user_id=pk)
+
+    # 去掉self.request可以让图片没有本地域名的前缀
+    def get_serializer_context(self):
+        """
+        Extra context provided to the serializer class.
+        """
+        return {
+            'format': self.format_kwarg,
+            'view': self
+        }

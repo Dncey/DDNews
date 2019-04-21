@@ -2,6 +2,7 @@ from rest_framework import serializers
 from rest_framework.serializers import Serializer,ModelSerializer
 from .models import News,User,Comment
 
+
 #作者信息序列化器
 class User_Avatar_Url_Serializer(ModelSerializer):
     class Meta:
@@ -13,10 +14,18 @@ class Get_Newslist_Serializer(ModelSerializer):
     #嵌套作者信息返回
     user = User_Avatar_Url_Serializer()
     report_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", required=False, read_only=True)
+    # 该新闻评论数
+    comment = serializers.SerializerMethodField()
     class Meta:
         model = News
-        fields = ('id','title','source','index_image_url','digest','report_time','user','is_spider','source_avatar_url')
+        fields = ('id','title','source','index_image_url','digest','report_time','user','is_spider','source_avatar_url','clicks','comment')
 
+    def get_comment(self,obj):
+        comment = Comment.objects.filter(new=obj).count()
+        if comment:
+            return comment
+        else:
+            return 0
 
 
 #详情页返回新闻发布者信息
@@ -83,21 +92,32 @@ class New_Add_Comment_Serializer(ModelSerializer):
         return comment
 
 #孙子评论
-class Subs_Comment_Serializer(ModelSerializer):
-    user = User_Avatar_Url_Serializer()
-    class Meta:
-        model = Comment
-        fields = ('id', 'user', 'content', 'like','subs')
-
+# class Subs_Comment_Serializer(ModelSerializer):
+#     user = User_Avatar_Url_Serializer()
+#     class Meta:
+#         model = Comment
+#         fields = ('id', 'user', 'content', 'like','subs')
+#
 
 #儿子评论
-class Chlidrens_Conten_Serializer(ModelSerializer):
+class Childrens_Conten_Serializer(ModelSerializer):
     user = User_Avatar_Url_Serializer()
-    subs = Subs_Comment_Serializer(many=True)
+    subs = serializers.SerializerMethodField()
+
     class Meta:
         model = Comment
-        fields = ('id', 'user', 'content', 'like','subs')
-        depth =2
+        fields =('id','like','subs','content','user')
+
+    def get_subs(self, obj):
+        # try:
+        if obj.subs:
+            return Childrens_Conten_Serializer(obj.subs,many=True).data
+        else:
+            return None
+
+    # def get_user(self,obj):
+    #     return obj.instance.user.username
+
 #父级评论
 class New_Get_Comment_Serializer(ModelSerializer):
 
@@ -105,8 +125,9 @@ class New_Get_Comment_Serializer(ModelSerializer):
     # 嵌套序列化器
     user = User_Avatar_Url_Serializer()
     new_id = serializers.IntegerField()
-    subs = Chlidrens_Conten_Serializer(many=True)
+    subs = Childrens_Conten_Serializer(many=True)
     class Meta:
         model = Comment
         fields =('id','user','new_id','create_time','content','like','subs')
-        depth = 3
+
+

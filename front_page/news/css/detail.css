@@ -372,3 +372,7 @@ h2{
     display: inline-block;
     /* margin-left: 67px; */
  }
+ .comment_tip,.is_bottom{
+     width: 200px;
+     margin: auto;
+ }
