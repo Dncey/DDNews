@@ -43,8 +43,8 @@ class User_Avatar_Url_Serializer(ModelSerializer):
         fields = ('avatar_url', 'id', 'username','signature')
 
 
-# 作者的粉丝
-class Author_Fans_Followed(ModelSerializer):
+# 作者的关注
+class Author_Followed(ModelSerializer):
 
     user_info = SerializerMethodField()
     class Meta:
@@ -52,5 +52,18 @@ class Author_Fans_Followed(ModelSerializer):
         fields = ("user_info",)
 
     def get_user_info(self,obj):
-        user =User.objects.filter(id=obj.fan_id).all()
-        return User_Avatar_Url_Serializer(user).data
+        user = User.objects.filter(id=obj.follow_id).all()
+        return User_Avatar_Url_Serializer(user,many=True).data
+
+# 作者的粉丝
+
+class Author_Fans(ModelSerializer):
+
+    user_info = SerializerMethodField()
+    class Meta:
+        model = User_Fans
+        fields = ("user_info",)
+
+    def get_user_info(self,obj):
+        user = User.objects.filter(id=obj.fan_id).all()
+        return User_Avatar_Url_Serializer(user,many=True).data

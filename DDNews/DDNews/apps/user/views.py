@@ -5,8 +5,7 @@ from rest_framework.generics import RetrieveAPIView,ListAPIView,GenericAPIView
 from news.models import User_Fans,News,User
 from rest_framework.response import Response
 import rest_framework_jwt.authentication
-from .serializers import GetAuthor_Info_Serializer,Author_Fans_Followed
-
+from .serializers import GetAuthor_Info_Serializer,Author_Fans, Author_Followed
 
 
 #查询是new_id否关注
@@ -108,13 +107,14 @@ class GetAuthor_Info(RetrieveAPIView):
 
 #获取作者的粉丝
 class GetAuthor_Fans(ListAPIView):
-    serializer_class = Author_Fans_Followed
+    serializer_class = Author_Fans
     def get_queryset(self):
         pk = self.kwargs['pk']
         return User_Fans.objects.filter(follow_id=pk)
 
 #获取作者的关注
-class GetAuthor_Followed(APIView):
+class GetAuthor_Followed(ListAPIView):
+    serializer_class = Author_Followed
     def get_queryset(self):
         pk = self.kwargs['pk']
         return User_Fans.objects.filter(fan_id=pk)

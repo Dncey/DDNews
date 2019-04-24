@@ -29,9 +29,9 @@ function GetFollow_Author() {
 
 //关注该作者
 //发起关注请求
-function Followedd() {
+function Followedd(author_id) {
     params = {
-        author_id: GetRequest().author_id,
+        author_id: author_id
     };
     $.ajax({
         url:host+"/user/author/followed/",
@@ -98,9 +98,9 @@ function Get_Author_info() {
 }
 
 //取消关注
-function Remove_Follows() {
+function Remove_Follows(author_id) {
     params = {
-        author_id: GetRequest().author_id
+        author_id: author_id
     };
     $.ajax({
         url:host+"/user/author/followed/",
@@ -163,7 +163,15 @@ function GetFollowed() {
         type: "get",
         ContentType:"application/json"
     }).done(function (resp) {
-        alert("ddd");
+        for(var i=0;i<resp.length;i++){
+            con = resp[i].user_info[0];
+        content = "<li class='author_card card_list'> <a href='author_center.html?author_id=' "+con.id+"' target='_blank' class='author_pic'><img src='"+con.auatar_url+"'></a>";
+
+        content += "<a href=author_center.html?author_id='" +con.id+"'target='_blank' class='author_name'>"+con.username+"</a>";
+        content += "<div class='author_resume'>"+con.signature+"</div>";
+        content += "<a href='javascript:;'class='focus float'> <i>+</i> 关注 </a> <a href='javascript:;'  class='unfocus float'>   <i>-</i> <span class='out'> 已关注 </span> <span class='over'> 取消关注</span> </a></li>";
+        $(".articles").append(content);
+        }
     })
 
 }
@@ -175,6 +183,15 @@ function GetAuthor_Fans() {
         type: "get",
         ContentType:"application/json"
     }).done(function (resp) {
+        for(var i=0;i<resp.length;i++){
+            con = resp[i].user_info[0];
+            content = "<li class='author_card card_list'> <a href='author_center.html?author_id=' "+con.id+"' target='_blank' class='author_pic'><img src='"+con.auatar_url+"'></a>";
+
+        content += "<a href=author_center.html?author_id='" +con.id+"'target='_blank' class='author_name'>"+con.username+"</a>";
+        content += "<div class='author_resume'>"+con.signature+"</div>";
+        content += "<a href='javascript:;'class='focus float'> <i>+</i> 关注 </a> <a href='javascript:;'  class='unfocus float'>   <i>-</i> <span class='out'> 已关注 </span> <span class='over'> 取消关注</span> </a></li>";
+            $(".articles").append(content);
+        }
 
     })
 }
@@ -197,7 +214,7 @@ $(function () {
         //判断用户是否登录
         if(judge_user()){
         //    发送请求该用户关注作者
-        Followedd();
+        Followedd(GetRequest().author_id);
     }else {
     //   将关注显示
 
@@ -210,7 +227,7 @@ $(function () {
     //取消关注按钮点击
     $(".unfocus").click(function () {
         //取消关注
-        Remove_Follows();
+        Remove_Follows(GetRequest().author_id);
     });
 
     //获取新闻
