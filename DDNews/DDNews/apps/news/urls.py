@@ -9,6 +9,9 @@ urlpatterns = [
     #广告轮播图
     url(r'^slideshow/$', views.Get_Slideshow_Apiview.as_view()),
 
+    #精选新闻
+    url(r'^good/$', views.GetGoodNews.as_view()),
+
     #主页面
     url(r'^category/$', views.Category_info.as_view()),
 
@@ -21,6 +24,8 @@ urlpatterns = [
     #获取作者新闻列表
     url(r'^author/(?P<pk>\d+)/list/$', views.Author_Newlist.as_view()),
 
+    #获取新闻搜索
+    url(r'^search/$', views.NewsSearchView.as_view()),
 
 
 
@@ -29,7 +34,6 @@ urlpatterns = [
 router = DefaultRouter()
 #获取新闻详情页数据
 router.register('detail',views.New_Detail_ViewSet,base_name='newsdeatil_manager')
-
 
 urlpatterns +=router.urls
 

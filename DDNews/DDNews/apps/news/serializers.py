@@ -1,6 +1,7 @@
 from rest_framework import serializers
-from rest_framework.serializers import Serializer,ModelSerializer
+from rest_framework.serializers import ModelSerializer
 from .models import News,User,Comment
+import random
 
 
 #作者信息序列化器
@@ -28,21 +29,43 @@ class Get_Newslist_Serializer(ModelSerializer):
             return 0
 
 
-#详情页返回新闻发布者信息
+#推荐作者序列化器
+class GetGoodAuthor(ModelSerializer):
+
+    class Meta:
+        model=User
+        fields = ('id','signature','avatar_url','username')
+
+#新闻详情页返回新闻发布者信息
 class User_Report_Serializer(ModelSerializer):
     class Meta:
         model = User
         fields=('avatar_url','id','signature','username')
 
+#新闻详情页相关新闻
+class Relate_News(ModelSerializer):
+    class Meta:
+        model = News
+        fields = ("id", "index_image_url", "clicks", "title")
 
 #新闻详情页序列化器
 class New_Detail_Serializer(ModelSerializer):
     user = User_Report_Serializer()
     report_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S")
+
+    #获取右侧相关新闻信息
+    relate_news = serializers.SerializerMethodField()
     class Meta:
         model = News
         fields = (
-        'id', 'title', 'source', 'digest', 'report_time', 'user','content','digest_label','clicks')
+        'id', 'title', 'source', 'digest', 'report_time', 'user','content','digest_label','clicks','relate_news')
+
+    def get_relate_news(self,obj):
+        num = random.randint(0,500)
+        news = News.objects.filter(category_id=obj.category_id,status=0).order_by('-clicks').all()[num:num+5]
+
+
+        return Relate_News(news,many=True).data
 
 
 #新闻评论
@@ -131,3 +154,9 @@ class New_Get_Comment_Serializer(ModelSerializer):
         fields =('id','user','new_id','create_time','content','like','subs')
 
 
+#推荐新闻序列化器
+class GetGoodNewsSerializer(ModelSerializer):
+
+    class Meta:
+        model = News
+        fields=('id','title')

@@ -10,7 +10,7 @@
 .suggestion{
     width: 322px;
     position: absolute;
-    left: 151px;
+    right: 627px;
     top: 33px;
     z-index: 2;
     background: #fdfdfd;
@@ -122,21 +122,21 @@ body .forget_form_main{
 }
 .header1 .user_info{
     display: none;
+    margin-right: -50px;
 }
 .header1 .item{
     color: black;
 }
 .header1 .logo{
     margin-top: -10px;
-    margin-left: -10px;
+    margin-left: -50px;
     margin-right: -8px;
 }
-.header1 .search_box{
-    display: none;
-}
+
+
 .header1 .search_icon{
    
-    /* margin-right: 200px; */
+
     display: block;
     background: url('../img/search.png') no-repeat left top;
     float: left;
@@ -144,7 +144,7 @@ body .forget_form_main{
     width: 30px;
     height: 30px;
     margin-top: 10px;
-    /* background: black; */
+
 }
 .header1 .login_btn {
     background: black;
@@ -164,4 +164,26 @@ body .forget_form_main{
 }
 .header1_login{
     display: block;
+    float: right;
+    position: relative;
 }
+
+
+ .header1 .search_box input {
+    padding: 0 10px;
+    border: 1px solid #cbcbcb;
+    width: 190px;
+    height: 31px;
+    margin-right: 17px;
+    float: left;
+     margin-top: 9px;
+}
+
+ .header1 .suggestion{
+     width: 220px;
+    position: absolute;
+    right: 192px;
+    top: 43px;
+    z-index: 2;
+    background: #fdfdfd;
+ }

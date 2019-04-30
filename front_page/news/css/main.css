@@ -115,6 +115,7 @@ body {
 }
 .baseinfo{
     margin: 0 auto;
+    margin-top: 60px;
 }   
 .user_aval{
     line-height: 100px;
@@ -147,7 +148,7 @@ button{
     cursor: pointer;
     margin: 15px 0 0 3px;
 }    
-.save_btn{
+.save_btn,.password_save_btn{
     margin: 0 auto;
     margin-left: 200px;
     
@@ -304,16 +305,20 @@ h3{
 .pass_info{
     margin: 0 auto;
     width: 700px;
+    margin-top: 140px;
+    margin-left: 140px;
 }
+
 
 .error_msg_inner {
     display: none;
-    margin-top: -10px;
+    margin-top: -20px;
     font-size: 14px;
     padding: 5px 10px;
     height: 28px;
     width: 273px;
-    margin-left: 150px;
+    margin-bottom: 20px;
+    margin-left: 116px;
     line-height: 28px;
     background-color: #fff5f5;
     border: 1px solid #ff5a35;
@@ -685,4 +690,20 @@ em {
     box-sizing:border-box;
     float: right;
     margin-right: 10px;
+}
+.search_box{
+    margin-top: 5px;
+    display: block;
+}
+.header1 > .search_float{
+    float: right;
+}
+
+ .header1 .search_box input {
+    padding: 0 10px;
+    border: 1px solid #cbcbcb;
+    width: 160px;
+    height: 31px;
+    margin-right: 17px;
+    float: left;
 }

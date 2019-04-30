@@ -14,7 +14,9 @@
     </script>
     <script src="js/main1.js" type="text/javascript">
     </script>
-    <script src="js/index_request.js" type="text/javascript">
+    <script src="js/host.js" type="text/javascript">
+    </script>
+    <script src="js/search.js" type="text/javascript">
     </script>
 
 </head>
@@ -27,76 +29,20 @@
                 <a href="#">代理合作</a>
                 <span class="split_icon"></span>
                 <a href="#">广告推广</a>
-            </div>   
+            </div>
         </div>
         <div class="search">
-            
-            <a href="#" class="logo">
+
+            <a href="/" class="logo">
                 <img src="img/logo.png" alt="多点资讯">
             </a>
-            
+
             <div class="search_box">
                 <input type="text" class="search_input" placeholder="大家都在搜">
 
                 <div class="suggestion">
                     <div class="inner_block_box">
 
-                    <a class="items item_1" href="#">
-                        <div class=" index icon_1">1</div>
-                        <div class="item_content">
-                        <div class="hot_search_word">宁泽涛退役</div>
-                        </div>
-                    </a>
-                    
-                    <a class="items item_2" href="#">
-                        <div class=" index icon_2">2</div>
-                        <div class="item_content">
-                        <div class="hot_search_word">王刚道歉红烧娃娃鱼</div>
-                        </div>
-                    </a>
-                    
-                    <a class="items item_3" href="#">
-                        <div class=" index icon_3">3</div>
-                        <div class="item_content">
-                        <div class="hot_search_word">运营商回应提速降费</div>
-                        </div>
-                    </a>
-                    
-                    <a class="items item_4" href="#">
-                        <div class="index  icon">4</div>
-                        <div class="item_content">
-                        <div class="hot_search_word">南航客机中断起飞</div>
-                        </div>
-                    </a>
-                    
-                    <a class="items item_5" href="#">
-                        <div class=" index icon">5</div>
-                        <div class="item_content">
-                        <div class="hot_search_word">郑晓龙谈偷税漏税</div>
-                        </div>
-                    </a>
-                    
-                    <a class="items item_6" href="#">
-                        <div class=" index  icon">6</div>
-                        <div class="item_content">
-                        <div class="hot_search_word">昆凌称周杰伦是小公主</div>
-                        </div>
-                    </a>
-                    
-                    <a class="items item_7" href="#">
-                        <div class=" index icon">7</div>
-                        <div class="item_content">
-                        <div class="hot_search_word">伦敦交通枢纽炸弹</div>
-                        </div>
-                    </a>
-                    
-                    <a class="items item_8" href="#">
-                        <div class=" index  icon">8</div>
-                        <div class="item_content">
-                        <div class="hot_search_word">辽宁爆冷不敌吉林</div>
-                        </div>
-                    </a>
-                          
                 </div>
                 </div>
             </div>
@@ -112,37 +58,27 @@
                 <span class="info_name">慢慢</span>
                 <span class="info_select_list">v</span>
                 <div class="user_info_menu" >
-                        <a href="../../../front_page/news/html/user.html" target="_blank">个人中心</a>
+                        <a class="user_center" href="user.html" target="_blank">个人中心</a>
                         <a href="#">我的收藏</a>
-                        <a href="#" class="logout_btn"
+                        <a href="javascript:;" class="logout_btn"
                         onclick="logout();">退出</a>
                     </div>
+
                 </div>
-            
+
         </div>
         <div class="banner">
             <div class="list">
-                <a href="#" class="item" categaryid=''>推荐</a>
-                <a href="#" class="item">热点</a>
-                <a href="#" class="item">科技</a>
-                <a href="#" class="item">娱乐</a>
-                <a href="#" class="item">游戏</a>
-                <a href="#" class="item">体育</a>
-                <a href="#" class="item">军事</a>
-                <a href="#" class="item">动漫</a>
-                <a href="#" class="item three">新时代</a>
-                <a href="#" class="item ">财经</a>
-                <a href="#" class="item ">搞笑</a>
-                <span class="more_item">更多</span>
+                 <a class="item" category_id="0" href="index.html?category_id=0">推荐</a>
             </div>
-                
+
         </div>
     </div>
     <div class='main'>
       <div class="search_select">
         <ul class="xbox">
-            <li>综合</li>
-            <li>用户</li>
+            <li class="article_search item_border">综合</li>
+            <li class="user">用户</li>
         </ul>
       </div>  
       <ul class="articles">

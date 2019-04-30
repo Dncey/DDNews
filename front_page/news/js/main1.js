@@ -78,11 +78,11 @@ function getCategoryinfo() {
                     //如果分类的长度大于三一个样式
                     if(news_category.name.length>=3){
                         content = "<a class='item three' category_id='"+news_category.id+"'>";
-                        content1 = "<a href='#' class='item three' category_id='"+news_category.id+"'>";
+                        content1 = "<a href='index.html?category_id="+news_category.id+"' class='item three' category_id='"+news_category.id+"'>";
                     }
                     else {
                        content = "<a class='item' category_id='"+news_category.id+"'>";
-                    content1 = "<a href='#' class='item' category_id='"+news_category.id+"'>";
+                    content1 = "<a href='index.html?category_id="+news_category.id+"' class='item' category_id='"+news_category.id+"'>";
                     }
                     content +=news_category.name +"</a>";
                     content1 +=news_category.name +"</a>";
@@ -91,6 +91,11 @@ function getCategoryinfo() {
                 }
         $(".list").append("<span class='more_item'>更多</span>");
             }
+        //从其他页跳转到主页,携带的分类参数;
+       if(index_GetRequest().category_id){
+            $(".item[category_id="+index_GetRequest().category_id+"]").click();
+            // $(".item[category_id='2']").click();
+    }
     })
 }
 
@@ -179,6 +184,11 @@ function judge_user() {
         //更换用户头像
         $(".info_icon").attr("src",avatar_url);
         $(".info_name").html(username);
+        //更换用户中心的头像和用户名
+        $(".user_center_pic img").attr("src",avatar_url,"alt",username);
+        $(".user_center_name").html(username);
+
+        $(".user_center").attr("href","user.html?user_id="+user_id);
         return true;
 
     }else {
@@ -202,7 +212,7 @@ function GetRequest() {
             var str = url.substr(1);
             strs = str.split("&");
         for(var i = 0; i < strs.length; i ++) {
-            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+            theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
             }
         }else {
             //如果没有查询字符串跳转到首页
@@ -223,18 +233,29 @@ function FocusStyle() {
 }
 
 
+//主页获取查询字符串(分类id)的值
+function index_GetRequest() {
+    var url = location.search;
+            //获取url中"?"符后的字串
+    var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+        for(var i = 0; i < strs.length; i ++) {
+            theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+            }
+        }else {
+            return
+        }
+        return theRequest;
+    }
 
-
-function search() {
-
-}
 
 
 
 $(function(){
 
-    //获取分类信息
-    getCategoryinfo();
+
 
     //判断jwt是否过期
     judge_jwt();
@@ -253,6 +274,28 @@ $(function(){
         }
         location.href = "search.html?search_keywords="+text;
     });
+
+
+    // 搜索下拉框点击搜索框显示，点击其他任意地方隐藏，用到了事件冒泡阻止，
+    $(".search_box").click(function(e){
+        // return false;
+        e.stopPropagation();
+        $(this).children(".suggestion").show();
+        // $(".suggestion").show();
+        $(".items").click(function(e){
+            e.stopPropagation();
+            var zz = $(this).children(".item_content").children().html();
+            $(".search_input").val(zz);
+            $(".suggestion").hide();
+            //need do
+            $.get("/search.html",{title:zz}, function(resp){
+                if(resp.errno=="0"){
+                }
+            });
+        });
+    });
+
+
 
      //登录后鼠标移到个人头像位置，产生下拉框
      $(".user_info,.user_info_menu").mouseover(function(){
@@ -748,9 +791,20 @@ $(function(){
     });
 
 
-    //搜索小图标效果
-    $(".search_icon").click(function(){
-    })
+
+    //固定菜单栏搜索小图表点击
+
+    $(document).on("click",".search_icon",function(e){
+
+     var text = $(".header1 .search_box > input").val();
+        if(!text){
+            alert("搜索内容不能为空");
+            return;
+        }
+        location.href = "search.html?search_keywords="+text;
+    });
+
+
 });
 
 

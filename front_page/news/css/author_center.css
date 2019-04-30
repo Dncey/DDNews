@@ -306,3 +306,8 @@ a.lbtn{
 .float{
     float: right;
 }
+.author_pic img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}

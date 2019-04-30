@@ -1,12 +1,17 @@
+
+
+from django.db.models import Q
 from django.shortcuts import render
 from news.models import NewsCategory,News,Slide_image,Search_keywords,Comment
 from rest_framework.views import APIView
-from rest_framework.generics import ListAPIView,CreateAPIView
+from rest_framework.generics import ListAPIView,CreateAPIView,GenericAPIView
 from rest_framework.viewsets import ModelViewSet
-from .serializers import Get_Newslist_Serializer,New_Detail_Serializer, New_Add_Comment_Serializer,New_Get_Comment_Serializer
+from .serializers import Get_Newslist_Serializer,New_Detail_Serializer, New_Add_Comment_Serializer,New_Get_Comment_Serializer,GetGoodNewsSerializer
 from DDNews.utils.pagination import Newlist_Paginations
 from rest_framework.filters import OrderingFilter
 from rest_framework.response import Response
+
+
 
 #获取菜单列表
 class Category_info(APIView):
@@ -60,6 +65,17 @@ class Get_Search_Keyswords(APIView):
 
         return Response(data)
 
+
+#获取精选新闻
+class GetGoodNews(APIView):
+
+    def get(self,request):
+        news = News.objects.order_by('-clicks').all()[:6]
+        serializer = GetGoodNewsSerializer(news,many=True)
+
+
+        return Response(serializer.data)
+
 #新闻列表数据，分页，过滤排序功能
 class Get_Newslist_ListApiView(ListAPIView):
     serializer_class = Get_Newslist_Serializer
@@ -96,6 +112,7 @@ class New_Detail_ViewSet(ModelViewSet):
         new.save()
         #审核状态通过
         return new
+
 
 #新闻评论
 class New_Comment(ListAPIView,CreateAPIView):
@@ -148,3 +165,27 @@ class Author_Newlist(ListAPIView):
             'format': self.format_kwarg,
             'view': self
         }
+
+
+#搜索新闻
+class NewsSearchView(ListAPIView):
+
+    def get_queryset(self):
+
+        pk= self.request.query_params.get('keywords')
+        return News.objects.filter(Q(title__contains=pk)|Q(digest_label__contains=pk))
+
+    serializer_class = Get_Newslist_Serializer
+    pagination_class = Newlist_Paginations
+
+    # 去掉self.request可以让图片没有本地域名的前缀
+    def get_serializer_context(self):
+        """
+        Extra context provided to the serializer class.
+        """
+        return {
+            'format': self.format_kwarg,
+            'view': self
+        }
+
+

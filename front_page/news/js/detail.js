@@ -11,8 +11,8 @@ function GetRequest() {
         if (url.indexOf("?") != -1) {
             var str = url.substr(1);
             strs = str.split("&");
-        for(var i = 0; i < strs.length; i ++) {
-            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+        for(var i = 0; i < strs.length;         i ++) {
+            theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
             }
         }else {
             //如果没有查询字符串跳转到首页
@@ -49,6 +49,18 @@ function GetDetailNew() {
 
              $(".right_top").attr("author_id",resp.user.id);
 
+             //展示相关新闻推荐
+             for(var i=0;i<resp["relate_news"].length;i++){
+                 new_list = resp["relate_news"][i];
+           if(i%2==0){
+               //样式一
+               content = "<li> <div class='line'>  <div class='rbox'> <div class='rbox-inner'> <a  title='"+new_list.title+"' href='detail.html?new_id="+new_list.id+"'>"+new_list.title+"</a> <span>"+new_list.clicks+"阅读</span>  </div> </div> </div> </li>"
+           }else{
+               //样式二
+               content = "<li> <div class='line image'> <a class='lbox'  href='detail.html?new_id="+new_list.id+"'> <img alt='' src='//"+new_list.index_image_url+"'>   </a> <div class='rbox'> <div class='rbox-inner'> <a  title='"+new_list.title+"detail.html?new_id="+new_list.id+"'>"+new_list.title+"</a> <span>"+new_list.clicks+"阅读</span>  </div> </div> </div> </li>"
+           }
+           $(".relate_news").append(content);
+             }
 
 
          }).fail(function (resp) {
@@ -332,6 +344,10 @@ function Show_New_Comment() {
 
 
 $(function () {
+
+
+    //获取分类信息
+    getCategoryinfo();
 
     //判断评论是否已经到底了
     $(".comment_tip").click(function () {

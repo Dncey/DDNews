@@ -5,10 +5,21 @@ var data_querying = true;   // 是否正在向后台获取数据
 var page_size = 8;
 
 $(function () {
+
+    //获取分类信息
+    getCategoryinfo();
+
     //更新新闻列表
     updateNewsData();
     //获取首页广告轮播图
     updateNewsSlideshow();
+
+    //获取精选新闻
+    GetGoodNews();
+
+    //获取推荐作者
+    GetGoodAuthor();
+
 
     //  解决dom生成html无法触发js事件
     $(document).on("click",".item",function(){//修改成这样的写法
@@ -17,6 +28,10 @@ $(function () {
         //     $(this).removeClass("active")
         // })
         // $(this).addClass("active")
+
+
+        $(this).addClass("item_style").siblings().removeClass("item_style");
+
         if(clickCid ==0){
             $(".slide_show").css({"display":"block"});
             $(".articles").css({"margin-top":"350px"});
@@ -42,7 +57,9 @@ $(function () {
         // $(".list .item").each(function () {
         //     $(this).removeClass("active")
         // })
-        // $(this).addClass("active")
+        //添加效果
+
+
         if(clickCid ==0){
             $(".slide_show").css({"display":"block"});
             $(".articles").css({"margin-top":"350px"});
@@ -115,7 +132,66 @@ $(function () {
 
 
 
+
+
+
 });
+
+
+//获取精选新闻
+function GetGoodNews() {
+    $.ajax({
+        url:host+"/news/good/",
+        type: "GET",
+        ContentType:"application/json"
+    }).done(function (resp) {
+
+        for(var i=0;i<resp.length;i++){
+            good_new = resp[i];
+
+            content ="<div class='new_list'><a class='doc' title='"+good_new.title+"' href='detail.html?new_id="+good_new.id+"'> <div class='doc_icon '>";
+            if(i==0){
+                content +="<span class='first_icon'>1 </span>"
+            }else if(i==1){
+                content +="<span class='second_icon'>2 </span>"
+            }else if(i==2){
+                content +="<span class='third_icon'>3 </span>"
+            }else {
+                content +="<span class='doc_icon'>"+(i+1)+"</span>"
+            }
+
+            content +="</div> <div class='doc_title'>"+good_new.title+" </div> </a> </div>";
+            $(".select_news").append(content)
+        }
+
+    })
+
+}
+
+//获取推荐作者
+
+function GetGoodAuthor() {
+     $.ajax({
+        url:host+"/user/good/",
+        type: "GET",
+        ContentType:"application/json"
+    }).done(function (resp) {
+        for(var b=0;b<resp.length;b++){
+            author =resp[b];
+
+            content = "<a class='doc' href='author_center.html?author_id="+author.id+"'><div class='doc_image_small_wrapper'>";
+
+            content += "<img class='doc_image_small' src='"+author.avatar_url+"'> </div> <div class='doc_content'>  <div class='doc_content_inline'>";
+            content +=" <div class='author_title'>"+author.username+"</div>";
+            content +=" <div class='doc_info'> <div class='summary'>"+author.signature+"</div> </div> </div> </div> </a>";
+
+            $(".right_top > .content").append(content);
+
+        }
+
+     });
+}
+
 
 //更新主页轮播图
 function updateNewsSlideshow() {
@@ -143,7 +219,7 @@ function updateNewsSlideshow() {
         content = "<div class='wrapper_radios'> <div class='item_radios active'></div> <div class='item_radios'></div> <div class='item_radios'></div>"
         $(".slide_show").append(content);
     }).fail(function () {
-       alert("服务器超时，请重试！");
+
     })
 }
 
@@ -195,7 +271,7 @@ function updateNewsData() {
                      content +=" class='author_name'>"+news.source+"</a> </div> <div class='time'>";
                     content +=news.report_time+"</div> </div> </li>"
                 }else {
-                    content = "<li class='article' news_id='"+news.id+"'> <a  class='news_title'>"+news.title+"</a>";
+                    content = "<li class='article' new_id='"+news.id+"'> <a  class='news_title'>"+news.title+"</a>";
                     content +="<a class='news_detail_none'>"+news.title+"</a>";
                     content +="<div class='author_info' > <div class='author' author_id='"+news.user.id+"'><a  class='person_icon'><img src='";
                      content +=source_avatar_url+"'></a> <a";
@@ -208,9 +284,11 @@ function updateNewsData() {
                 }
     })
     .fail(function() {
-        alert("服务器超时，请重试！");
+        // alert("服务器超时，请重试！");
     });
 }
 
-//获取推荐user
+
+
+
 

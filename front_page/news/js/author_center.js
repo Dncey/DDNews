@@ -165,7 +165,7 @@ function GetFollowed() {
     }).done(function (resp) {
         for(var i=0;i<resp.length;i++){
             con = resp[i].user_info[0];
-        content = "<li class='author_card card_list'> <a href='author_center.html?author_id=' "+con.id+"' target='_blank' class='author_pic'><img src='"+con.auatar_url+"'></a>";
+        content = "<li class='author_card card_list'> <a href='author_center.html?author_id=' "+con.id+"' target='_blank' class='author_pic'><img src='"+con.avatar_url+"'></a>";
 
         content += "<a href=author_center.html?author_id='" +con.id+"'target='_blank' class='author_name'>"+con.username+"</a>";
         content += "<div class='author_resume'>"+con.signature+"</div>";
@@ -185,9 +185,9 @@ function GetAuthor_Fans() {
     }).done(function (resp) {
         for(var i=0;i<resp.length;i++){
             con = resp[i].user_info[0];
-            content = "<li class='author_card card_list'> <a href='author_center.html?author_id=' "+con.id+"' target='_blank' class='author_pic'><img src='"+con.auatar_url+"'></a>";
+            content = "<li class='author_card card_list'> <a href='author_center.html?author_id="+con.id+" ' target='_blank' class='author_pic'><img src='"+con.avatar_url+"'></a>";
 
-        content += "<a href=author_center.html?author_id='" +con.id+"'target='_blank' class='author_name'>"+con.username+"</a>";
+        content += "<a href= 'author_center.html?author_id=" +con.id+"' target='_blank' class='author_name'>"+con.username+"</a>";
         content += "<div class='author_resume'>"+con.signature+"</div>";
         content += "<a href='javascript:;'class='focus float'> <i>+</i> 关注 </a> <a href='javascript:;'  class='unfocus float'>   <i>-</i> <span class='out'> 已关注 </span> <span class='over'> 取消关注</span> </a></li>";
             $(".articles").append(content);
@@ -197,7 +197,55 @@ function GetAuthor_Fans() {
 }
 
 
+//获取作业页分类信息
+function getDetailCategoryinfo() {
+    $.ajax({
+        url:host+"/news/category/",
+
+        type:"get",
+
+        contentType:"application/json"
+
+    }).done(function (resp) {
+            if(resp.errmsg="OK"){
+                for(var i =0;i<resp.data.length;i++){
+                    var news_category = resp.data[i];
+                    //如果分类的长度大于三一个样式
+                    if(news_category.name.length>=3){
+                        content1 = "<a href='index.html?category_id="+news_category.id+"' class='item three' category_id='"+news_category.id+"'>";
+                    }
+                    else {
+                    content1 = "<a href='index.html?category_id="+news_category.id+"' class='item' category_id='"+news_category.id+"'>";
+                    }
+                    content1 +=news_category.name +"</a>";
+                    $(".list").append(content1);
+                }
+        $(".list").append("<span class='more_item'>更多</span>");
+            }
+
+    })
+}
+
+//用户点击作者的关注和粉丝
+function userClickAuthorClick() {
+    // 查看作者的关注
+    $(".statistics dt").click(function () {
+        $(".auhor_foucs").click()
+    });
+
+    //查看作者的粉丝
+    $(".statistics dd").click(function () {
+        $(".author_fans").click();
+    })
+}
+
+
+
 $(function () {
+
+    //获取分类信息
+    getDetailCategoryinfo();
+
 
 //关注鼠标移入移除效果
     FocusStyle();
@@ -286,6 +334,9 @@ $(function () {
         currentCid =2;
         $(".articles").html("");
         GetAuthor_Fans()
-    })
+    });
+
+    //用户点击作者的关注和粉丝
+    userClickAuthorClick();
 
 });

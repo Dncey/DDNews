@@ -60,3 +60,81 @@ a.lbtn {
     margin-right: 30px;
     cursor: pointer;
 }
+.author_card {
+    background: #fff;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding: 20px;
+}
+.author_pic {
+    float: left;
+    width: 60px;
+    height: 60px;
+}
+.author_resume {
+    width: 100%;
+    float: left;
+    font-size: 13px;
+    color: #666;
+    margin-top: 10px;
+}
+.float{
+    float: right;
+}
+.author_pic img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
+.focus{
+    color: #fff;
+    background: #dd3b3d;
+    font-size: 16px;
+    height: 37px;
+    line-height: 36px;
+    padding: 0 17px 0 38px;
+    border-radius: 20px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin-right: 25px;
+
+}
+.unfocus{
+    margin-right: 25px;
+    color: #fff;
+    background: gray;
+    font-size: 16px;
+    height: 37px;
+    line-height: 36px;
+    padding: 0 17px 0 38px;
+    border-radius: 20px;
+    display: none;
+    position: relative;
+    cursor: pointer;
+}
+.unfocus i {
+
+    font-style: normal;
+    font-size: 40px;
+    line-height: 35px;
+    position: absolute;
+    left: 16px;
+    top: -1px;
+}
+.focus i{
+    font-style: normal;
+    font-size: 26px;
+    position: absolute;
+    left: 14px;
+    top: -1px;
+}
+.focus_status{
+    float: right;
+    width: 200px;
+
+}
+
+ .item_border{
+     border-bottom: 4px solid yellow;
+ }

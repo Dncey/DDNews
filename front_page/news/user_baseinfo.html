@@ -5,7 +5,11 @@
 	<title>用户中心</title>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-    <script type="text/javascript" src="/js/user_all.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/host.js"></script>
+    <script type="text/javascript" src="js/main1.js"></script>
+    <script type="text/javascript" src="js/user_all.js"></script>
+
 </head>
 <body class="inframe_body">
     <div class="baseinfo">
@@ -28,8 +32,8 @@
         </div>
         <div class="form_group">
             <label>性别 </label>
-            <input class="gender" type="radio" name="gender" checked="checked"> <b>男</b>&nbsp;&nbsp;&nbsp;&nbsp;
-            <input class="gender" type="radio" name="gender">  <b>女</b>
+            <input class="gender" type="radio" name="gender"  value="man" > <b>男</b>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="gender" type="radio" value="women" name="gender">  <b>女</b>
         </div>
         <div class="form_group">
             <button type="submit" class="save_btn">保存</button>

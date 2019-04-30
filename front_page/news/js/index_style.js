@@ -93,7 +93,8 @@ $(function(){
     $(".search_box").click(function(e){
         // return false;
         e.stopPropagation();
-        $(".suggestion").show();
+        $(this).children(".suggestion").show();
+        // $(".suggestion").show();
         $(".items").click(function(e){
             e.stopPropagation();
             var zz = $(this).children(".item_content").children().html();
@@ -106,15 +107,13 @@ $(function(){
             });
         });
     });
+
+
     $("body").click(function(e){
         // return false;
         // e.stopPropagation();
         $(".suggestion").hide();
     });
 
-    $(".btn_search").click(function(){
-
-        // $.get("/search.html/")
-    });
 
 });

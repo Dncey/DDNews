@@ -30,7 +30,7 @@ SECRET_KEY = '^aq#!rji@pykz^ro9k+37^m2ybin)f4w37eo=l#t0h&qjhkpzs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 #BASE_DIR=/home/python/Desktop/meiduo/meiduo_mall/meiduo_mall
 #修改根路径到apps,导入应用更方便
@@ -255,6 +255,9 @@ LOGGING = {
 # CORS 允许跨域请求的域名和端口
 CORS_ORIGIN_WHITELIST = (
     '127.0.0.1:8080',
+    '192.168.134.1:8080'
 
 )
 CORS_ALLOW_CREDENTIALS = True  # 允许携带cookie
+
+

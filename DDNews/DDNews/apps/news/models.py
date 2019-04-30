@@ -93,7 +93,7 @@ class News(BaseModel):
     content = models.TextField(null=False, verbose_name='新闻内容')
     clicks = models.IntegerField(default=0, verbose_name='文章点击数')
     status = models.SmallIntegerField(choices=NEWS_STATUS_CHOICES, default=0, verbose_name='文章审核状态')
-    reason = models.CharField(max_length=256, verbose_name='审核不通过原因')  # 未通过原因，status = 3 的时候使用
+    reason = models.CharField(max_length=256, verbose_name='审核不通过原因')  # 未通过原因，status = 2 的时候使用
     report_time = models.DateTimeField(verbose_name='发布时间')
     # 新闻关键字 通过jieba进行分词
     digest_label = models.CharField(max_length=256, verbose_name='新闻关键字')
