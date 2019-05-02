@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/DDNews/DDNews/apps/user/views.py" line="296" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c57663ca-407a-4bd8-94f7-758c1f046e6c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_page/news/js/search.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_page/news/js/user_center.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DDNews/DDNews/utils/fastdfs/fdfs_storage.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front_page/news/js/xss.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_page/news/js/tinymce_setup.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DDNews/DDNews/apps/news/models.py" afterPath="$PROJECT_DIR$/DDNews/DDNews/apps/news/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DDNews/DDNews/apps/news/serializers.py" afterPath="$PROJECT_DIR$/DDNews/DDNews/apps/news/serializers.py" />
@@ -12,26 +16,19 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DDNews/DDNews/apps/user/urls.py" afterPath="$PROJECT_DIR$/DDNews/DDNews/apps/user/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DDNews/DDNews/apps/user/views.py" afterPath="$PROJECT_DIR$/DDNews/DDNews/apps/user/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DDNews/DDNews/settings/dev.py" afterPath="$PROJECT_DIR$/DDNews/DDNews/settings/dev.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/author_center.html" afterPath="$PROJECT_DIR$/front_page/news/author_center.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/css/author_center.css" afterPath="$PROJECT_DIR$/front_page/news/css/author_center.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DDNews/DDNews/utils/fastdfs/client.conf" afterPath="$PROJECT_DIR$/DDNews/DDNews/utils/fastdfs/client.conf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/css/detail.css" afterPath="$PROJECT_DIR$/front_page/news/css/detail.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/css/index_main.css" afterPath="$PROJECT_DIR$/front_page/news/css/index_main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/css/main.css" afterPath="$PROJECT_DIR$/front_page/news/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/css/search.css" afterPath="$PROJECT_DIR$/front_page/news/css/search.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/css/user.css" afterPath="$PROJECT_DIR$/front_page/news/css/user.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/detail.html" afterPath="$PROJECT_DIR$/front_page/news/detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/index.html" afterPath="$PROJECT_DIR$/front_page/news/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/js/author_center.js" afterPath="$PROJECT_DIR$/front_page/news/js/author_center.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/js/detail.js" afterPath="$PROJECT_DIR$/front_page/news/js/detail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/js/host.js" afterPath="$PROJECT_DIR$/front_page/news/js/host.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/js/index_request.js" afterPath="$PROJECT_DIR$/front_page/news/js/index_request.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/js/index_style.js" afterPath="$PROJECT_DIR$/front_page/news/js/index_style.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/js/main1.js" afterPath="$PROJECT_DIR$/front_page/news/js/main1.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/js/news_edit_detail.js" afterPath="$PROJECT_DIR$/front_page/news/js/news_edit_detail.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/js/search.js" afterPath="$PROJECT_DIR$/front_page/news/js/search.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/js/user_all.js" afterPath="$PROJECT_DIR$/front_page/news/js/user_all.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/search.html" afterPath="$PROJECT_DIR$/front_page/news/search.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/user.html" afterPath="$PROJECT_DIR$/front_page/news/user.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/user_baseinfo.html" afterPath="$PROJECT_DIR$/front_page/news/user_baseinfo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/user_pass_info.html" afterPath="$PROJECT_DIR$/front_page/news/user_pass_info.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/user_news_edit.html" afterPath="$PROJECT_DIR$/front_page/news/user_news_edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/user_news_list.html" afterPath="$PROJECT_DIR$/front_page/news/user_news_list.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -75,38 +72,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main1.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_page/news/js/main1.js">
+      <file leaf-file-name="index_request.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front_page/news/js/index_request.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="119" column="25" lean-forward="true" selection-start-line="118" selection-start-column="4" selection-end-line="119" selection-end-column="25" />
+            <state relative-caret-position="1039">
+              <caret line="226" column="0" lean-forward="false" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
               <folding>
-                <element signature="n#!!block;n#error_message#0" expanded="false" />
-                <element signature="n#!!block;n#getCookie#0" expanded="false" />
-                <element signature="n#!!block;n#generateUUID#0" expanded="false" />
-                <element signature="n#!!block;n#getCategoryinfo#0" expanded="false" />
-                <element signature="e#1658#2710#0" expanded="false" />
-                <element signature="n#!!block;n#generateImageCode#0" expanded="false" />
-                <element signature="n#!!block;n#getSearchKeys#0" expanded="false" />
-                <element signature="n#!!block;n#judge_jwt#0" expanded="false" />
-                <element signature="n#!!block;n#judge_user#0" expanded="false" />
-                <element signature="n#!!block;n#GetRequest#0" expanded="false" />
-                <element signature="n#!!block;n#FocusStyle#0" expanded="false" />
-                <element signature="n#!!block;n#index_GetRequest#0" expanded="false" />
-                <element signature="e#7034#7227#0" expanded="false" />
-                <element signature="e#7312#7846#0" expanded="false" />
-                <element signature="e#8204#8300#0" expanded="false" />
-                <element signature="e#8337#8469#0" expanded="false" />
-                <element signature="e#8508#8601#0" expanded="false" />
-                <element signature="e#8646#8807#0" expanded="false" />
-                <element signature="e#9049#9251#0" expanded="false" />
-                <element signature="e#9285#9869#0" expanded="false" />
-                <element signature="e#10211#11894#0" expanded="false" />
-                <element signature="e#11981#13747#0" expanded="false" />
-                <element signature="e#13820#16013#0" expanded="false" />
-                <element signature="e#16073#18092#0" expanded="false" />
-                <element signature="e#18152#19903#0" expanded="false" />
-                <element signature="e#19982#20188#0" expanded="false" />
+                <element signature="n#!!block;n#GetGoodNews#0" expanded="false" />
+                <element signature="n#!!block;n#GetGoodAuthor#0" expanded="false" />
+                <element signature="n#!!block;n#updateNewsSlideshow#0" expanded="false" />
+                <element signature="n#!!block;n#updateNewsData#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -115,102 +90,101 @@
       <file leaf-file-name="user_all.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front_page/news/js/user_all.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="803">
-              <caret line="120" column="11" lean-forward="true" selection-start-line="120" selection-start-column="11" selection-end-line="120" selection-end-column="11" />
+            <state relative-caret-position="-1325">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="55" />
               <folding>
                 <element signature="n#!!block;n#getUserInfo#0" expanded="false" />
-                <element signature="n#!!block;n#save_User_Info#0" expanded="false" />
+                <element signature="n#!!block;n#uploadImg#0" expanded="false" />
+                <element signature="n#!!block;n#UserImg#0" expanded="false" />
+                <element signature="e#5197#5569#0" expanded="false" />
+                <marker date="1556808079191" expanded="true" signature="5388:5407" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_baseinfo.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_page/news/user_baseinfo.html">
+      <file leaf-file-name="user_news_list.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/front_page/news/user_news_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-584">
-              <caret line="9" column="45" lean-forward="false" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+            <state relative-caret-position="265">
+              <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+              <folding>
+                <element signature="e#2497#3374#0#HTML" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_follow.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front_page/news/user_follow.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="76" column="33" lean-forward="true" selection-start-line="75" selection-start-column="19" selection-end-line="76" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_pass_info.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_page/news/user_pass_info.html">
+      <file leaf-file-name="jquery.pagination.min.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front_page/news/js/jquery.pagination.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="8" column="54" lean-forward="false" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="514">
+              <caret line="275" column="0" lean-forward="false" selection-start-line="275" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
+              <folding>
+                <element signature="e#1#31#0" expanded="true" />
+                <element signature="e#809#1214#0" expanded="false" />
+                <element signature="e#1267#1808#0" expanded="false" />
+                <element signature="e#1858#2239#0" expanded="false" />
+                <element signature="e#2280#2481#0" expanded="false" />
+                <element signature="e#3548#4538#0" expanded="false" />
+                <element signature="e#4588#5136#0" expanded="false" />
+                <element signature="e#5182#5722#0" expanded="false" />
+                <element signature="e#5768#6248#0" expanded="false" />
+                <element signature="e#6294#7841#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/serializers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="404">
+              <caret line="38" column="61" lean-forward="false" selection-start-line="38" selection-start-column="61" selection-end-line="38" selection-end-column="61" />
+              <folding>
+                <element signature="e#357#925#0" expanded="false" />
+                <element signature="e#1716#2295#0" expanded="false" />
+                <element signature="e#2356#3582#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="97" column="10" lean-forward="false" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/user/urls.py">
+        <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/user/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="266" column="0" lean-forward="false" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
-                <element signature="e#540#1256#0" expanded="false" />
-                <element signature="e#1305#1837#0" expanded="false" />
-                <element signature="e#1880#2928#0" expanded="false" />
-                <element signature="e#2977#3357#0" expanded="false" />
-                <element signature="e#3408#3663#0" expanded="false" />
-                <element signature="e#3711#3856#0" expanded="false" />
-                <element signature="e#3908#4054#0" expanded="false" />
-                <marker date="1556640257064" expanded="false" signature="4095:4548" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/rest_framework/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="479" column="0" lean-forward="false" selection-start-line="479" selection-start-column="0" selection-end-line="479" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/passport/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="260" column="0" lean-forward="false" selection-start-line="260" selection-start-column="0" selection-end-line="260" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-                <element signature="e#929#2743#0" expanded="false" />
-                <element signature="e#2800#4691#0" expanded="false" />
-                <element signature="e#4732#6611#0" expanded="false" />
-                <element signature="e#7966#9490#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="panda_new.tb_user" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/b10c94b8/ab8c6bd5-ef3f-43db-8e52-30bc65f2604b/panda_new.tb_user">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="320">
+              <caret line="36" column="57" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -219,8 +193,8 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front_page/news/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="320" column="23" lean-forward="true" selection-start-line="320" selection-start-column="23" selection-end-line="320" selection-end-column="23" />
+            <state relative-caret-position="4425">
+              <caret line="434" column="21" lean-forward="false" selection-start-line="434" selection-start-column="21" selection-end-line="434" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -259,6 +233,9 @@
       <find>header1 .sug</find>
       <find>search_icon</find>
       <find>search_input</find>
+      <find>.con</find>
+      <find>Image</find>
+      <find>//</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot;</replace>
@@ -270,13 +247,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/front_page/news/html/detail.html" />
-        <option value="dbtable:/b10c94b8/5f171ac1-a827-4da5-8778-4056aa755d83/ddnews.tb_news_category" />
-        <option value="$PROJECT_DIR$/DDNews/DDNews/utils/pagination.py" />
-        <option value="$PROJECT_DIR$/DDNews/DDNews/static/news/js/index_style.js" />
-        <option value="$PROJECT_DIR$/DDNews/DDNews/static/news/css/index.css" />
-        <option value="$PROJECT_DIR$/DDNews/DDNews/static/news/js/index_request.js" />
-        <option value="$PROJECT_DIR$/DDNews/DDNews/static/news/css/index_main.css" />
         <option value="$PROJECT_DIR$/DDNews/DDNews/templates/index.html" />
         <option value="$PROJECT_DIR$/DDNews/DDNews/utils/response_codes.py" />
         <option value="$PROJECT_DIR$/DDNews/DDNews/utils/constans.py" />
@@ -288,39 +258,46 @@
         <option value="$PROJECT_DIR$/DDNews/DDNews/apps/passport/views.py" />
         <option value="$PROJECT_DIR$/DDNews/DDNews/apps/user/utils.py" />
         <option value="$PROJECT_DIR$/DDNews/DDNews/urls.py" />
-        <option value="$PROJECT_DIR$/DDNews/DDNews/apps/news/models.py" />
         <option value="$PROJECT_DIR$/front_page/news/user_follow.html" />
         <option value="$PROJECT_DIR$/DDNews/DDNews/apps/user/serializers.py" />
         <option value="$PROJECT_DIR$/DDNews/DDNews/templates/search/indexes/news/news_text.txt" />
         <option value="$PROJECT_DIR$/DDNews/DDNews/apps/news/search_indexes.py" />
-        <option value="$PROJECT_DIR$/DDNews/DDNews/settings/dev.py" />
         <option value="$PROJECT_DIR$/front_page/news/js/host.js" />
         <option value="$PROJECT_DIR$/front_page/news/css/author_center.css" />
-        <option value="$PROJECT_DIR$/DDNews/DDNews/apps/news/urls.py" />
-        <option value="$PROJECT_DIR$/DDNews/DDNews/apps/news/views.py" />
-        <option value="$PROJECT_DIR$/DDNews/DDNews/apps/news/serializers.py" />
         <option value="$PROJECT_DIR$/front_page/news/index.html" />
-        <option value="$PROJECT_DIR$/front_page/news/js/author_center.js" />
-        <option value="$PROJECT_DIR$/front_page/news/js/detail.js" />
         <option value="$PROJECT_DIR$/front_page/news/css/index_main.css" />
         <option value="$PROJECT_DIR$/front_page/news/detail.html" />
         <option value="$PROJECT_DIR$/front_page/news/css/search.css" />
-        <option value="$PROJECT_DIR$/front_page/news/js/search.js" />
         <option value="$PROJECT_DIR$/front_page/news/search.html" />
         <option value="$PROJECT_DIR$/front_page/news/author_center.html" />
-        <option value="$PROJECT_DIR$/front_page/news/css/detail.css" />
         <option value="$PROJECT_DIR$/front_page/news/css/user.css" />
-        <option value="$PROJECT_DIR$/front_page/news/js/index_style.js" />
-        <option value="$PROJECT_DIR$/front_page/news/js/index_request.js" />
         <option value="$PROJECT_DIR$/front_page/news/js/main1.js" />
         <option value="$PROJECT_DIR$/front_page/news/js/user_center.js" />
-        <option value="$PROJECT_DIR$/front_page/news/user.html" />
-        <option value="$PROJECT_DIR$/DDNews/DDNews/apps/user/urls.py" />
-        <option value="$PROJECT_DIR$/front_page/news/css/main.css" />
         <option value="$PROJECT_DIR$/front_page/news/user_pass_info.html" />
-        <option value="$PROJECT_DIR$/front_page/news/user_baseinfo.html" />
+        <option value="$PROJECT_DIR$/front_page/news/user.html" />
+        <option value="$PROJECT_DIR$/DDNews/DDNews/utils/fastdfs/fdfs_storage.py" />
+        <option value="$PROJECT_DIR$/DDNews/DDNews/apps/user/urls.py" />
+        <option value="$PROJECT_DIR$/DDNews/DDNews/utils/fastdfs/client.conf" />
+        <option value="$PROJECT_DIR$/DDNews/DDNews/settings/dev.py" />
         <option value="$PROJECT_DIR$/DDNews/DDNews/apps/user/views.py" />
+        <option value="$PROJECT_DIR$/front_page/news/user_baseinfo.html" />
+        <option value="$PROJECT_DIR$/front_page/news/js/xss.js" />
+        <option value="$PROJECT_DIR$/front_page/news/user_news_edit.html" />
+        <option value="$PROJECT_DIR$/front_page/news/js/index_style.js" />
+        <option value="$PROJECT_DIR$/front_page/news/css/detail.css" />
+        <option value="$PROJECT_DIR$/DDNews/DDNews/apps/news/models.py" />
+        <option value="$PROJECT_DIR$/front_page/news/js/search.js" />
+        <option value="$PROJECT_DIR$/front_page/news/js/detail.js" />
+        <option value="$PROJECT_DIR$/front_page/news/js/author_center.js" />
+        <option value="$PROJECT_DIR$/front_page/news/js/index_request.js" />
+        <option value="$PROJECT_DIR$/front_page/news/js/tinymce_setup.js" />
+        <option value="$PROJECT_DIR$/front_page/news/css/main.css" />
+        <option value="$PROJECT_DIR$/front_page/news/js/news_edit_detail.js" />
         <option value="$PROJECT_DIR$/front_page/news/js/user_all.js" />
+        <option value="$PROJECT_DIR$/DDNews/DDNews/apps/news/urls.py" />
+        <option value="$PROJECT_DIR$/DDNews/DDNews/apps/news/views.py" />
+        <option value="$PROJECT_DIR$/DDNews/DDNews/apps/news/serializers.py" />
+        <option value="$PROJECT_DIR$/front_page/news/user_news_list.html" />
       </list>
     </option>
   </component>
@@ -331,10 +308,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="90" />
-    <option name="y" value="124" />
-    <option name="width" value="1777" />
-    <option name="height" value="885" />
+    <option name="x" value="67" />
+    <option name="y" value="24" />
+    <option name="width" value="1853" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -351,6 +328,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -515,39 +493,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="passport" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DDNews" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DDNews" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DDNews" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DDNews" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="news" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -561,19 +512,19 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/front_page/news/js" />
+      <recent name="$PROJECT_DIR$/DDNews/DDNews/templates" />
+      <recent name="$PROJECT_DIR$/DDNews/DDNews/apps/passport" />
+      <recent name="$PROJECT_DIR$/DDNews/DDNews/apps/user" />
+      <recent name="$PROJECT_DIR$/DDNews/DDNews/static" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/front_page/news" />
       <recent name="$PROJECT_DIR$/DDNews/DDNews/static/news" />
       <recent name="$PROJECT_DIR$/DDNews/DDNews/static" />
       <recent name="$PROJECT_DIR$/DDNews/DDNews/templates" />
       <recent name="$PROJECT_DIR$/front_page/admin/html" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/DDNews/DDNews/templates" />
-      <recent name="$PROJECT_DIR$/DDNews/DDNews/apps/passport" />
-      <recent name="$PROJECT_DIR$/DDNews/DDNews/apps/user" />
-      <recent name="$PROJECT_DIR$/DDNews/DDNews/static" />
-      <recent name="$PROJECT_DIR$/DDNews/static" />
     </key>
   </component>
   <component name="RunManager" selected="Django server.DDNews">
@@ -929,26 +880,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="90" y="124" width="1777" height="885" extended-state="0" />
-    <editor active="false" />
+    <frame x="67" y="24" width="1853" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21902017" sideWeight="0.4924812" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15737163" sideWeight="0.4924812" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913166" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30208334" sideWeight="0.50249463" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42420748" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4236535" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900944" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3" sideWeight="0.49750534" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24875267" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2841981" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2466181" sideWeight="0.49750534" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2484815" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28239202" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21533695" sideWeight="0.50751877" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38987342" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2788762" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913166" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -993,112 +944,220 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DDNews/DDNews/apps/news/views.py</url>
-          <line>140</line>
+          <line>143</line>
           <option name="timeStamp" value="117" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="156" />
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="195" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/__init__.py">
+    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/migrations/0003_auto_20190501_1743.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-167">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/__init__.py">
+    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DDNews/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-1800">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/templates/search/indexes/news/__init__.py" />
-    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/haystack/__init__.py">
+    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/user/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="386">
+          <caret line="41" column="20" lean-forward="true" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/search_indexes.py" />
-    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/templates/search/indexes/news/news_text.txt" />
-    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/django/views/generic/base.py">
+    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/rest_framework/fields.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="69" column="28" lean-forward="true" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="28" />
+        <state relative-caret-position="236">
+          <caret line="1529" column="0" lean-forward="false" selection-start-line="1529" selection-start-column="0" selection-end-line="1529" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/django/db/models/fields/files.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/utils/fastdfs/fdfs_storage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1150">
+          <caret line="46" column="20" lean-forward="true" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/fdfs_client/tracker_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="383" column="42" lean-forward="false" selection-start-line="383" selection-start-column="42" selection-end-line="383" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/jquery.form.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2492">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/wangEditor.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1085">
+          <caret line="2" column="13888" lean-forward="true" selection-start-line="2" selection-start-column="13888" selection-end-line="2" selection-end-column="13888" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/js/host.js">
+    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/rest_framework/viewsets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/b10c94b8/ab8c6bd5-ef3f-43db-8e52-30bc65f2604b/panda_new.tb_slide_show">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/b10c94b8/ab8c6bd5-ef3f-43db-8e52-30bc65f2604b/panda_new.tb_comment">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/css/author_center.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="92" column="1" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="92" selection-end-column="1" />
+        <state relative-caret-position="411">
+          <caret line="76" column="28" lean-forward="false" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DDNews/DDNews/settings/dev.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6425">
-          <caret line="260" column="25" lean-forward="false" selection-start-line="260" selection-start-column="25" selection-end-line="260" selection-end-column="25" />
+        <state relative-caret-position="520">
+          <caret line="270" column="22" lean-forward="false" selection-start-line="270" selection-start-column="22" selection-end-line="270" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/rest_framework/generics.py">
+    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/utils/fastdfs/client.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6031">
-          <caret line="25" column="6" lean-forward="false" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+        <state relative-caret-position="0">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DDNews/zz.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/user/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="40" column="16" lean-forward="false" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/rest_framework/mixins.py">
+    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="34" column="18" lean-forward="true" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+        <state relative-caret-position="500">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/user_baseinfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/xss.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scrapy/Toutiao/fastdfs/client.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scrapy/Toutiao/Toutiao/spiders/toutiao.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4050">
+          <caret line="174" column="8" lean-forward="false" selection-start-line="174" selection-start-column="8" selection-end-line="177" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/index_style.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="74" column="44" lean-forward="false" selection-start-line="74" selection-start-column="44" selection-end-line="74" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/css/detail.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="647" column="19" lean-forward="false" selection-start-line="647" selection-start-column="19" selection-end-line="647" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-700">
+          <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="189" column="0" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/django/views/decorators/csrf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/django/views/generic/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/rest_framework/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1163">
+          <caret line="485" column="0" lean-forward="false" selection-start-line="485" selection-start-column="0" selection-end-line="485" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1110,19 +1169,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2016.3/system/python_stubs/429285209/builtins.py">
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8375">
-          <caret line="334" column="114" lean-forward="true" selection-start-line="334" selection-start-column="114" selection-end-line="334" selection-end-column="114" />
+        <state relative-caret-position="250">
+          <caret line="10" column="2" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="2" />
+          <folding>
+            <marker date="1556800132613" expanded="true" signature="931:982" ph="..." />
+            <marker date="1556800132613" expanded="true" signature="1400:1406" ph=" " />
+            <marker date="1556800132613" expanded="true" signature="1428:1434" ph=" " />
+            <marker date="1556800132613" expanded="true" signature="1993:1999" ph=" " />
+            <marker date="1556800132613" expanded="true" signature="2021:2027" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="478" column="6" lean-forward="false" selection-start-line="478" selection-start-column="4" selection-end-line="478" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/urls.py">
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/main1.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12">
-          <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-          <folding />
+        <state relative-caret-position="427">
+          <caret line="794" column="6" lean-forward="false" selection-start-line="794" selection-start-column="4" selection-end-line="794" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1135,302 +1207,25 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-          <folding>
-            <element signature="e#658#1063#0" expanded="false" />
-            <element signature="e#1116#1657#0" expanded="false" />
-            <element signature="e#1707#2088#0" expanded="false" />
-            <element signature="e#2129#2313#0" expanded="false" />
-            <element signature="e#2380#2995#0" expanded="false" />
-            <element signature="e#3059#3296#0" expanded="false" />
-            <element signature="e#3352#4342#0" expanded="false" />
-            <element signature="e#4977#5480#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="64" column="109" lean-forward="false" selection-start-line="64" selection-start-column="109" selection-end-line="64" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="69" column="79" lean-forward="false" selection-start-line="69" selection-start-column="79" selection-end-line="69" selection-end-column="79" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_page/news/js/author_center.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="187" column="96" lean-forward="false" selection-start-line="187" selection-start-column="96" selection-end-line="187" selection-end-column="96" />
+        <state relative-caret-position="375">
+          <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
           <folding>
-            <element signature="n#!!block;n#GetFollow_Author#0" expanded="false" />
-            <element signature="n#!!block;n#Followedd#0" expanded="false" />
-            <element signature="n#!!block;n#Get_Author_info#0" expanded="false" />
-            <element signature="n#!!block;n#Remove_Follows#0" expanded="false" />
-            <element signature="n#!!block;n#updateAuthorNewsData#0" expanded="false" />
-            <element signature="n#!!block;n#GetFollowed#0" expanded="false" />
-            <element signature="n#!!block;n#getDetailCategoryinfo#0" expanded="false" />
-            <element signature="n#!!block;n#userClickAuthorClick#0" expanded="false" />
-            <element signature="e#9147#9388#0" expanded="false" />
-            <element signature="e#9609#10327#0" expanded="false" />
-            <element signature="e#10386#10549#0" expanded="false" />
-            <element signature="e#10606#10763#0" expanded="false" />
-            <element signature="e#10819#10976#0" expanded="false" />
-            <marker date="1556611493484" expanded="true" signature="4491:4542" ph="..." />
-            <marker date="1556611493484" expanded="true" signature="4960:4966" ph=" " />
-            <marker date="1556611493484" expanded="true" signature="4988:4994" ph=" " />
-            <marker date="1556611493484" expanded="true" signature="5553:5559" ph=" " />
-            <marker date="1556611493484" expanded="true" signature="5581:5587" ph=" " />
+            <marker date="1556800132733" expanded="true" signature="4487:4538" ph="..." />
+            <marker date="1556800132733" expanded="true" signature="4956:4962" ph=" " />
+            <marker date="1556800132733" expanded="true" signature="4984:4990" ph=" " />
+            <marker date="1556800132733" expanded="true" signature="5549:5555" ph=" " />
+            <marker date="1556800132733" expanded="true" signature="5577:5583" ph=" " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/css/index_main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="124" column="21" lean-forward="false" selection-start-line="124" selection-start-column="21" selection-end-line="124" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/css/search.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="138" column="37" lean-forward="false" selection-start-line="138" selection-start-column="37" selection-end-line="138" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/author_center.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="67" column="79" lean-forward="false" selection-start-line="67" selection-start-column="79" selection-end-line="67" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/css/detail.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="523" column="0" lean-forward="true" selection-start-line="523" selection-start-column="0" selection-end-line="642" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/js/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="69" column="33" lean-forward="false" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-            <element signature="n#!!block;n#updateSearchNewsData#0" expanded="false" />
-            <element signature="n#!!block;n#updateSearchUser#0" expanded="false" />
-            <element signature="n#!!block;n#getSearchCategoryinfo#0" expanded="false" />
-            <element signature="e#4905#5022#0" expanded="false" />
-            <element signature="e#5070#5204#0" expanded="false" />
-            <element signature="e#5383#6412#0" expanded="false" />
-            <marker date="1556612895096" expanded="true" signature="933:984" ph="..." />
-            <marker date="1556612895096" expanded="true" signature="1402:1408" ph=" " />
-            <marker date="1556612895096" expanded="true" signature="1430:1436" ph=" " />
-            <marker date="1556612895096" expanded="true" signature="1995:2001" ph=" " />
-            <marker date="1556612895096" expanded="true" signature="2023:2029" ph=" " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1701">
-          <caret line="71" column="79" lean-forward="false" selection-start-line="71" selection-start-column="79" selection-end-line="71" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/js/index_style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
-          <folding>
-            <element signature="e#2764#3298#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/css/user.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="147" column="14" lean-forward="false" selection-start-line="147" selection-start-column="14" selection-end-line="147" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/js/index_request.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2150">
-          <caret line="194" column="0" lean-forward="true" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
-          <folding>
-            <element signature="e#1969#2726#0" expanded="false" />
-            <element signature="n#!!block;n#GetGoodNews#0" expanded="false" />
-            <element signature="n#!!block;n#GetGoodAuthor#0" expanded="false" />
-            <element signature="n#!!block;n#updateNewsSlideshow#0" expanded="false" />
-            <element signature="n#!!block;n#updateNewsData#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-175">
-          <caret line="8" column="41" lean-forward="false" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
-          <folding>
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/js/detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="225" column="8" lean-forward="true" selection-start-line="225" selection-start-column="8" selection-end-line="227" selection-end-column="10" />
-          <folding>
-            <element signature="n#!!block;n#GetRequest#0" expanded="false" />
-            <element signature="n#!!block;n#GetDetailNew#0" expanded="false" />
-            <element signature="n#!!block;n#GetCollected#0" expanded="false" />
-            <element signature="n#!!block;n#Followed#0" expanded="false" />
-            <element signature="n#!!block;n#GetFollow#0" expanded="false" />
-            <element signature="n#!!block;n#Remove_Follow#0" expanded="false" />
-            <element signature="n#!!block;n#Add_comment#0" expanded="false" />
-            <element signature="n#!!block;n#generate#0" expanded="false" />
-            <element signature="n#!!block;n#Show_New_Comment#0" expanded="false" />
-            <element signature="e#12125#12344#0" expanded="false" />
-            <element signature="e#12523#13164#0" expanded="false" />
-            <element signature="e#13245#13802#0" expanded="false" />
-            <element signature="e#13906#14500#0" expanded="false" />
-            <element signature="e#13939#14044#0" expanded="false" />
-            <element signature="e#14606#15117#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="29" column="11" lean-forward="true" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="50" lean-forward="true" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
-          <folding>
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/user/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="9" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#65#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/js/user_center.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-100">
-          <caret line="12" column="20" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-            <element signature="e#423#957#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="320" column="23" lean-forward="true" selection-start-line="320" selection-start-column="23" selection-end-line="320" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/js/main1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="119" column="25" lean-forward="true" selection-start-line="118" selection-start-column="4" selection-end-line="119" selection-end-column="25" />
-          <folding>
-            <element signature="n#!!block;n#error_message#0" expanded="false" />
-            <element signature="n#!!block;n#getCookie#0" expanded="false" />
-            <element signature="n#!!block;n#generateUUID#0" expanded="false" />
-            <element signature="n#!!block;n#getCategoryinfo#0" expanded="false" />
-            <element signature="e#1658#2710#0" expanded="false" />
-            <element signature="n#!!block;n#generateImageCode#0" expanded="false" />
-            <element signature="n#!!block;n#getSearchKeys#0" expanded="false" />
-            <element signature="n#!!block;n#judge_jwt#0" expanded="false" />
-            <element signature="n#!!block;n#judge_user#0" expanded="false" />
-            <element signature="n#!!block;n#GetRequest#0" expanded="false" />
-            <element signature="n#!!block;n#FocusStyle#0" expanded="false" />
-            <element signature="n#!!block;n#index_GetRequest#0" expanded="false" />
-            <element signature="e#7034#7227#0" expanded="false" />
-            <element signature="e#7312#7846#0" expanded="false" />
-            <element signature="e#8204#8300#0" expanded="false" />
-            <element signature="e#8337#8469#0" expanded="false" />
-            <element signature="e#8508#8601#0" expanded="false" />
-            <element signature="e#8646#8807#0" expanded="false" />
-            <element signature="e#9049#9251#0" expanded="false" />
-            <element signature="e#9285#9869#0" expanded="false" />
-            <element signature="e#10211#11894#0" expanded="false" />
-            <element signature="e#11981#13747#0" expanded="false" />
-            <element signature="e#13820#16013#0" expanded="false" />
-            <element signature="e#16073#18092#0" expanded="false" />
-            <element signature="e#18152#19903#0" expanded="false" />
-            <element signature="e#19982#20188#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/user_baseinfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-584">
-          <caret line="9" column="45" lean-forward="false" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/css/reset.css">
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/tinymce_setup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1440,80 +1235,184 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/passport/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="260" column="0" lean-forward="false" selection-start-line="260" selection-start-column="0" selection-end-line="260" selection-end-column="0" />
+        <state relative-caret-position="395">
+          <caret line="246" column="0" lean-forward="false" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
+            <element signature="e#0#36#0" expanded="false" />
+            <element signature="e#450#872#0" expanded="false" />
             <element signature="e#929#2743#0" expanded="false" />
             <element signature="e#2800#4691#0" expanded="false" />
             <element signature="e#4732#6611#0" expanded="false" />
+            <element signature="e#6648#7923#0" expanded="false" />
             <element signature="e#7966#9490#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/b10c94b8/ab8c6bd5-ef3f-43db-8e52-30bc65f2604b/panda_new.tb_user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/news_edit_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1550">
+          <caret line="62" column="14" lean-forward="false" selection-start-line="62" selection-start-column="14" selection-end-line="62" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
-      <provider editor-type-id="text-editor">
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/user_center.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="42" column="10" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/user/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="275" column="32" lean-forward="false" selection-start-line="275" selection-start-column="32" selection-end-line="275" selection-end-column="32" />
+          <folding>
+            <element signature="e#615#1331#0" expanded="false" />
+            <element signature="e#1380#1912#0" expanded="false" />
+            <element signature="e#1955#3003#0" expanded="false" />
+            <element signature="e#3052#3432#0" expanded="false" />
+            <element signature="e#3483#3738#0" expanded="false" />
+            <element signature="e#3786#3931#0" expanded="false" />
+            <element signature="e#3983#4129#0" expanded="false" />
+            <element signature="e#4175#4626#0" expanded="false" />
+            <element signature="e#4673#6226#0" expanded="false" />
+            <element signature="e#6275#7501#0" expanded="false" />
+            <element signature="e#7547#8595#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/rest_framework/generics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="200" column="0" lean-forward="false" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/user_news_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-414">
+          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/rest_framework/mixins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="37" column="7" lean-forward="true" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="275" column="0" lean-forward="false" selection-start-line="275" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#31#0" expanded="true" />
+            <element signature="e#809#1214#0" expanded="false" />
+            <element signature="e#1267#1808#0" expanded="false" />
+            <element signature="e#1858#2239#0" expanded="false" />
+            <element signature="e#2280#2481#0" expanded="false" />
+            <element signature="e#3548#4538#0" expanded="false" />
+            <element signature="e#4588#5136#0" expanded="false" />
+            <element signature="e#5182#5722#0" expanded="false" />
+            <element signature="e#5768#6248#0" expanded="false" />
+            <element signature="e#6294#7841#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4425">
+          <caret line="434" column="21" lean-forward="false" selection-start-line="434" selection-start-column="21" selection-end-line="434" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="36" column="57" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="97" column="10" lean-forward="false" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="38" column="61" lean-forward="false" selection-start-line="38" selection-start-column="61" selection-end-line="38" selection-end-column="61" />
+          <folding>
+            <element signature="e#357#925#0" expanded="false" />
+            <element signature="e#1716#2295#0" expanded="false" />
+            <element signature="e#2356#3582#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/jquery.pagination.min.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/rest_framework/views.py">
+    <entry file="file://$PROJECT_DIR$/front_page/news/user_follow.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="479" column="0" lean-forward="false" selection-start-line="479" selection-start-column="0" selection-end-line="479" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/user/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/user_pass_info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="54" lean-forward="false" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+        <state relative-caret-position="280">
+          <caret line="76" column="33" lean-forward="true" selection-start-line="75" selection-start-column="19" selection-end-line="76" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_page/news/js/user_all.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="803">
-          <caret line="120" column="11" lean-forward="true" selection-start-line="120" selection-start-column="11" selection-end-line="120" selection-end-column="11" />
+        <state relative-caret-position="-1325">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="55" />
           <folding>
             <element signature="n#!!block;n#getUserInfo#0" expanded="false" />
-            <element signature="n#!!block;n#save_User_Info#0" expanded="false" />
+            <element signature="n#!!block;n#uploadImg#0" expanded="false" />
+            <element signature="n#!!block;n#UserImg#0" expanded="false" />
+            <element signature="e#5197#5569#0" expanded="false" />
+            <marker date="1556808079191" expanded="true" signature="5388:5407" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/user/views.py">
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/index_request.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="266" column="0" lean-forward="false" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
+        <state relative-caret-position="1039">
+          <caret line="226" column="0" lean-forward="false" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
           <folding>
-            <element signature="e#0#34#0" expanded="true" />
-            <element signature="e#540#1256#0" expanded="false" />
-            <element signature="e#1305#1837#0" expanded="false" />
-            <element signature="e#1880#2928#0" expanded="false" />
-            <element signature="e#2977#3357#0" expanded="false" />
-            <element signature="e#3408#3663#0" expanded="false" />
-            <element signature="e#3711#3856#0" expanded="false" />
-            <element signature="e#3908#4054#0" expanded="false" />
-            <marker date="1556640257064" expanded="false" signature="4095:4548" ph="..." />
+            <element signature="n#!!block;n#GetGoodNews#0" expanded="false" />
+            <element signature="n#!!block;n#GetGoodAuthor#0" expanded="false" />
+            <element signature="n#!!block;n#updateNewsSlideshow#0" expanded="false" />
+            <element signature="n#!!block;n#updateNewsData#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/user_news_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding>
+            <element signature="e#2497#3374#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>

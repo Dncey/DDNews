@@ -248,33 +248,33 @@ function updateNewsData() {
                 //判断该新闻是否是爬取的，如果是则判断是否有索引头像，如果不是则是用户自己上传的，查看用户的索引头像
                 if (news.is_spider){
                     if(news.source_avatar_url){
-                        source_avatar_url = "//"+news.source_avatar_url;
+                        source_avatar_url = news.source_avatar_url;
                     }else {
                         source_avatar_url = "/static/news/img/person.jpeg";
                     }
                 }else {
                     if(news.user.avatar_url){
-                        source_avatar_url = news.user.avtar_url;
+                        source_avatar_url = news.user.avatar_url;
                     }else {
                         source_avatar_url = "/static/news/img/person.jpeg";
                     }
                 }
 
             // 把拼接后的新闻数据，重新添加到ul列表下
-                if(news.index_image_url !=null){
-                    content  = "<li class='article' new_id='"+news.id+"'> " ;
-                    content +=" <a class='article_prc'><img src='//"+news.index_image_url;
-                    content +="'></a> <a class='news_title'>" +news.title;
-                    content +="</a> <a  class='news_detail'>"+news.digest;
-                    content +="</a> <div class='author_info'> <div class='author' author_id='"+news.user.id+"' ><a  class='person_icon'><img src='";
-                    content +=source_avatar_url+"'></a> <a";
-                     content +=" class='author_name'>"+news.source+"</a> </div> <div class='time'>";
-                    content +=news.report_time+"</div> </div> </li>"
-                }else {
+                if(news.index_image_url ==null ||news.index_image_url ==""){
                     content = "<li class='article' new_id='"+news.id+"'> <a  class='news_title'>"+news.title+"</a>";
                     content +="<a class='news_detail_none'>"+news.title+"</a>";
                     content +="<div class='author_info' > <div class='author' author_id='"+news.user.id+"'><a  class='person_icon'><img src='";
                      content +=source_avatar_url+"'></a> <a";
+                     content +=" class='author_name'>"+news.source+"</a> </div> <div class='time'>";
+                    content +=news.report_time+"</div> </div> </li>"
+                }else {
+                    content  = "<li class='article' new_id='"+news.id+"'> " ;
+                    content +=" <a class='article_prc'><img src='"+news.index_image_url;
+                    content +="'></a> <a class='news_title'>" +news.title;
+                    content +="</a> <a  class='news_detail'>"+news.digest;
+                    content +="</a> <div class='author_info'> <div class='author' author_id='"+news.user.id+"' ><a  class='person_icon'><img src='";
+                    content +=source_avatar_url+"'></a> <a";
                      content +=" class='author_name'>"+news.source+"</a> </div> <div class='time'>";
                     content +=news.report_time+"</div> </div> </li>"
                 }

@@ -57,7 +57,7 @@ function GetDetailNew() {
                content = "<li> <div class='line'>  <div class='rbox'> <div class='rbox-inner'> <a  title='"+new_list.title+"' href='detail.html?new_id="+new_list.id+"'>"+new_list.title+"</a> <span>"+new_list.clicks+"阅读</span>  </div> </div> </div> </li>"
            }else{
                //样式二
-               content = "<li> <div class='line image'> <a class='lbox'  href='detail.html?new_id="+new_list.id+"'> <img alt='' src='//"+new_list.index_image_url+"'>   </a> <div class='rbox'> <div class='rbox-inner'> <a  title='"+new_list.title+"detail.html?new_id="+new_list.id+"'>"+new_list.title+"</a> <span>"+new_list.clicks+"阅读</span>  </div> </div> </div> </li>"
+               content = "<li> <div class='line image'> <a class='lbox'  href='detail.html?new_id="+new_list.id+"'> <img alt='' src='"+new_list.index_image_url+"'>   </a> <div class='rbox'> <div class='rbox-inner'> <a  title='"+new_list.title+"detail.html?new_id="+new_list.id+"'>"+new_list.title+"</a> <span>"+new_list.clicks+"阅读</span>  </div> </div> </div> </li>"
            }
            $(".relate_news").append(content);
              }

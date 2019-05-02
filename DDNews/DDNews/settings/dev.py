@@ -261,3 +261,11 @@ CORS_ORIGIN_WHITELIST = (
 CORS_ALLOW_CREDENTIALS = True  # 允许携带cookie
 
 
+# django文件存储
+# DEFAULT_FILE_STORAGE = 'DDNews.utils.fastdfs.fdfs_storage.FastDFSStorage'
+
+# FastDFS
+FDFS_URL = 'http://192.168.72.128:8888/'
+FDFS_CLIENT_CONF = os.path.join(BASE_DIR, 'utils/fastdfs/client.conf')
+
+print(FDFS_CLIENT_CONF)

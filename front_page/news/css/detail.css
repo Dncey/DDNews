@@ -641,3 +641,9 @@ body .forget_form_main{
     display: none;
     margin-right: -50px;
 }
+ .new_content img{
+     width: 100%;
+ }
+ .main{
+     width: 1200px;
+ }

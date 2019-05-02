@@ -27,6 +27,61 @@ function getUserInfo() {
          });
 }
 
+
+//预览头像
+function uploadImg(element, tag) {
+        var file = tag.files[0];
+        var imgSrc;
+        if (!/image\/\w+/.test(file.type)) {
+            alert("看清楚，这个需要图片！");
+            return false;
+        }
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function() {
+            console.log(this.result);
+            imgSrc = this.result;
+            element.attr("src", imgSrc);
+        };
+    }
+
+//上传头像
+function UserImg() {
+    $(".upload_aval").submit(function (e) {
+        e.preventDefault();
+        if(!$("#user_img").val()){
+            // 数据为空
+            return;
+        }
+
+        //TODO 上传头像
+        // 上传头像,表单提交和其他提交方式不一样
+
+        $(this).ajaxSubmit({
+            url: host+"/user/"+user_id+"/avatar/",
+            type: "put",
+            headers: {
+                "Authorization": "JWT " + token
+            },
+            success: function (resp) {
+
+                    sessionStorage.avatar_url = resp.avatar_url;
+                    localStorage.avatar_url = resp.avatar_url;
+                    //提示信息
+                    alert(resp.errmsg);
+                    //更新界面
+                    $(".now_user_pic").attr("src", resp.avatar_url);
+                    $(".user_center_pic>img", parent.document).attr("src", resp.avatar_url);
+                    $(".info_icon", parent.document).attr("src", resp.avatar_url);
+                    parent.location.reload();
+                }
+        });
+
+    });
+}
+
+
+//用户信息保存
 function save_User_Info() {
     $(".save_btn").click(function (e) {
         e.preventDefault();
@@ -72,20 +127,23 @@ function save_User_Info() {
              $("input[name='gender']:eq(1)").prop("checked",true);
              $("input[name='gender']:eq(0)").prop("checked",false);
          }
+         sessionStorage.username =user_info.username;
+         localStorage.username = user_info.username;
          alert("保存成功");
-         location.reload();
+         parent.location.reload();
         });
 
 
 
 
-})
+});
 }
 
 
 //修改用户密码
 function changeUserPassword() {
-    $(".password_save_btn").click(function () {
+    $(".password_save_btn").click(function (e) {
+        e.preventDefault();
 
         var local_password = $("input[name='local_password']").val();
         var change_password = $("input[name='new_password']").val();
@@ -129,11 +187,25 @@ function changeUserPassword() {
 
 $(function () {
 
+    //添加图片,预览
+    $("#user_img").change(function(e) {
+        var imgBox = e.target;
+        uploadImg($("#profile_url"), imgBox);
+        $(".baseinfo >.form_group").prepend("<div style='margin-left: 150px;'>预览</div>");
+    });
+
+
+
     //获取用户信息
     getUserInfo();
+
     //保存用户信息
     save_User_Info();
+
     //修改密码
     changeUserPassword();
+
+    //上传用户头像
+    UserImg();
 
 });

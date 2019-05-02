@@ -30,8 +30,11 @@ urlpatterns = [
     #用户中心获取\修改用户详情信息
     url(r'(?P<pk>\d+)/info/$',views.GetUserBaseInfo.as_view()),
 
-
+    #用户密码修改
     url(r'(?P<pk>\d+)/password/$',views.Change_User_Password.as_view()),
+
+    #用户头像上传
+    url(r'(?P<pk>\d+)/avatar/$',views.UploadUserAvatar.as_view()),
 
 ]
 

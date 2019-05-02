@@ -4,10 +4,10 @@
 	<meta charset="UTF-8">
 	<title>用户中心</title>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="../css/jquery.pagination.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript" src="js/jquery.pagination.min.js"></script>
+    <script src="js/host.js"></script>
 </head>
 <body class="inframe_body">
     <div class="news_list">
@@ -29,21 +29,95 @@
                 <span>2018-1-17</span>
                 <b>未通过原因：因为写的太煽情,因为写的太煽情,因为写的太煽情,因为写的太煽情,</b>
             </li>
+            <li>
+                <a href="#">智能音箱“不智能”：这次轮到三星语音助手Bixby被吐槽了</a>
+                <em class="nopass">未通过</em>
+                <span>2018-1-17</span>
+                <b>未通过原因：因为写的太煽情,因为写的太煽情,因为写的太煽情,因为写的太煽情,</b>
+            </li>
+            <li><a href="#">智能音箱“不智能”：这次轮到三星语音助手Bixby被吐槽了</a><em class="review">审核中</em><span>2018-1-17</span></li>
         </ul>
         <div id="pagination" class="page"></div>
         <script>
             // 调用父页面的方法改变菜单指示
             // window.parent.fnChangeMenu(2);
 
+
+            var token = sessionStorage.token || localStorage.token;
+
+            var cur_page = 1;
+            //var total_page=1;
             $(function(){
-                $("#pagination").pagination({
-                    currentPage: 2,
-                    totalPage: 3,
-                    callback: function(current) {
-                        alert('ok!');
-                    }
+                //页面初次加载获取页码
+                FirstGetAuthorNewStatus(cur_page);
+
+
+                $(document).on("click",".ui-pagination-page-item",function () {
+
+                    GetAuthorNewStatus($(this).attr("data-current"));
                 });
+
             });
+
+
+
+
+
+            function FirstGetAuthorNewStatus() {
+                var data ={
+                        "ordering":"-report_time",
+                        "page":'1',
+                        "page_size":'8'
+                        };
+
+                        $.ajax({
+                    url: host+"/news/author/status_info/",
+                            headers:{
+                "Authorization": "JWT " + token
+        },
+                    type: "GET",
+                    ContentType:"application/json",
+
+                    data:data
+                })
+                .done(function(resp){
+                    $("#pagination").pagination({
+                         currentPage: 1,
+                        totalPage: resp.total_page
+                    });
+
+
+                    for(var i=0;i<resp.data.length;i++){
+                         var news = resp.data[i];
+                    }
+                })
+
+            }
+
+            function GetAuthorNewStatus(current) {
+                var data ={
+                        "ordering":"-report_time",
+                        "page":String(current),
+                        "page_size":'8'
+                        };
+
+                        $.ajax({
+                    url: host+"/news/author/status_info/",
+                            headers:{
+                "Authorization": "JWT " + token
+        },
+                    type: "GET",
+                    ContentType:"application/json",
+
+                    data:data
+                })
+                .done(function(resp){
+                    for(var i=0;i<resp.data.length;i++){
+                         var news = resp.data[i];
+                    }
+                })
+
+            }
         </script>
        
     </div>

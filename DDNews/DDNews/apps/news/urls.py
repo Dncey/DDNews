@@ -27,11 +27,23 @@ urlpatterns = [
     #获取新闻搜索
     url(r'^search/$', views.NewsSearchView.as_view()),
 
+    # 作者中心新闻图片上传
+    url(r'^image_upload/$', views.NewsImageUpload.as_view()),
+
+    #作者新闻上传
+    url(r'^upload/$',views.NewContent_upload.as_view()),
+
+    #获取作者新闻上传状态
+    url(r'^author/status_info/$',views.Author_News_Status.as_view()),
+
+
+
 
 
 ]
 
 router = DefaultRouter()
+
 #获取新闻详情页数据
 router.register('detail',views.New_Detail_ViewSet,base_name='newsdeatil_manager')
 

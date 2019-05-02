@@ -6,8 +6,9 @@
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
     <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.form.min.js"></script>
     <script type="text/javascript" src="js/host.js"></script>
-    <script type="text/javascript" src="js/main1.js"></script>
+
     <script type="text/javascript" src="js/user_all.js"></script>
 
 </head>
@@ -18,7 +19,8 @@
             <label class="user_aval">头像</label>
             <img id='profile_url' src="img/person.jpeg" alt="">
             <form class="upload_aval">
-                <a>上传头像</a>
+                <input type="file" name="avatar" id="user_img">
+                <button type="submit" class="input_sub">上传头像</button>
             </form>
         </div>
         <form action="">

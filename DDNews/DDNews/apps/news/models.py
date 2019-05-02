@@ -30,6 +30,8 @@ class User(AbstractUser):
     collect_new = models.ManyToManyField('News', through='User_Collection', through_fields=('user', 'new'),
                                          related_name='collected_user')
 
+
+
     class Meta:
         db_table = 'tb_user'
         verbose_name = '用户user'
@@ -85,8 +87,8 @@ class News(BaseModel):
 
     title = models.CharField(max_length=256, null=False, verbose_name='新闻标题')
     source = models.CharField(max_length=64, null=False)
-    index_image_url = models.ImageField(null=True,verbose_name='新闻索引图片路径')
-    index_image_url_list = models.ImageField(verbose_name='新闻索引图片路径',null=True)
+    index_image_url = models.CharField(max_length=256,null=True,verbose_name='新闻索引图片路径')
+    index_image_url_list = models.CharField(max_length=256,verbose_name='新闻索引图片路径',null=True)
     
     # 用户上传数据则为新闻内容的前一段,后端处理
     digest = models.CharField(max_length=256, null=True, verbose_name='新闻简要')
@@ -98,7 +100,7 @@ class News(BaseModel):
     # 新闻关键字 通过jieba进行分词
     digest_label = models.CharField(max_length=256, verbose_name='新闻关键字')
     is_spider = models.BooleanField(default=True,verbose_name='是否是爬取的新闻')
-    source_avatar_url = models.ImageField(default='null',verbose_name='来源用户的头像')
+    source_avatar_url = models.CharField(max_length=256,default='null',verbose_name='来源用户的头像')
 
     # 外键--------------------------
     user = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='作者id', default='1')  # 爬取的默认为管理员id=1

@@ -29,7 +29,7 @@ function updateSearchNewsData() {
             for(var i=0;i<resp.data.length;i++) {
                 var news = resp.data[i];
                 if(news.index_image_url !=null){
-                content = "<li class='article'> <a href='detail.html?new_id=" + news.id + "' class='article_prc'><img src='//" + news.index_image_url + "' style='display: inline-block; width: 150px; height: 100px;'></a>";content += " <div class='rbox-inner'> <div class='title-box'> <a class='title-box' href='detail.html?new_id=" + news.id + "' target='_blank'>" + news.title + "</a>";
+                content = "<li class='article'> <a href='detail.html?new_id=" + news.id + "' class='article_prc'><img src='" + news.index_image_url + "' style='display: inline-block; width: 150px; height: 100px;'></a>";content += " <div class='rbox-inner'> <div class='title-box'> <a class='title-box' href='detail.html?new_id=" + news.id + "' target='_blank'>" + news.title + "</a>";
                 content += "</div>  <div class='y-box footer'> <div class='y-left'>  <a class='lbtn' target='_blank' href='detail.html?new_id=" + news.id + ">" + news.clicks + "阅读&nbsp;⋅</a>  <a class='lbtn' href='javascript:;' target='_blank'>&nbsp;" + news.comment + "评论&nbsp;</a> <div class='time'>" + news.report_time + "</div>     </div>  </div> </div>   </li>";
             }else{
                     content = "<li class='article'>  <div class='rbox-inner'> <div class='title-box'> <a class='title-box' href='detail.html?new_id=" + news.id + "' target='_blank'>" + news.title + "</a>";

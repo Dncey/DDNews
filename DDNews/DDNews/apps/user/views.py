@@ -7,6 +7,11 @@ from news.models import User_Fans,News,User
 from rest_framework.response import Response
 import rest_framework_jwt.authentication
 from .serializers import GetAuthor_Info_Serializer,Author_Fans, Author_Followed,User_Avatar_Url_Serializer
+#使用fastdfs 存储图片
+from fdfs_client.client import Fdfs_client
+import base64
+
+
 import hashlib
 
 
@@ -265,3 +270,44 @@ class Change_User_Password(APIView):
         except Exception as e:
             return Response({'errmsg':e},status=500)
         return Response({'data': "OK"})
+
+
+#用户头像上传
+class UploadUserAvatar(APIView):
+
+    # serializer_class = User_Avatar_Url_Serializer
+    # def get_queryset(self):
+    #     pk = self.kwargs['pk']
+    #     try:
+    #         user = User.objects.get(id=pk)
+    #     except:
+    #         return Response({"errmsg": "用户数据错误"}, status=400)
+    #     return user
+    #
+    def put(self,request,pk):
+        user_id = pk
+        try:
+            user = User.objects.get(id=user_id)
+        except:
+            return Response({"errmsg": "用户数据错误"}, status=400)
+        user_avatar = request.data.get('avatar')
+
+
+        #客户端链接实例
+        client = Fdfs_client('DDNews/utils/fastdfs/client.conf')
+        #保存读取传来的数据
+        image_ = user_avatar.read()
+
+        # print(type(img_info))
+        print(type(image_))
+
+        # with open('./zz.jpg','wb')as f:
+        #     f.write(image_)
+
+        ret = client.upload_by_buffer(image_)
+
+        print(ret['Remote file_id'])
+        user.avatar_url = "http://192.168.72.128:8888/"+ret['Remote file_id']
+        user.save()
+
+        return Response({"avatar_url":user.avatar_url,'errmsg':'保存成功'})

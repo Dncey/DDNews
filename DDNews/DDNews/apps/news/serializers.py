@@ -29,6 +29,16 @@ class Get_Newslist_Serializer(ModelSerializer):
             return 0
 
 
+#作者中心新闻状态获取序列化器
+
+class Author_News_Status_Serializer(ModelSerializer):
+    report_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", required=False, read_only=True)
+
+    class Meta:
+        model = News
+        fields = ('id','title','status','reason','report_time')
+
+
 #推荐作者序列化器
 class GetGoodAuthor(ModelSerializer):
 

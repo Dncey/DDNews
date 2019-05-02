@@ -73,22 +73,24 @@ $(function(){
     }
 
   // 应该点击轮播按钮时关闭定时器，然后切换各种样式，改变index然后在开始定时器
-    $(".item_radios").click(function(){
-        clearInterval(t);
+     $(document).on("click",".item_radios",function(e){
+         clearInterval(t);
         var radios_index = $(this).index();
         index = radios_index;
         $(this).addClass("active").siblings().removeClass("active");
         $(".slide_item").eq(index).css({"display":"block"}).siblings(".slide_item").css({"display":"none"});
         $(".slide_item").eq(index).children("img").css({"opacity":1});
         t = setInterval(slide_show,3000);
-    });
+     });
+
+
 
      //表单信息检验和错误信息的提示
  function error_message(errors){
     var error_div = "<div class='error_msg_inner'>"+errors+"</div>";
         $(".error_msg").html(error_div);
         // $(".register_form_main").css({"height":553});
-}
+    }
     // 搜索下拉框点击搜索框显示，点击其他任意地方隐藏，用到了事件冒泡阻止，
     $(".search_box").click(function(e){
         // return false;
