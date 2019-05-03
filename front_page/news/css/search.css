@@ -59,6 +59,7 @@ a.lbtn {
     float: left;
     margin-right: 30px;
     cursor: pointer;
+    list-style: none;
 }
 .author_card {
     background: #fff;

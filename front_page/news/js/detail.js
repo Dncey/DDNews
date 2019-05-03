@@ -65,8 +65,10 @@ function GetDetailNew() {
 
 
          }).fail(function (resp) {
-             alert(resp.responseJSON.errmsg)
-         })
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
+    });
     }else {
         location.href="/" ;
     }
@@ -113,8 +115,10 @@ function Followed() {
         }
 
     }).fail(function (resp) {
-        alert(resp.responseJSON.errmsg);
-    })
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
+    });
 }
 
 //获取当前用户是否关注该作者，收藏该新闻
@@ -147,8 +151,10 @@ function GetFollowAndCollection() {
 
 
     }).fail(function (resp) {
-             alert(resp.responseJSON.errmsg)
-         })
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
+    });
 }
 
 //取消关注
@@ -173,8 +179,10 @@ function Remove_Follow() {
             alert(resp.errmsg)
         }
 }).fail(function (resp) {
-             alert(resp.responseJSON.errmsg)
-         })
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
+    });
 }
 
 //发送收藏请求
@@ -196,8 +204,10 @@ function Collected() {
             $(".al_collected").css({"display":"inline-block"});
             $(".collected").css({"display":"none"});
     }).fail(function (resp) {
-             alert(resp.responseJSON.errmsg)
-         })
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
+    });
 }
 
 //发送取消收藏请求
@@ -219,8 +229,10 @@ function Uncollected() {
             $(".collected").css({"display":"inline-block"});
             $(".al_collected").css({"display":"none"});
     }).fail(function (resp) {
-             alert(resp.responseJSON.errmsg)
-         })
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
+    });
 }
 
 
@@ -269,8 +281,10 @@ function Add_comment(parent_id,comment) {
         }
 
 }).fail(function (resp) {
-             alert(resp.responseJSON.errmsg)
-         })
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
+    });
 }
 
 
@@ -302,8 +316,10 @@ function subs_Addcomment(parent_id,comment,replay_name) {
             $(".reply_input").remove();
             reply_input_flag = 0;
     }).fail(function (resp) {
-             alert(resp.responseJSON.errmsg)
-         })
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
+    });
 }
 
 //递归显示子评论
@@ -403,8 +419,10 @@ function Show_New_Comment() {
 
 
     }).fail(function (resp) {
-             alert(resp.responseJSON.errmsg)
-         })
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
+    });
 }
 
 

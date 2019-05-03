@@ -40,7 +40,7 @@ class Get_Slideshow_Apiview(APIView):
         try:
             slide_shows = Slide_image.objects.filter(is_recommend=True)[0:3]
         except:
-            return Response({'errmsg':'查询数据库错误'})
+            return Response({'errmsg':'查询数据库错误'},status=400)
         slide_show_list = []
         for slide_show in slide_shows:
             dict = {}
@@ -252,10 +252,8 @@ class NewContent_upload(APIView):
 
         #使用jieba提取文章关键字
         tags = jieba.analyse.extract_tags(text, topK=5)  # 采用jieba.analyse.extrack_tags(content, topK)提取关键词
+
         #转换字符串存储数据库中
-
-        print(tags)
-
         News.objects.create(title=title,source=user.username,index_image_url=index_url,index_image_url_list=image_urls,digest=digest,content=content,status=1,digest_label=tags,is_spider=False,source_avatar_url=user.avatar_url,report_time=datetime.datetime.now(),category_id=category_id,user=user)
 
         return Response({'errno':"OK"})
@@ -286,7 +284,7 @@ class Author_News_Update(APIView):
         new = News.objects.filter(user=user,id=new_id).first()
 
         if not new:
-            return Response({'errmsg':'参数错误'})
+            return Response({'errmsg':'参数错误'},status=400)
 
         data = {}
         data['title'] = new.title

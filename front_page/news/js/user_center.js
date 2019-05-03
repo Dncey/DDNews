@@ -32,8 +32,6 @@ $(function () {
             $(".suggestion").hide();
             //need do
             $.get("/search.html",{title:zz}, function(resp){
-                if(resp.errno=="0"){
-                }
             });
         });
     });

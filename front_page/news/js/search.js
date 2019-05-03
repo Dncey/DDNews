@@ -38,6 +38,10 @@ function updateSearchNewsData() {
 
                 $(".articles").append(content);
                 }
+    }).fail(function (resp) {
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
     });
 
 }
@@ -62,7 +66,11 @@ function updateSearchUser() {
         content += "<a href='javascript:;'class='focus float'> <i>+</i> 关注 </a> <a href='javascript:;'  class='unfocus float'>   <i>-</i> <span class='out'> 已关注 </span> <span class='over'> 取消关注</span> </a></li>";
         $(".articles").append(content);
         }
-    })
+    }).fail(function (resp) {
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
+    });
 }
 
 

@@ -30,7 +30,9 @@ function getUserInfo() {
                  location.reload();
             parent.location.reload();
              }
-             alert(resp.errmsg);
+             if(resp.status==400){
+            alert(resp.responseJSON.errmsg);
+        }
         });
 }
 
@@ -85,9 +87,12 @@ function UserImg() {
             //如果签证token过期刷新页面
              if(resp.status==401){
                  location.reload();
-            parent.location.reload();
+                parent.location.reload();
              }
-             alert(resp.errmsg);
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg);
+        }
+
         });
 
     });
@@ -150,7 +155,9 @@ function save_User_Info() {
                  location.reload();
             parent.location.reload();
              }
-             alert(resp.errmsg);
+             if(resp.status==400){
+            alert(resp.responseJSON.errmsg);
+        }
         });
 
 
@@ -222,10 +229,14 @@ function changeUserPassword() {
 $(function () {
 
     //添加图片,预览
+    flage = true;
     $("#user_img").change(function(e) {
         var imgBox = e.target;
         uploadImg($("#profile_url"), imgBox);
-        $(".baseinfo >.form_group").prepend("<div style='margin-left: 150px;'>预览</div>");
+        if(flage){
+            $(".baseinfo >.form_group").prepend("<div style='margin-left: 150px;'>预览</div>");
+            flage = false;
+        }
     });
 
 

@@ -94,6 +94,9 @@
                  location.reload();
             parent.location.reload();
              }
+             if(resp.status==400){
+            alert(resp.responseJSON.errmsg);
+        }
 
          })
 

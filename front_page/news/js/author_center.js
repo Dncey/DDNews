@@ -21,6 +21,10 @@ function GetFollow_Author() {
             $(".unfocus").css({"display": "none"});
         $(".focus").css({"display": "inline-block"});
         }
+    }).fail(function (resp) {
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
     });
 }
 
@@ -44,11 +48,13 @@ function Followedd(author_id) {
             $(".unfocus").css({"display":"inline-block"});
             $(".focus").css({"display":"none"});
         }else {
-            alert(resp.errmsg)
+            alert(resp.errmsg);
         }
 
     }).fail(function (resp) {
-        alert(resp.responseJSON.errmsg);
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg);
+        }
     });
 }
 
@@ -91,7 +97,11 @@ function Get_Author_info() {
 
        }
 
-    })
+    }).fail(function (resp) {
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
+    });
 }
 
 //取消关注
@@ -116,7 +126,9 @@ function Remove_Follows(author_id) {
             alert(resp.errmsg)
         }
 }).fail(function (resp) {
-        alert(resp.responseJSON.errmsg);
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
     });
 }
 
@@ -152,6 +164,10 @@ function updateAuthorNewsData() {
 
                 $(".articles").append(content);
                 }
+    }).fail(function (resp) {
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
     });
 
 }
@@ -172,7 +188,11 @@ function GetFollowed() {
         content += "<a href='javascript:;'class='focus float'> <i>+</i> 关注 </a> <a href='javascript:;'  class='unfocus float'>   <i>-</i> <span class='out'> 已关注 </span> <span class='over'> 取消关注</span> </a></li>";
         $(".articles").append(content);
         }
-    })
+    }).fail(function (resp) {
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
+    });
 
 }
 
@@ -193,7 +213,11 @@ function GetAuthor_Fans() {
             $(".articles").append(content);
         }
 
-    })
+    }).fail(function (resp) {
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
+    });
 }
 
 

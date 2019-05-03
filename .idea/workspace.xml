@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/DDNews/DDNews/apps/user/views.py" line="363" />
+    <bookmark url="file://$PROJECT_DIR$/DDNews/DDNews/apps/user/views.py" line="362" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c57663ca-407a-4bd8-94f7-758c1f046e6c" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front_page/news/user_follow.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DDNews/DDNews/apps/news/models.py" afterPath="$PROJECT_DIR$/DDNews/DDNews/apps/news/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DDNews/DDNews/apps/news/urls.py" afterPath="$PROJECT_DIR$/DDNews/DDNews/apps/news/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DDNews/DDNews/apps/news/views.py" afterPath="$PROJECT_DIR$/DDNews/DDNews/apps/news/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DDNews/DDNews/apps/user/urls.py" afterPath="$PROJECT_DIR$/DDNews/DDNews/apps/user/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DDNews/DDNews/apps/user/views.py" afterPath="$PROJECT_DIR$/DDNews/DDNews/apps/user/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/css/detail.css" afterPath="$PROJECT_DIR$/front_page/news/css/detail.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/css/main.css" afterPath="$PROJECT_DIR$/front_page/news/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/author_center.html" afterPath="$PROJECT_DIR$/front_page/news/author_center.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/css/search.css" afterPath="$PROJECT_DIR$/front_page/news/css/search.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/detail.html" afterPath="$PROJECT_DIR$/front_page/news/detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/index.html" afterPath="$PROJECT_DIR$/front_page/news/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/js/author_center.js" afterPath="$PROJECT_DIR$/front_page/news/js/author_center.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/js/detail.js" afterPath="$PROJECT_DIR$/front_page/news/js/detail.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/js/index_request.js" afterPath="$PROJECT_DIR$/front_page/news/js/index_request.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/js/main1.js" afterPath="$PROJECT_DIR$/front_page/news/js/main1.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/js/news_edit_detail.js" afterPath="$PROJECT_DIR$/front_page/news/js/news_edit_detail.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/js/search.js" afterPath="$PROJECT_DIR$/front_page/news/js/search.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/js/user_all.js" afterPath="$PROJECT_DIR$/front_page/news/js/user_all.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/js/user_center.js" afterPath="$PROJECT_DIR$/front_page/news/js/user_center.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/search.html" afterPath="$PROJECT_DIR$/front_page/news/search.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/user.html" afterPath="$PROJECT_DIR$/front_page/news/user.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/user_news_edit.html" afterPath="$PROJECT_DIR$/front_page/news/user_news_edit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/user_news_list.html" afterPath="$PROJECT_DIR$/front_page/news/user_news_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front_page/news/user_news_update.html" afterPath="$PROJECT_DIR$/front_page/news/user_news_update.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -64,127 +67,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main1.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_page/news/js/main1.js">
+      <file leaf-file-name="user_all.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/front_page/news/js/user_all.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="200" column="22" lean-forward="false" selection-start-line="200" selection-start-column="22" selection-end-line="200" selection-end-column="22" />
+            <state relative-caret-position="645">
+              <caret line="238" column="9" lean-forward="false" selection-start-line="238" selection-start-column="9" selection-end-line="238" selection-end-column="9" />
               <folding>
-                <element signature="n#!!block;n#generateUUID#0" expanded="false" />
-                <element signature="n#!!block;n#getCategoryinfo#0" expanded="false" />
-                <element signature="n#!!block;n#generateImageCode#0" expanded="false" />
-                <element signature="n#!!block;n#getSearchKeys#0" expanded="false" />
-                <element signature="n#!!block;n#judge_jwt#0" expanded="false" />
-                <element signature="n#!!block;n#judge_user#0" expanded="false" />
-                <element signature="n#!!block;n#GetRequest#0" expanded="false" />
-                <element signature="n#!!block;n#FocusStyle#0" expanded="false" />
-                <element signature="n#!!block;n#index_GetRequest#0" expanded="false" />
-                <element signature="e#15946#17965#0" expanded="false" />
+                <element signature="n#!!block;n#uploadImg#0" expanded="false" />
+                <element signature="n#!!block;n#UserImg#0" expanded="false" />
+                <element signature="n#!!block;n#save_User_Info#0" expanded="false" />
+                <element signature="n#!!block;n#changeUserPassword#0" expanded="false" />
+                <marker date="1556895186512" expanded="true" signature="6676:6695" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="detail.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_page/news/js/detail.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="406" column="11" lean-forward="false" selection-start-line="406" selection-start-column="11" selection-end-line="406" selection-end-column="11" />
-              <folding>
-                <element signature="n#!!block;n#GetRequest#0" expanded="false" />
-                <element signature="n#!!block;n#Followed#0" expanded="false" />
-                <element signature="n#!!block;n#generate#0" expanded="false" />
-                <element signature="n#!!block;n#CollectionsStyle#0" expanded="false" />
-                <element signature="n#!!block;n#FocusEvent#0" expanded="false" />
-                <element signature="n#!!block;n#CollectEvent#0" expanded="false" />
-                <element signature="e#14607#14682#0" expanded="false" />
-                <element signature="e#15024#15665#0" expanded="false" />
-                <element signature="e#15069#15550#0" expanded="false" />
-                <element signature="e#15746#16303#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/user/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="78" column="15" lean-forward="false" selection-start-line="78" selection-start-column="15" selection-end-line="78" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
-                <element signature="e#631#1344#0" expanded="false" />
-                <element signature="e#2703#3583#0" expanded="false" />
-                <element signature="e#3646#4154#0" expanded="false" />
-                <element signature="e#5295#5550#0" expanded="false" />
-                <element signature="e#5598#5743#0" expanded="false" />
-                <element signature="e#5795#5941#0" expanded="false" />
-                <element signature="e#5987#6438#0" expanded="false" />
-                <element signature="e#6485#8038#0" expanded="false" />
-                <element signature="e#8087#9313#0" expanded="false" />
-                <element signature="e#9359#10407#0" expanded="false" />
-                <marker date="1556891527851" expanded="false" signature="4192:5242" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/user/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="10" column="45" lean-forward="true" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user_baseinfo.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_page/news/user_baseinfo.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-364">
-              <caret line="11" column="49" lean-forward="false" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="124" column="73" lean-forward="true" selection-start-line="124" selection-start-column="73" selection-end-line="124" selection-end-column="73" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="detail.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_page/news/css/detail.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="450" column="23" lean-forward="false" selection-start-line="450" selection-start-column="18" selection-end-line="450" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front_page/news/css/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="57" column="20" lean-forward="false" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="20" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -226,9 +120,16 @@
       <find>Image</find>
       <find>//</find>
       <find>hover</find>
+      <find>.search_box</find>
+      <find>.fail(function (resp) {</find>
+      <find>401</find>
+      <find>.fail</find>
+      <find>多点</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot;</replace>
+      <replace>400</replace>
+      <replace>熊猫</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -253,13 +154,8 @@
         <option value="$PROJECT_DIR$/DDNews/DDNews/apps/news/search_indexes.py" />
         <option value="$PROJECT_DIR$/front_page/news/js/host.js" />
         <option value="$PROJECT_DIR$/front_page/news/css/author_center.css" />
-        <option value="$PROJECT_DIR$/front_page/news/index.html" />
         <option value="$PROJECT_DIR$/front_page/news/css/index_main.css" />
-        <option value="$PROJECT_DIR$/front_page/news/css/search.css" />
-        <option value="$PROJECT_DIR$/front_page/news/search.html" />
-        <option value="$PROJECT_DIR$/front_page/news/author_center.html" />
         <option value="$PROJECT_DIR$/front_page/news/css/user.css" />
-        <option value="$PROJECT_DIR$/front_page/news/js/user_center.js" />
         <option value="$PROJECT_DIR$/front_page/news/user_pass_info.html" />
         <option value="$PROJECT_DIR$/DDNews/DDNews/utils/fastdfs/fdfs_storage.py" />
         <option value="$PROJECT_DIR$/DDNews/DDNews/utils/fastdfs/client.conf" />
@@ -267,27 +163,32 @@
         <option value="$PROJECT_DIR$/front_page/news/user_baseinfo.html" />
         <option value="$PROJECT_DIR$/front_page/news/js/xss.js" />
         <option value="$PROJECT_DIR$/front_page/news/js/index_style.js" />
-        <option value="$PROJECT_DIR$/front_page/news/js/search.js" />
-        <option value="$PROJECT_DIR$/front_page/news/js/author_center.js" />
-        <option value="$PROJECT_DIR$/front_page/news/js/index_request.js" />
         <option value="$PROJECT_DIR$/front_page/news/js/tinymce_setup.js" />
         <option value="$PROJECT_DIR$/DDNews/DDNews/apps/news/serializers.py" />
         <option value="$PROJECT_DIR$/front_page/news/user_news_edit.html" />
-        <option value="$PROJECT_DIR$/front_page/news/user.html" />
-        <option value="$PROJECT_DIR$/front_page/news/user_news_list.html" />
-        <option value="$PROJECT_DIR$/front_page/news/js/news_edit_detail.js" />
-        <option value="$PROJECT_DIR$/front_page/news/js/user_all.js" />
-        <option value="$PROJECT_DIR$/front_page/news/user_news_update.html" />
         <option value="$PROJECT_DIR$/front_page/news/css/main.css" />
-        <option value="$PROJECT_DIR$/front_page/news/detail.html" />
         <option value="$PROJECT_DIR$/front_page/news/css/detail.css" />
-        <option value="$PROJECT_DIR$/DDNews/DDNews/apps/news/views.py" />
         <option value="$PROJECT_DIR$/DDNews/DDNews/apps/news/urls.py" />
         <option value="$PROJECT_DIR$/DDNews/DDNews/apps/news/models.py" />
-        <option value="$PROJECT_DIR$/front_page/news/js/main1.js" />
         <option value="$PROJECT_DIR$/DDNews/DDNews/apps/user/urls.py" />
+        <option value="$PROJECT_DIR$/DDNews/DDNews/apps/news/views.py" />
+        <option value="$PROJECT_DIR$/front_page/news/js/user_center.js" />
         <option value="$PROJECT_DIR$/front_page/news/js/detail.js" />
+        <option value="$PROJECT_DIR$/front_page/news/js/author_center.js" />
+        <option value="$PROJECT_DIR$/front_page/news/js/index_request.js" />
+        <option value="$PROJECT_DIR$/front_page/news/js/news_edit_detail.js" />
+        <option value="$PROJECT_DIR$/front_page/news/js/search.js" />
+        <option value="$PROJECT_DIR$/front_page/news/user_news_list.html" />
+        <option value="$PROJECT_DIR$/front_page/news/user_news_update.html" />
         <option value="$PROJECT_DIR$/DDNews/DDNews/apps/user/views.py" />
+        <option value="$PROJECT_DIR$/front_page/news/js/main1.js" />
+        <option value="$PROJECT_DIR$/front_page/news/css/search.css" />
+        <option value="$PROJECT_DIR$/front_page/news/search.html" />
+        <option value="$PROJECT_DIR$/front_page/news/author_center.html" />
+        <option value="$PROJECT_DIR$/front_page/news/detail.html" />
+        <option value="$PROJECT_DIR$/front_page/news/index.html" />
+        <option value="$PROJECT_DIR$/front_page/news/user.html" />
+        <option value="$PROJECT_DIR$/front_page/news/js/user_all.js" />
       </list>
     </option>
   </component>
@@ -485,6 +386,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DDNews" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DDNews" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DDNews" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DDNews" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="passport" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -958,11 +885,6 @@
           <line>195</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DDNews/DDNews/apps/news/views.py</url>
-          <line>143</line>
-          <option name="timeStamp" value="117" />
-        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -971,49 +893,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="200" />
+      <option name="time" value="202" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/rest_framework/fields.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="1529" column="0" lean-forward="false" selection-start-line="1529" selection-start-column="0" selection-end-line="1529" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/django/db/models/fields/files.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/utils/fastdfs/fdfs_storage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1150">
-          <caret line="46" column="20" lean-forward="true" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/fdfs_client/tracker_client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="383" column="42" lean-forward="false" selection-start-line="383" selection-start-column="42" selection-end-line="383" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/js/jquery.form.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2492">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front_page/news/js/wangEditor.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1085">
@@ -1089,13 +973,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-700">
-          <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/django/core/handlers/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
@@ -1135,20 +1012,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/js/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="2" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="2" />
-          <folding>
-            <marker date="1556800132613" expanded="true" signature="931:982" ph="..." />
-            <marker date="1556800132613" expanded="true" signature="1400:1406" ph=" " />
-            <marker date="1556800132613" expanded="true" signature="1428:1434" ph=" " />
-            <marker date="1556800132613" expanded="true" signature="1993:1999" ph=" " />
-            <marker date="1556800132613" expanded="true" signature="2021:2027" ph=" " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/b10c94b8/ab8c6bd5-ef3f-43db-8e52-30bc65f2604b/panda_new.tb_news">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1162,22 +1025,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front_page/news/js/tinymce_setup.js" />
-    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/passport/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="246" column="0" lean-forward="false" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#36#0" expanded="false" />
-            <element signature="e#450#872#0" expanded="false" />
-            <element signature="e#929#2743#0" expanded="false" />
-            <element signature="e#2800#4691#0" expanded="false" />
-            <element signature="e#4732#6611#0" expanded="false" />
-            <element signature="e#6648#7923#0" expanded="false" />
-            <element signature="e#7966#9490#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/meiduo_py3/lib/python3.5/site-packages/rest_framework/generics.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -1214,133 +1061,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/js/index_request.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#GetGoodNews#0" expanded="false" />
-            <element signature="n#!!block;n#GetGoodAuthor#0" expanded="false" />
-            <element signature="n#!!block;n#updateNewsSlideshow#0" expanded="false" />
-            <element signature="n#!!block;n#updateNewsData#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/js/index_style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-45">
-          <caret line="74" column="44" lean-forward="false" selection-start-line="74" selection-start-column="44" selection-end-line="74" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/user_follow.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="76" column="33" lean-forward="false" selection-start-line="75" selection-start-column="19" selection-end-line="76" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/js/user_center.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="42" column="10" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-114">
-          <caret line="80" column="83" lean-forward="false" selection-start-line="80" selection-start-column="83" selection-end-line="80" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/js/user_all.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="90" column="11" lean-forward="true" selection-start-line="90" selection-start-column="11" selection-end-line="90" selection-end-column="11" />
-          <folding>
-            <element signature="n#!!block;n#uploadImg#0" expanded="false" />
-            <element signature="n#!!block;n#changeUserPassword#0" expanded="false" />
-            <marker date="1556880435659" expanded="true" signature="6464:6483" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/user_news_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="41" column="90" lean-forward="false" selection-start-line="41" selection-start-column="90" selection-end-line="41" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/js/news_edit_detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#newupload_category#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/user_news_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1161">
-          <caret line="49" column="21" lean-forward="false" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/user_news_update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="73" column="20" lean-forward="false" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="77" column="25" lean-forward="true" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front_page/news/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="57" column="20" lean-forward="false" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="20" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <element signature="e#1#31#0" expanded="true" />
-            <element signature="e#809#1214#0" expanded="false" />
-            <element signature="e#1267#1808#0" expanded="false" />
-            <element signature="e#1858#2239#0" expanded="false" />
-            <element signature="e#2280#2481#0" expanded="false" />
-            <element signature="e#2550#3191#0" expanded="false" />
-            <element signature="e#3255#3492#0" expanded="false" />
-            <element signature="e#3548#4538#0" expanded="false" />
-            <element signature="e#4588#5136#0" expanded="false" />
-            <element signature="e#5182#5722#0" expanded="false" />
-            <element signature="e#5768#6248#0" expanded="false" />
-            <element signature="e#6294#7841#0" expanded="false" />
-            <element signature="e#7897#8195#0" expanded="false" />
-            <element signature="e#8242#8707#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1360,53 +1085,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/user_baseinfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-364">
-          <caret line="11" column="49" lean-forward="false" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="445">
           <caret line="124" column="73" lean-forward="true" selection-start-line="124" selection-start-column="73" selection-end-line="124" selection-end-column="73" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/js/author_center.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="60" column="49" lean-forward="false" selection-start-line="60" selection-start-column="49" selection-end-line="60" selection-end-column="49" />
-          <folding>
-            <element signature="n#!!block;n#Followedd#0" expanded="false" />
-            <marker date="1556800132733" expanded="true" signature="4487:4538" ph="..." />
-            <marker date="1556800132733" expanded="true" signature="4956:4962" ph=" " />
-            <marker date="1556800132733" expanded="true" signature="4984:4990" ph=" " />
-            <marker date="1556800132733" expanded="true" signature="5549:5555" ph=" " />
-            <marker date="1556800132733" expanded="true" signature="5577:5583" ph=" " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front_page/news/js/main1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="200" column="22" lean-forward="false" selection-start-line="200" selection-start-column="22" selection-end-line="200" selection-end-column="22" />
-          <folding>
-            <element signature="n#!!block;n#generateUUID#0" expanded="false" />
-            <element signature="n#!!block;n#getCategoryinfo#0" expanded="false" />
-            <element signature="n#!!block;n#generateImageCode#0" expanded="false" />
-            <element signature="n#!!block;n#getSearchKeys#0" expanded="false" />
-            <element signature="n#!!block;n#judge_jwt#0" expanded="false" />
-            <element signature="n#!!block;n#judge_user#0" expanded="false" />
-            <element signature="n#!!block;n#GetRequest#0" expanded="false" />
-            <element signature="n#!!block;n#FocusStyle#0" expanded="false" />
-            <element signature="n#!!block;n#index_GetRequest#0" expanded="false" />
-            <element signature="e#15946#17965#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1418,42 +1101,301 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/passport/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <folding>
+            <element signature="e#450#872#0" expanded="false" />
+            <element signature="e#929#2743#0" expanded="false" />
+            <element signature="e#2800#4691#0" expanded="false" />
+            <element signature="e#4732#6611#0" expanded="false" />
+            <element signature="e#6648#7923#0" expanded="false" />
+            <element signature="e#7966#9490#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/index_style.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="111" column="0" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/front_page/news/js/detail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="406" column="11" lean-forward="false" selection-start-line="406" selection-start-column="11" selection-end-line="406" selection-end-column="11" />
+        <state relative-caret-position="400">
+          <caret line="120" column="7" lean-forward="true" selection-start-line="116" selection-start-column="6" selection-end-line="120" selection-end-column="7" />
           <folding>
             <element signature="n#!!block;n#GetRequest#0" expanded="false" />
-            <element signature="n#!!block;n#Followed#0" expanded="false" />
-            <element signature="n#!!block;n#generate#0" expanded="false" />
+            <element signature="n#!!block;n#GetDetailNew#0" expanded="false" />
             <element signature="n#!!block;n#CollectionsStyle#0" expanded="false" />
             <element signature="n#!!block;n#FocusEvent#0" expanded="false" />
             <element signature="n#!!block;n#CollectEvent#0" expanded="false" />
-            <element signature="e#14607#14682#0" expanded="false" />
-            <element signature="e#15024#15665#0" expanded="false" />
-            <element signature="e#15069#15550#0" expanded="false" />
-            <element signature="e#15746#16303#0" expanded="false" />
+            <element signature="e#14931#15006#0" expanded="false" />
+            <element signature="e#15348#15989#0" expanded="false" />
+            <element signature="e#15393#15874#0" expanded="false" />
+            <element signature="e#16070#16627#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/author_center.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2729">
+          <caret line="55" column="44" lean-forward="false" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
+          <folding>
+            <element signature="e#4212#4365#0" expanded="false" />
+            <element signature="e#4392#6090#0" expanded="false" />
+            <element signature="n#!!block;n#GetFollowed#0" expanded="false" />
+            <element signature="n#!!block;n#GetAuthor_Fans#0" expanded="false" />
+            <element signature="n#!!block;n#getDetailCategoryinfo#0" expanded="false" />
+            <element signature="n#!!block;n#userClickAuthorClick#0" expanded="false" />
+            <marker date="1556894189725" expanded="true" signature="4814:4865" ph="..." />
+            <marker date="1556894189725" expanded="true" signature="5283:5289" ph=" " />
+            <marker date="1556894189725" expanded="true" signature="5311:5317" ph=" " />
+            <marker date="1556894189725" expanded="true" signature="5876:5882" ph=" " />
+            <marker date="1556894189725" expanded="true" signature="5904:5910" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/index_request.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="141" column="23" lean-forward="false" selection-start-line="141" selection-start-column="23" selection-end-line="141" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!block;n#GetGoodNews#0" expanded="false" />
+            <element signature="n#!!block;n#GetGoodAuthor#0" expanded="false" />
+            <element signature="n#!!block;n#updateNewsSlideshow#0" expanded="false" />
+            <element signature="n#!!block;n#updateNewsData#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/news_edit_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="181" column="7" lean-forward="false" selection-start-line="181" selection-start-column="7" selection-end-line="181" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!block;n#newupload_category#0" expanded="false" />
+            <element signature="e#2876#3798#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="68" column="11" lean-forward="false" selection-start-line="68" selection-start-column="6" selection-end-line="68" selection-end-column="11" />
+          <folding>
+            <marker date="1556894189709" expanded="true" signature="931:982" ph="..." />
+            <marker date="1556894189709" expanded="true" signature="1400:1406" ph=" " />
+            <marker date="1556894189709" expanded="true" signature="1428:1434" ph=" " />
+            <marker date="1556894189709" expanded="true" signature="1993:1999" ph=" " />
+            <marker date="1556894189709" expanded="true" signature="2021:2027" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/user_center.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="34" column="15" lean-forward="true" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/user_follow.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="76" column="33" lean-forward="false" selection-start-line="75" selection-start-column="19" selection-end-line="76" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/news/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1625">
+          <caret line="277" column="34" lean-forward="false" selection-start-line="277" selection-start-column="34" selection-end-line="277" selection-end-column="34" />
+          <folding>
+            <element signature="e#1#31#0" expanded="true" />
+            <element signature="e#809#1214#0" expanded="false" />
+            <element signature="e#1267#1819#0" expanded="false" />
+            <element signature="e#1869#2250#0" expanded="false" />
+            <element signature="e#2291#2492#0" expanded="false" />
+            <element signature="e#2561#3202#0" expanded="false" />
+            <element signature="e#3266#3503#0" expanded="false" />
+            <element signature="e#3559#4549#0" expanded="false" />
+            <element signature="e#4599#5147#0" expanded="false" />
+            <element signature="e#5193#5733#0" expanded="false" />
+            <element signature="e#5779#6259#0" expanded="false" />
+            <element signature="e#6305#7831#0" expanded="false" />
+            <element signature="e#7887#8185#0" expanded="false" />
+            <element signature="e#8232#8708#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/main1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="89" column="23" lean-forward="true" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!block;n#generateUUID#0" expanded="false" />
+            <element signature="n#!!block;n#generateImageCode#0" expanded="false" />
+            <element signature="n#!!block;n#getSearchKeys#0" expanded="false" />
+            <element signature="n#!!block;n#judge_jwt#0" expanded="false" />
+            <element signature="n#!!block;n#judge_user#0" expanded="false" />
+            <element signature="n#!!block;n#GetRequest#0" expanded="false" />
+            <element signature="n#!!block;n#FocusStyle#0" expanded="false" />
+            <element signature="n#!!block;n#index_GetRequest#0" expanded="false" />
+            <element signature="e#11277#13043#0" expanded="false" />
+            <element signature="e#13116#15309#0" expanded="false" />
+            <element signature="e#15369#17388#0" expanded="false" />
+            <element signature="e#17448#19199#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DDNews/DDNews/apps/user/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="78" column="15" lean-forward="false" selection-start-line="78" selection-start-column="15" selection-end-line="78" selection-end-column="15" />
+        <state relative-caret-position="-355">
+          <caret line="119" column="36" lean-forward="true" selection-start-line="119" selection-start-column="36" selection-end-line="119" selection-end-column="36" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
-            <element signature="e#631#1344#0" expanded="false" />
-            <element signature="e#2703#3583#0" expanded="false" />
-            <element signature="e#3646#4154#0" expanded="false" />
-            <element signature="e#5295#5550#0" expanded="false" />
-            <element signature="e#5598#5743#0" expanded="false" />
-            <element signature="e#5795#5941#0" expanded="false" />
-            <element signature="e#5987#6438#0" expanded="false" />
-            <element signature="e#6485#8038#0" expanded="false" />
-            <element signature="e#8087#9313#0" expanded="false" />
-            <element signature="e#9359#10407#0" expanded="false" />
-            <marker date="1556891527851" expanded="false" signature="4192:5242" ph="..." />
+            <element signature="e#492#1205#0" expanded="false" />
+            <element signature="e#1251#2505#0" expanded="false" />
+            <element signature="e#3529#4059#0" expanded="false" />
+            <element signature="e#4102#5215#0" expanded="false" />
+            <element signature="e#5266#5532#0" expanded="false" />
+            <element signature="e#5580#5725#0" expanded="false" />
+            <element signature="e#5777#5923#0" expanded="false" />
+            <element signature="e#5969#6420#0" expanded="false" />
+            <element signature="e#6467#8042#0" expanded="false" />
+            <element signature="e#8091#9317#0" expanded="false" />
+            <element signature="e#9363#10411#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/css/search.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="61" column="20" lean-forward="false" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/author_center.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3200">
+          <caret line="145" column="43" lean-forward="false" selection-start-line="145" selection-start-column="43" selection-end-line="145" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#span#1;n#a#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#4090#4096#0#HTML" expanded="true" />
+            <element signature="e#4145#4151#0#HTML" expanded="true" />
+            <element signature="e#4154#4160#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="160" column="43" lean-forward="false" selection-start-line="160" selection-start-column="43" selection-end-line="160" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#a#3;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="174" column="18" lean-forward="false" selection-start-line="174" selection-start-column="18" selection-end-line="174" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1484">
+          <caret line="22" column="48" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/user_baseinfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="11" column="49" lean-forward="false" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/user_collection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-59">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/user_news_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="41" column="90" lean-forward="false" selection-start-line="41" selection-start-column="90" selection-end-line="41" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/user_news_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="115" column="9" lean-forward="false" selection-start-line="115" selection-start-column="9" selection-end-line="115" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/user_news_update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="98" column="9" lean-forward="false" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/user_pass_info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-59">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front_page/news/js/user_all.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="238" column="9" lean-forward="false" selection-start-line="238" selection-start-column="9" selection-end-line="238" selection-end-column="9" />
+          <folding>
+            <element signature="n#!!block;n#uploadImg#0" expanded="false" />
+            <element signature="n#!!block;n#UserImg#0" expanded="false" />
+            <element signature="n#!!block;n#save_User_Info#0" expanded="false" />
+            <element signature="n#!!block;n#changeUserPassword#0" expanded="false" />
+            <marker date="1556895186512" expanded="true" signature="6676:6695" ph="..." />
           </folding>
         </state>
       </provider>

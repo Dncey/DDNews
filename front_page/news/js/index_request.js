@@ -218,8 +218,6 @@ function updateNewsSlideshow() {
         }
         content = "<div class='wrapper_radios'> <div class='item_radios active'></div> <div class='item_radios'></div> <div class='item_radios'></div>"
         $(".slide_show").append(content);
-    }).fail(function () {
-
     })
 }
 
@@ -282,9 +280,10 @@ function updateNewsData() {
                 $(".articles").append(content);
                 data_querying = false;
                 }
-    })
-    .fail(function() {
-        // alert("服务器超时，请重试！");
+    }).fail(function (resp) {
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
     });
 }
 

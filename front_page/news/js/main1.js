@@ -85,8 +85,9 @@ function getCategoryinfo() {
                 }
         $(".list").append("<span class='more_item'>更多</span>");
             }
+            category_id = index_GetRequest().category_id;
         //从其他页跳转到主页,携带的分类参数;
-       if(index_GetRequest().category_id){
+       if(category_id){
             $(".item[category_id="+index_GetRequest().category_id+"]").click();
             // $(".item[category_id='2']").click();
     }
@@ -272,24 +273,7 @@ $(function(){
     });
 
 
-    // 搜索下拉框点击搜索框显示，点击其他任意地方隐藏，用到了事件冒泡阻止，
-    $(".search_box").click(function(e){
-        // return false;
-        e.stopPropagation();
-        $(this).children(".suggestion").show();
-        // $(".suggestion").show();
-        $(".items").click(function(e){
-            e.stopPropagation();
-            var zz = $(this).children(".item_content").children().html();
-            $(".search_input").val(zz);
-            $(".suggestion").hide();
-            //need do
-            $.get("/search.html",{title:zz}, function(resp){
-                if(resp.errno=="0"){
-                }
-            });
-        });
-    });
+
 
 
 
@@ -800,85 +784,32 @@ $(function(){
         location.href = "search.html?search_keywords="+text;
     });
 
-
+    // 搜索下拉框点击搜索框显示，点击其他任意地方隐藏，用到了事件冒泡阻止，
+    $(".search_box").click(function(e){
+        // return false;
+        e.stopPropagation();
+        $(this).children(".suggestion").show();
+        // $(".suggestion").show();
+        $(".items").click(function(e){
+            e.stopPropagation();
+            var zz = $(this).children(".item_content").children().html();
+            $(".search_input").val(zz);
+            $(".suggestion").hide();
+            //need do
+            $.get("/search.html",{title:zz}, function(resp){
+            });
+        });
+    });
+    //点击其他地方搜索栏隐藏
+    $("body").click(function(e){
+        // return false;
+        // e.stopPropagation();
+        $(".suggestion").hide();
+    });
 });
 
 
     // ---------------------------------------------
-
-
-
-
-
-
-
-
-
-	// 根据地址栏的hash值来显示用户中心对应的菜单
-
-	// var sHash = window.location.hash;
-
-	// if(sHash!=""){
-
-	// 	var sId = sHash.substring(1);
-
-	// 	var oNow = $("."+sId);		
-
-	// 	var iNowIndex = oNow.index();
-
-	// 	$(".option_list li").eq(iNowIndex).addClass("active").siblings().removeClass("active");
-
-	// 	oNow.show().siblings().hide();
-
-	// }
-
-
-
-	// 用户中心菜单切换
-
-	// var $li = $(".option_list li");
-
-	// var $frame = $("#main_frame");
-
-
-
-	// $li.click(function(){
-
-	// 	if($(this).index()==5){
-
-	// 		$("#main_frame").css({"height":900});
-
-	// 	}
-
-	// 	else{
-
-	// 		$("#main_frame").css({"height":660});
-
-	// 	}
-
-	// 	$(this).addClass("active").siblings().removeClass("active");
-
-	// 	$(this).find("a")[0].click()
-
-	// })
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -915,17 +846,3 @@ function fnSetIframeHeight(num){
 
 }
 
-
-
-
-
-
-
-// function logout() {
-
-//     $.get("/logout",function (resp) {
-
-//         location.reload();
-
-//     })
-// }

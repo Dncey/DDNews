@@ -135,8 +135,10 @@ $(function(){
         parent.location.reload();
 
         }).fail(function (resp) {
-            alert(resp.errmsg);
-        })
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
+    });
 
 
     });
@@ -174,8 +176,10 @@ $(function(){
         parent.location.reload();
 
         }).fail(function (resp) {
-            alert(resp.errmsg);
-        })
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
+    });
 
 
     });
