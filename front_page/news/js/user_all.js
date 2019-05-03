@@ -24,7 +24,14 @@ function getUserInfo() {
              $("input[name='gender']:eq(0)").prop("checked",false);
          }
 
-         });
+         }).fail(function (resp) {
+            //如果签证token过期刷新页面
+             if(resp.status==401){
+                 location.reload();
+            parent.location.reload();
+             }
+             alert(resp.errmsg);
+        });
 }
 
 
@@ -62,9 +69,8 @@ function UserImg() {
             type: "put",
             headers: {
                 "Authorization": "JWT " + token
-            },
-            success: function (resp) {
-
+            }
+        }).done(function (resp){
                     sessionStorage.avatar_url = resp.avatar_url;
                     localStorage.avatar_url = resp.avatar_url;
                     //提示信息
@@ -74,7 +80,14 @@ function UserImg() {
                     $(".user_center_pic>img", parent.document).attr("src", resp.avatar_url);
                     $(".info_icon", parent.document).attr("src", resp.avatar_url);
                     parent.location.reload();
-                }
+                })
+        .fail(function (resp) {
+            //如果签证token过期刷新页面
+             if(resp.status==401){
+                 location.reload();
+            parent.location.reload();
+             }
+             alert(resp.errmsg);
         });
 
     });
@@ -131,6 +144,13 @@ function save_User_Info() {
          localStorage.username = user_info.username;
          alert("保存成功");
          parent.location.reload();
+        }).fail(function (resp) {
+            //如果签证token过期刷新页面
+             if(resp.status==401){
+                 location.reload();
+            parent.location.reload();
+             }
+             alert(resp.errmsg);
         });
 
 
@@ -176,6 +196,20 @@ function changeUserPassword() {
         sessionStorage.clear();
         localStorage.clear();
         parent.location.reload();
+        })
+            .fail(function (resp) {
+            //如果签证token过期刷新页面
+             if(resp.status==401){
+                 location.reload();
+            parent.location.reload();
+             }
+        }).fail(function (resp) {
+            //如果签证token过期刷新页面
+             if(resp.status==401){
+                 location.reload();
+            parent.location.reload();
+             }
+             alert(resp.errmsg);
         });
 
 

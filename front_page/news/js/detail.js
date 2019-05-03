@@ -3,6 +3,7 @@ var cur_page = 1; // 当前页
 var total_page = 1;  // 总页数
 var page_size = 10;
 
+
 //获取查询字符串的值
 function GetRequest() {
     var url = location.search;
@@ -64,7 +65,7 @@ function GetDetailNew() {
 
 
          }).fail(function (resp) {
-             console.log("hello");
+             alert(resp.responseJSON.errmsg)
          })
     }else {
         location.href="/" ;
@@ -73,21 +74,21 @@ function GetDetailNew() {
 }
 
 
-//获取收藏信息
-function GetCollected() {
-    params = {
-        "new_id":GetRequest()
-    };
-     $.ajax({
-        url:host+"/news/collected/",
-        type: "post",
-        data:JSON.stringify(params),
-        headers:{
-            "Authorization": "Bearer " + token
-        },
-        ContentType:"application/json"
-    });
-}
+// //获取收藏信息
+// function GetCollected() {
+//     params = {
+//         "new_id":GetRequest()
+//     };
+//      $.ajax({
+//         url:host+"/news/collected/",
+//         type: "post",
+//         data:JSON.stringify(params),
+//         headers:{
+//             "Authorization": "Bearer " + token
+//         },
+//         ContentType:"application/json"
+//     });
+// }
 
 //发起关注请求
 function Followed() {
@@ -116,8 +117,8 @@ function Followed() {
     })
 }
 
-//获取当前用户是否关注该作者
-function GetFollow() {
+//获取当前用户是否关注该作者，收藏该新闻
+function GetFollowAndCollection() {
     $.ajax({
         url:host+"/user/author/"+GetRequest().new_id+"/follow/",
         type: "get",
@@ -126,17 +127,28 @@ function GetFollow() {
         },
         ContentType:"application/json"
     }).done(function (resp) {
-        if(resp.data=="true"){
+        info = resp.data;
+        if(info.follow=="true"){
             $(".unfocus").css({"display":"inline-block"});
             $(".focus").css({"display":"none"});
         }else{
             $(".unfocus").css({"display":"none"});
         $(".focus").css({"display":"inline-block"});
         }
-    }).fail(function (resp) {
-        console.log("获取信息失败")
 
-    })
+        if(info.collection=="true"){
+            $(".al_collected").css({"display":"inline-block"});
+            $(".collected").css({"display":"none"});
+        }else {
+            $(".collected").css({"display":"inline-block"});
+            $(".al_collected").css({"display":"none"});
+        }
+
+
+
+    }).fail(function (resp) {
+             alert(resp.responseJSON.errmsg)
+         })
 }
 
 //取消关注
@@ -160,7 +172,56 @@ function Remove_Follow() {
         }else {
             alert(resp.errmsg)
         }
-});}
+}).fail(function (resp) {
+             alert(resp.responseJSON.errmsg)
+         })
+}
+
+//发送收藏请求
+function Collected() {
+    params = {
+        new_id: GetRequest().new_id
+    };
+
+    $.ajax({
+        url:host+"/user/news/collected/",
+        type: "post",
+        headers:{
+            "Authorization": "JWT " + token
+        },
+        data : params,
+
+        ContentType:"application/json"
+    }).done(function (resp) {
+            $(".al_collected").css({"display":"inline-block"});
+            $(".collected").css({"display":"none"});
+    }).fail(function (resp) {
+             alert(resp.responseJSON.errmsg)
+         })
+}
+
+//发送取消收藏请求
+function Uncollected() {
+    params = {
+        new_id: GetRequest().new_id
+    };
+
+    $.ajax({
+        url:host+"/user/news/collected/",
+        type: "delete",
+        headers:{
+            "Authorization": "JWT " + token
+        },
+        data : params,
+
+        ContentType:"application/json"
+    }).done(function (resp) {
+            $(".collected").css({"display":"inline-block"});
+            $(".al_collected").css({"display":"none"});
+    }).fail(function (resp) {
+             alert(resp.responseJSON.errmsg)
+         })
+}
 
 
 
@@ -208,8 +269,8 @@ function Add_comment(parent_id,comment) {
         }
 
 }).fail(function (resp) {
-        alert(resp.responseText);
-    });
+             alert(resp.responseJSON.errmsg)
+         })
 }
 
 
@@ -240,7 +301,9 @@ function subs_Addcomment(parent_id,comment,replay_name) {
         //文本输入框隐藏
             $(".reply_input").remove();
             reply_input_flag = 0;
-    })
+    }).fail(function (resp) {
+             alert(resp.responseJSON.errmsg)
+         })
 }
 
 //递归显示子评论
@@ -339,38 +402,24 @@ function Show_New_Comment() {
 
 
 
-    })
+    }).fail(function (resp) {
+             alert(resp.responseJSON.errmsg)
+         })
 }
 
 
-$(function () {
 
+//收藏鼠标移入移出效果
+function CollectionsStyle() {
+    $(".al_collected").mouseover(function () {
+       $(this).html("取消收藏")
+    }).mouseout(function () {
+        $(this).html("已收藏")
+    })
+}
 
-    //获取分类信息
-    getCategoryinfo();
-
-    //判断评论是否已经到底了
-    $(".comment_tip").click(function () {
-        cur_page += 1;
-        //获取评论信息
-        Show_New_Comment();
-    });
-
-
-
-    //获取新闻内容
-    GetDetailNew();
-
-    //获取关注状况
-    GetFollow();
-
-    //关注的鼠标移入移除样式
-    FocusStyle();
-
-    //获取评论信息
-    Show_New_Comment();
-
-    //点击关注按钮事件
+//关注点击事件
+function FocusEvent() {
     $(".focus").click(function () {
         //判断用户是否登录
         if(judge_user()){
@@ -390,6 +439,65 @@ $(function () {
         //取消关注
         Remove_Follow();
     });
+}
+
+//收藏按钮点击事件
+function CollectEvent() {
+    $(".collected").click(function () {
+        //判断用户是否登录
+        if(judge_user()){
+        // 发送收藏请求收藏该新闻
+        Collected();
+        }else {
+    //   将关注显示
+
+        $(".login_form_main").show();
+        $(".mask").show();
+        mask_flag=2;
+    }
+    });
+
+    //取消关注按钮点击
+    $(".al_collected").click(function () {
+        //取消收藏
+        Uncollected();
+    });
+}
+
+
+$(function () {
+
+
+    //获取分类信息
+    getCategoryinfo();
+
+    //判断评论是否已经到底了
+    $(".comment_tip").click(function () {
+        cur_page += 1;
+        //获取评论信息
+        Show_New_Comment();
+    });
+
+    //收藏鼠标移入移出效果
+    CollectionsStyle();
+
+    //获取新闻内容
+    GetDetailNew();
+
+    //获取关注状况
+    GetFollowAndCollection();
+
+    //关注的鼠标移入移除样式
+    FocusStyle();
+
+    //获取评论信息
+    Show_New_Comment();
+
+    //点击关注按钮事件
+    FocusEvent();
+
+    //收藏按钮点击事件
+    CollectEvent();
 
     //添加父评论\子评论
     $(document).on("click ",".add-comment-btn",function(){

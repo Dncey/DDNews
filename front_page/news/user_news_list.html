@@ -13,29 +13,7 @@
     <div class="news_list">
         <h3>新闻列表</h3>
         <ul class="article_list">
-            <li><a href="user_news_release.html">智能音箱“不智能”：这次轮到三星语音助手Bixby被吐槽了</a><em class="pass">已通过</em><span>2018-1-17</span></li>
-            <li><a href="#">智能音箱“不智能”：这次轮到三星语音助手Bixby被吐槽了</a><em class="pass">已通过</em><span>2018-1-17</span></li>
-            <li><a href="#">智能音箱“不智能”：这次轮到三星语音助手Bixby被吐槽了</a><em class="review">审核中</em><span>2018-1-17</span></li>
-            <li><a href="#">智能音箱“不智能”：这次轮到三星语音助手Bixby被吐槽了</a><em class="review">审核中</em><span>2018-1-17</span></li>
-            <li>
-                <a href="#">智能音箱“不智能”：这次轮到三星语音助手Bixby被吐槽了</a>
-                <em class="nopass">未通过</em>
-                <span>2018-1-17</span>
-                <b>未通过原因：因为写的太boring,因为写的太boring,因为写的太boring,因为写的太boring,</b>
-            </li>
-            <li>
-                <a href="#">智能音箱“不智能”：这次轮到三星语音助手Bixby被吐槽了</a>
-                <em class="nopass">未通过</em>
-                <span>2018-1-17</span>
-                <b>未通过原因：因为写的太煽情,因为写的太煽情,因为写的太煽情,因为写的太煽情,</b>
-            </li>
-            <li>
-                <a href="#">智能音箱“不智能”：这次轮到三星语音助手Bixby被吐槽了</a>
-                <em class="nopass">未通过</em>
-                <span>2018-1-17</span>
-                <b>未通过原因：因为写的太煽情,因为写的太煽情,因为写的太煽情,因为写的太煽情,</b>
-            </li>
-            <li><a href="#">智能音箱“不智能”：这次轮到三星语音助手Bixby被吐槽了</a><em class="review">审核中</em><span>2018-1-17</span></li>
+
         </ul>
         <div id="pagination" class="page"></div>
         <script>
@@ -58,10 +36,6 @@
                 });
 
             });
-
-
-
-
 
             function FirstGetAuthorNewStatus() {
                 var data ={
@@ -86,9 +60,19 @@
                         totalPage: resp.total_page
                     });
 
-
+                    $(".article_list").html('');
                     for(var i=0;i<resp.data.length;i++){
                          var news = resp.data[i];
+                         if(news.status==0){
+                             content = "<li><a href='user_news_update.html?new_id="+news.id+"'>"+news.title+"</a><em class='pass'>已通过</em><span>"+news.report_time+"</span></li>";
+                         }else if(news.status==1){
+                            content = "<li><a href='user_news_update.html?new_id="+news.id+"'>"+news.title+"</a><em class='review'>审核中</em><span>"+news.report_time+"</span></li>";
+                         }else {
+                content = " <li> <a href='user_news_update.html?new_id="+news.id+"'>"+news.title+"</a>";
+                content += "<em class='nopass'>未通过</em> <span>"+news.report_time+"</span>";
+                content += " <b>未通过原因："+news.reason+"</b> </li>";
+                         }
+                         $(".article_list").append(content);
                     }
                 })
 
@@ -112,9 +96,22 @@
                     data:data
                 })
                 .done(function(resp){
+                    $(".article_list").html('');
                     for(var i=0;i<resp.data.length;i++){
                          var news = resp.data[i];
+                         if(news.status==0){
+                             content = "<li><a href='user_news_update.html?new_id="+news.id+"'>"+news.title+"</a><em class='pass'>已通过</em><span>"+news.report_time+"</span></li>";
+                         }else if(news.status==1){
+                            content = "<li><a href='user_news_update.html?new_id="+news.id+"'>"+news.title+"</a><em class='review'>审核中</em><span>"+news.report_time+"</span></li>";
+                         }else {
+                content = " <li> <a href='user_news_update.html?new_id="+news.id+"'>"+news.title+"</a>";
+                content += "<em class='nopass'>未通过</em> <span>"+news.report_time+"</span>";
+                content += " <b>未通过原因："+news.reason+"</b> </li>";
+                         }
+                         $(".article_list").append(content);
                     }
+                }).fail(function (resp) {
+                    alert(resp.errmsg);
                 })
 
             }

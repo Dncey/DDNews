@@ -30,13 +30,7 @@ var error_div = "<div class='error_msg_inner'>"+errors+"</div>";
 }
 
 
-function getCookie(name) {
 
-    var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
-
-    return r ? r[1] : undefined;
-
-}
 
 function generateUUID() {
 
@@ -231,6 +225,8 @@ function FocusStyle() {
         $(".unfocus > .over").css({"display":"none"});
     })
 }
+
+
 
 
 //主页获取查询字符串(分类id)的值

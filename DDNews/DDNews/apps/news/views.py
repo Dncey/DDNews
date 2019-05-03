@@ -273,4 +273,30 @@ class Author_News_Status(ListAPIView):
 
     def get_queryset(self):
         user= self.request.user
-        return News.objects.filter(user=user,status=0)
+        return News.objects.filter(user=user)
+
+
+#更新修改新闻
+class Author_News_Update(APIView):
+    def get(self,request,pk):
+        user = request.user
+
+        new_id = pk
+
+        new = News.objects.filter(user=user,id=new_id).first()
+
+        if not new:
+            return Response({'errmsg':'参数错误'})
+
+        data = {}
+        data['title'] = new.title
+        data['category_id'] = new.category_id
+        data['digest'] = new.digest
+        data['content'] = new.content
+
+
+        return Response({"data":data})
+
+
+    def put(self,request,pk):
+        pass

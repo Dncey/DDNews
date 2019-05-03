@@ -75,6 +75,23 @@ function newupload_category() {
     });
 }
 
+//获取查询字符串的值
+function GetNewUpdate() {
+    var url = location.search;
+            //获取url中"?"符后的字串
+    var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+        for(var i = 0; i < strs.length; i ++) {
+            theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+            }
+        }else {
+            //如果没有查询字符串跳转到首页
+            return false;
+        }
+        return theRequest;
+    }
 
 
 $(function(){
@@ -114,7 +131,46 @@ $(function(){
     }).done(function (resp) {
 
         alert("上传成功，正在审核中");
-        location.reload()
+        location.reload();
+        parent.location.reload();
+
+        }).fail(function (resp) {
+            alert(resp.errmsg);
+        })
+
+
+    });
+
+    $(".news_update").submit(function (e) {
+        e.preventDefault();
+        // TODO 新闻编辑提交
+
+        // 获取url中的new_id,获取不到new_id直接返回
+        new_id = GetNewUpdate().new_id;
+        // //富文本新闻内容
+        // new_content = editor.txt.html();
+        // //防止xss攻击,过滤后的富文本内容
+        // filter_content = filterXSS(new_content);
+        // params = {
+        //     "title":$(".input_txt2").val(),
+        //     "category_id":$(".sel_opt").val(),
+        //     "digest":$(".input_multxt").html(),
+        //     "content":filter_content,
+        //     "text":editor.txt.text()
+        // };
+        $.ajax({
+        url:host+"/news/"+new_id+"/update/",
+        data:JSON.stringify(params),
+        type:"post",
+         headers: {
+                "Authorization": "JWT " + token
+            },
+        contentType:"application/json"
+
+    }).done(function (resp) {
+
+        alert("修改成功，正在审核中");
+        location.reload();
         parent.location.reload();
 
         }).fail(function (resp) {

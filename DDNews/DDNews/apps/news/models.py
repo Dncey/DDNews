@@ -122,7 +122,7 @@ class User_Collection(models.Model):
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='用户id')
     new = models.ForeignKey(News, on_delete=models.CASCADE, verbose_name='新闻id')
-
+    is_delete = models.BooleanField(default=False, verbose_name='标记是否删除')
     class Meta:
         db_table = 'tb_user_collection'
         verbose_name = '用户收藏表'

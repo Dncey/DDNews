@@ -21,9 +21,6 @@ function GetFollow_Author() {
             $(".unfocus").css({"display": "none"});
         $(".focus").css({"display": "inline-block"});
         }
-    }).fail(function (resp) {
-        console.log("获取信息失败");
-
     });
 }
 
@@ -118,7 +115,10 @@ function Remove_Follows(author_id) {
         }else {
             alert(resp.errmsg)
         }
-});}
+}).fail(function (resp) {
+        alert(resp.responseJSON.errmsg);
+    });
+}
 
 //作者新闻列表
 function updateAuthorNewsData() {

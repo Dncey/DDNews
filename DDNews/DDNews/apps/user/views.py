@@ -1,11 +1,10 @@
 from django.db.models import Count
-from django.shortcuts import render
+
 from rest_framework.views import APIView
-from rest_framework.viewsets import ModelViewSet
-from rest_framework.generics import RetrieveAPIView,ListAPIView,GenericAPIView
-from news.models import User_Fans,News,User
+from rest_framework.generics import RetrieveAPIView,ListAPIView
+from news.models import User_Fans,News,User,User_Collection
 from rest_framework.response import Response
-import rest_framework_jwt.authentication
+
 from .serializers import GetAuthor_Info_Serializer,Author_Fans, Author_Followed,User_Avatar_Url_Serializer
 #使用fastdfs 存储图片
 from fdfs_client.client import Fdfs_client
@@ -16,7 +15,7 @@ import hashlib
 
 
 
-# 首页获取推荐用户
+# 首页获取推荐作者
 class GetGoodAuthor(APIView):
     def get(self,request):
 
@@ -40,29 +39,113 @@ class GetGoodAuthor(APIView):
 
         return Response(user_list)
 
+#用户新闻收藏
+class UserNewCollection(APIView):
+    def post(self,request):
+        new_id = request.data.get('new_id')
+        user =request.user
+        try:
+            new = News.objects.get(id=new_id)
+        except:
+            return Response({'errmsg':'参数错误'},status=400)
+
+        #判断用户是有关注记录
+        user_collection =  User_Collection.objects.filter(new_id=new_id,user=user).first()
+        if user_collection:
+            #更改关注信息
+            user_collection.is_delete=False
+            user_collection.save()
+            return Response({'errmsg':'OK'})
+
+        #用户与该新闻没有关注信息，创建集合
+        User_Collection.objects.create(user=user,new=new)
+
+        return Response({'errmsg':'OK'})
+
+    def  delete(self,request):
+        new_id = request.data.get('new_id')
+        user = request.user
+
+        try:
+            #判断new_id信息是否正确
+            News.objects.get(id=new_id)
+        except:
+            return Response({'errmsg':'参数错误'},status=400)
+
+        # 判断用户是否未关注,只有关注才能删除
+        user_collection = User_Collection.objects.filter(new_id=new_id, user=user).first()
+
+        if not user_collection:
+            return Response({'errmsg': '该新闻您未关注,请先关注'}, status=400)
+
+        #标记删除
+        user_collection.is_delete = True
+
+        user_collection.save()
+
+        return Response({'errmsg':'OK'})
 
 
-
-#查询是new_id否关注
-class GetUserfollowd(APIView):
+#查询新闻详情页否关注
+class GetUserFollowAndCollection(APIView):
     def get(self,request,pk):
         new_id =pk
         try:
             new = News.objects.get(id=new_id)
         except:
-            return Response({'errmsg':'查询新闻失败'})
+            return Response({'errmsg':'参数错误'},status=400)
+
+        # 通过新闻id获取作者id
         author_id = new.user_id
 
         user = request.user
         user_id = user.id
+
+        data = {}
+
+        #查询用户是否收藏
+        user_collection= User_Collection.objects.filter(user=user,new_id=new_id,is_delete=False)
+        if not user_collection:
+            data['collection'] = 'false'
+        else:
+            data['collection'] = 'true'
+
+        #查询用户是否存在关注关系
         try:
             user_fan = User_Fans.objects.filter(follow_id=author_id,fan_id=user_id)
         except:
-            return Response({'errmsg':'查询数据失败'})
+            return Response({'errmsg':'查询数据失败'},status=400)
 
         if not user_fan:
-            return Response({'data':'false'})
-        return Response({'data':'true'})
+            data['follow'] = 'false'
+        else:
+            data['follow'] = 'true'
+
+        return Response({'data':data})
+
+
+# 作者中心页的关注信息　通过author_id是否关注
+class GetUserfollow(APIView):
+    def get(self, request, pk):
+
+        author_id = pk
+
+        try:
+            User.objects.get(id=author_id)
+        except:
+            return Response({'errmsg':'参数错误'},status=400)
+
+        user = request.user
+        user_id = user.id
+        try:
+            user_fan = User_Fans.objects.filter(follow_id=author_id, fan_id=user_id)
+        except:
+            return Response({'errmsg': '查询数据失败'},status=400)
+
+        if not user_fan:
+            return Response({'data': 'false'})
+        return Response({'data': 'true'})
+
 
 #关注与取消关注
 class User_Followed(APIView):
@@ -71,15 +154,15 @@ class User_Followed(APIView):
         user = self.request.user
 
         if user.id == int(author_id):
-            return Response({"errmsg":"自己不能关注自己"})
+            return Response({"errmsg":"自己不能关注自己"},status=400)
 
         try:
             author = User.objects.get(id=author_id)
         except:
-            return Response({'errmsg':'获取作者信息失败'})
+            return Response({'errmsg':'获取作者信息失败'},status=400)
 
         if not author:
-            return Response({'errmsg':'作者不存在'})
+            return Response({'errmsg':'作者不存在'},status=400)
 
 
         User_Fans.objects.create(fan=user,follow=author)
@@ -95,35 +178,18 @@ class User_Followed(APIView):
         try:
             author = User.objects.get(id=author_id)
         except:
-            return Response({'errmsg':'获取作者信息失败'})
+            return Response({'errmsg':'获取作者信息失败'},status=400)
 
         if not author:
-            return Response({'errmsg':'作者不存在'})
+            return Response({'errmsg':'作者不存在'},status=400)
 
 
         user_fans = User_Fans.objects.filter(fan=user, follow=author).first()
         if not user_fans:
-            return Response({'errmsg':'参数错误'})
+            return Response({'errmsg':'参数错误'},status=400)
 
         user_fans.delete()
         return Response({'errmsg':'OK'})
-
-
-#author_id是否关注
-class GetUserfollow(APIView):
-    def get(self,request,pk):
-
-        author_id = pk
-        user = request.user
-        user_id = user.id
-        try:
-            user_fan = User_Fans.objects.filter(follow_id=author_id,fan_id=user_id)
-        except:
-            return Response({'errmsg':'查询数据失败'})
-
-        if not user_fan:
-            return Response({'data':'false'})
-        return Response({'data':'true'})
 
 #获取作者信息
 class GetAuthor_Info(RetrieveAPIView):
@@ -133,7 +199,7 @@ class GetAuthor_Info(RetrieveAPIView):
         try:
             User.objects.get(id=pk)
         except:
-            return Response({'errmsg':'参数错误'})
+            return Response({'errmsg':'参数错误'},status=400)
 
         return User.objects.get(id=pk)
 
@@ -201,7 +267,7 @@ class GetUserBaseInfo(APIView):
         try:
             user = User.objects.get(id=user_id)
         except:
-            return Response({"errmsg":"用户数据错误"})
+            return Response({"errmsg":"用户数据错误"},status=400)
         if(len(signature)>50 | len(nick_name)>25):
             return Response({'errmsg':'用户名或签名过长'},status=400)
 
@@ -218,7 +284,7 @@ class GetUserBaseInfo(APIView):
         try:
             user.save()
         except Exception as e:
-            return Response({'errmsg':'保存失败'})
+            return Response({'errmsg':'保存失败'},status=400)
 
         #返回数据
         user_info = {}

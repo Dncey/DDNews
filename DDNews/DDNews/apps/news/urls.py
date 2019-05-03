@@ -36,6 +36,11 @@ urlpatterns = [
     #获取作者新闻上传状态
     url(r'^author/status_info/$',views.Author_News_Status.as_view()),
 
+    #作者上传后新闻的修改
+    url(r'^author/(?P<pk>\d+)/update/$',views.Author_News_Update.as_view()),
+
+
+
 
 
 

@@ -16,7 +16,7 @@ body {
 }
 .user_menu_con {
     width: 308px;
-    height: 600px;
+    height: 605px;
     background: #fff;
     border: 1px solid #ececee;
     margin: 100px 0 0 50px;
@@ -48,7 +48,7 @@ body {
     border-bottom: 1px solid #ededed;
 }
 .option_list li a{
-    line-height: 50px;
+    line-height: 73px;
     font-size: 14px;
     color: #333; 
 }
@@ -103,10 +103,16 @@ body {
     float: left;
     margin-right: 18px;
 }
-.form_group{
+.baseinfo .form_group,.pass_info .form_group{
     padding-bottom: 30px;
     overflow: hidden;
     line-height: 38px;
+}
+.form_group{
+    padding-bottom: 0;
+    overflow: hidden;
+    line-height: 38px;
+
 }
 .form_group label{
     font-size: 14px;
@@ -165,7 +171,7 @@ button{
     border-bottom: 1px solid #ededed;
 }
 .card_list_con {
-    width: 760px;
+
     overflow: hidden;
     margin-left: 10px;
 }
@@ -309,7 +315,7 @@ h3{
     margin: 0 auto;
     width: 700px;
     margin-top: 140px;
-    margin-left: 140px;
+
 }
 
 
@@ -337,8 +343,8 @@ h3{
 }
 
 .like-list {
-    width: 650px;
-    margin-left: 60px;
+    width: 700px;
+    margin: auto;
 }
 .like-list li {
     width: 100%;

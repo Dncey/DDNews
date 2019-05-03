@@ -5,9 +5,15 @@ urlpatterns = [
 
     # url(r'^$', views.IndexView),
 
-    # 查询该用户是否关注new_id作者
-    url(r'^author/(?P<pk>\d+)/follow/$', views.GetUserfollowd.as_view()),
-    # 查询是否关注个作者
+
+    #用户收藏
+
+    url(r'^news/collected/$', views.UserNewCollection.as_view()),
+
+    # 查询该用户是否关注new_id作者 新闻详情页
+    url(r'^author/(?P<pk>\d+)/follow/$', views.GetUserFollowAndCollection.as_view()),
+
+    # 查询是否关注该作者　　作者中心页
     url(r'^(?P<pk>\d+)/follow/$', views.GetUserfollow.as_view()),
 
     #查询推荐作者

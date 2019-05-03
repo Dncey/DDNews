@@ -45,9 +45,7 @@ body{
             text-align: center;
             color: white; 
 } */
-a:hover{
-    color: red;
-}
+
 .user_info_menu{
     display: none;
 }
@@ -640,10 +638,29 @@ body .forget_form_main{
  .header1 .user_info {
     display: none;
     margin-right: -50px;
+
 }
  .new_content img{
      width: 100%;
  }
  .main{
      width: 1200px;
+ }
+ .collected,.al_collected{
+     color: #fff;
+    background: blue;
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 30px 0 30px;
+    border-radius: 20px;
+    /* width: 55px; */
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+     margin-left: 300px;
+ }
+ .al_collected{
+     background: grey;
+     display: none;
  }
