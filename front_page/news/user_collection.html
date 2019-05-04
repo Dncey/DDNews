@@ -7,43 +7,174 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript" src="js/jquery.pagination.min.js"></script>
+	<script type="text/javascript" src="js/host.js"></script>
 </head>
 <body class="inframe_body">
     <div class="my_collect">
         <h3>我的收藏</h3>
         <ul class="like-list">
-            <li class="image">
-                <a href="/article/0LQenMYh" target="_blank" class="img-link">
-                    <img src="img/zz.jpg"></a>
-                <div class="doc-items-wrapper">
-                    <div class="doc-items">
-                        <a href="/article/0LQenMYh" target="_blank">
-                            <h4>朱立伦敏感时刻拜访韩国瑜 台媒直言政治意味浓厚</h4>
-                        </a><p><span>中国台湾网</span><span>0评</span><span>6小时前</span>
-                <span class="like-remove">
-                    <span class="rmcol">取消收藏</span>
-                    <i class="iconfont" data-id="0LQenMYh" >
 
-                    </i>
-                </span></p></div></div>
-                    </li>        
             </ul>
 
 
 
         <div id="pagination" class="page"></div>
+
+
+
+
+            </div>
+</body>
+
         <script>
-            $(function() {
-                $("#pagination").pagination({
-                    currentPage: 2,
-                    totalPage: 3,
-                    callback: function(current) {
-                        alert('ok!');
+             var token = sessionStorage.token || localStorage.token;
+
+
+            //var total_page=1;
+            $(function(){
+                //页面初次加载获取页码
+                FirstGetAuthorCollection();
+
+                //点击页码获取页面数据
+                $(document).on("click",".ui-pagination-page-item",function () {
+
+                    GetAuthorCollection($(this).attr("data-current"));
+                });
+
+                //取消收藏点击
+                $(document).on("click",".like-remove",function () {
+
+                    Uncollected($(this).children(".iconfont").attr("new_id"));
+                });
+
+
+            });
+
+            //第一次获取页吗第一页
+            function FirstGetAuthorCollection() {
+                var data ={
+                        "ordering":"-create_time",
+                        "page":'1',
+                        "page_size":'4'
+                        };
+                        $.ajax({
+                    url: host+"/user/news/collection/",
+                            headers:{
+                "Authorization": "JWT " + token
+        },
+                    type: "GET",
+                    ContentType:"application/json",
+
+                    data:data
+                })
+                .done(function(resp){
+                    $("#pagination").pagination({
+                         currentPage: 1,
+                        totalPage: resp.total_page
+                    });
+
+                    $(".like-list").html('');
+                    for(var i=0;i<resp.data.length;i++){
+                         var news = resp.data[i].new;
+                         if(news.index_image_url !=null){
+
+
+                             content = "<li class='image'>  <a href='detail.html?new_id="+news.id+"' target='_blank' class='img-link'>";
+
+                             content +="<img src='"+news.index_image_url+"'></a>";
+
+                             content +="<div class='doc-items-wrapper'> <div class='doc-items'>  <a href='detail.html?new_id="+news.id+"' target='_blank'>　<h4>"+news.title+"</h4>";
+
+
+                             content +="</a><p><span>"+news.source+"</span><span>"+news.clicks+"阅读</span>"+news.report_time+"</span> <span class='like-remove'> <span class='rmcol'>取消收藏</span>";
+
+                             content += "<i class='iconfont' new_id='"+news.id+"'> </i> </span></p></div></div> </li>";
+
+                         }
+                         $(".like-list").append(content);
+                    }
+                })
+
+            }
+
+             //获取点击后的页面
+            function GetAuthorCollection(current) {
+                var data ={
+                        "ordering":"-create_time_time",
+                        "page":String(current),
+                        "page_size":'4'
+                        };
+
+                        $.ajax({
+                    url: host+"/user/news/collection/",
+                            headers:{
+                "Authorization": "JWT " + token
+        },
+                    type: "GET",
+                    ContentType:"application/json",
+
+                    data:data
+                })
+                .done(function(resp){
+                    $("#pagination").pagination({
+                         currentPage: resp.page,
+                        totalPage: resp.total_page
+                    });
+                    $(".like-list").html('');
+                    for(var i=0;i<resp.data.length;i++){
+                         var news = resp.data[i].new;
+                         if(news.index_image_url !=null){
+
+
+                             content = "<li class='image'>  <a href='detail.html?new_id="+news.id+"' target='_blank' class='img-link'>";
+
+                             content +="<img src='"+news.index_image_url+"'></a>";
+
+                             content +="<div class='doc-items-wrapper'> <div class='doc-items'>  <a href='detail.html?new_id="+news.id+"' target='_blank'>　<h4>"+news.title+"</h4>";
+
+
+                             content +="</a><p><span>"+news.source+"</span><span>"+news.clicks+"阅读</span>"+news.report_time+"</span> <span class='like-remove'> <span class='rmcol'>取消收藏</span>";
+
+                             content += "<i class='iconfont' new_id='"+news.id+"'> </i> </span></p></div></div> </li>";
+
+                         }
+                         $(".like-list").append(content);
+                    }
+                }).fail(function (resp) {
+                    if(resp.status==400){
+            alert(resp.responseJSON.errmsg);
+        }
+                })
+
+            }
+
+
+            //取消关注的点击
+            //发送取消收藏请求
+            function Uncollected(new_id) {
+                params = {
+                    new_id: new_id
+                };
+
+                $.ajax({
+                    url:host+"/user/news/collected/",
+                    type: "delete",
+                    headers:{
+                        "Authorization": "JWT " + token
+                    },
+                    data : params,
+
+                    ContentType:"application/json"
+                }).done(function (resp) {
+                        location.reload();
+                }).fail(function (resp) {
+                    if(resp.status==400){
+                        alert(resp.responseJSON.errmsg)
                     }
                 });
-            });
+            }
+
         </script>
 
-    </div>
-</body>
+
 </html>

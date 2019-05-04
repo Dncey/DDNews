@@ -90,7 +90,6 @@ class CollectionNewListSerializer(ModelSerializer):
 # 收藏新闻列表获取序列化器
 class Get_UserNewsCollection_Serializer(ModelSerializer):
     # 嵌套作者信息返回
-    user = User_Avatar_Url_Serializer()
     new = CollectionNewListSerializer()
 
     class Meta:

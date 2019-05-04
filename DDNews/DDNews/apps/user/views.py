@@ -99,7 +99,7 @@ class GetUserNewsCollections(ListAPIView):
     def get_queryset(self):
         user = self.request.user
 
-        return User_Collection.objects.filter(user=user)
+        return User_Collection.objects.filter(user=user,is_delete=False)
 
     # 去掉self.request可以让图片没有本地域名的前缀
     def get_serializer_context(self):
