@@ -1,6 +1,7 @@
 from rest_framework.serializers import Serializer,ModelSerializer
-from news.models import User,User_Fans,News
+from news.models import User,User_Fans,News,Comment,User_Collection
 from rest_framework.serializers import SerializerMethodField
+from rest_framework import serializers
 
 
 class Author_Good_News(ModelSerializer):
@@ -56,7 +57,6 @@ class Author_Followed(ModelSerializer):
         return User_Avatar_Url_Serializer(user,many=True).data
 
 # 作者的粉丝
-
 class Author_Fans(ModelSerializer):
 
     user_info = SerializerMethodField()
@@ -67,3 +67,32 @@ class Author_Fans(ModelSerializer):
     def get_user_info(self,obj):
         user = User.objects.filter(id=obj.fan_id).all()
         return User_Avatar_Url_Serializer(user,many=True).data
+
+
+# 收藏信息子新闻列表
+class CollectionNewListSerializer(ModelSerializer):
+    report_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", required=False, read_only=True)
+    # 该新闻评论数
+    comment = serializers.SerializerMethodField()
+
+    class Meta:
+        model = News
+        fields = ('id', 'title', 'source', 'index_image_url', 'digest', 'report_time', 'user', 'clicks', 'comment')
+
+    def get_comment(self, obj):
+        comment = Comment.objects.filter(new=obj).count()
+        if comment:
+            return comment
+        else:
+            return 0
+
+
+# 收藏新闻列表获取序列化器
+class Get_UserNewsCollection_Serializer(ModelSerializer):
+    # 嵌套作者信息返回
+    user = User_Avatar_Url_Serializer()
+    new = CollectionNewListSerializer()
+
+    class Meta:
+        model = User_Collection
+        fields = ('id', 'user', 'new')

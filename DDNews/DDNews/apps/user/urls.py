@@ -6,8 +6,7 @@ urlpatterns = [
     # url(r'^$', views.IndexView),
 
 
-    #用户收藏
-
+    #用户收藏的添加和取消
     url(r'^news/collected/$', views.UserNewCollection.as_view()),
 
     # 查询该用户是否关注new_id作者 新闻详情页
@@ -41,6 +40,9 @@ urlpatterns = [
 
     #用户头像上传
     url(r'(?P<pk>\d+)/avatar/$',views.UploadUserAvatar.as_view()),
+
+    #作者中心获取收藏新闻信息
+    url(r'news/collection/$',views.GetUserNewsCollections.as_view()),
 
 ]
 

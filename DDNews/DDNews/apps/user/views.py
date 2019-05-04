@@ -5,11 +5,12 @@ from rest_framework.generics import RetrieveAPIView,ListAPIView
 from news.models import User_Fans,News,User,User_Collection
 from rest_framework.response import Response
 
-from .serializers import GetAuthor_Info_Serializer,Author_Fans, Author_Followed,User_Avatar_Url_Serializer
+from .serializers import GetAuthor_Info_Serializer,Author_Fans, Author_Followed,User_Avatar_Url_Serializer,Get_UserNewsCollection_Serializer
 #使用fastdfs 存储图片
 from fdfs_client.client import Fdfs_client
 import base64
-
+from DDNews.utils.pagination import Newlist_Paginations
+from rest_framework.filters import OrderingFilter
 
 import hashlib
 
@@ -39,7 +40,8 @@ class GetGoodAuthor(APIView):
 
         return Response(user_list)
 
-#用户新闻收藏
+
+#用户新闻收藏的添加和取消
 class UserNewCollection(APIView):
     def post(self,request):
         new_id = request.data.get('new_id')
@@ -84,6 +86,30 @@ class UserNewCollection(APIView):
         user_collection.save()
 
         return Response({'errmsg':'OK'})
+
+#用户收藏新闻的获取
+class GetUserNewsCollections(ListAPIView):
+    serializer_class = Get_UserNewsCollection_Serializer
+    pagination_class = Newlist_Paginations
+    # 注册排序的使用
+    filter_backends = [OrderingFilter]
+    # 排序指定字段
+    ordering = ['-create_time']
+
+    def get_queryset(self):
+        user = self.request.user
+
+        return User_Collection.objects.filter(user=user)
+
+    # 去掉self.request可以让图片没有本地域名的前缀
+    def get_serializer_context(self):
+        """
+        Extra context provided to the serializer class.
+        """
+        return {
+            'format': self.format_kwarg,
+            'view': self
+        }
 
 
 #查询新闻详情页否关注
