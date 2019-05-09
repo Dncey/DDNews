@@ -188,8 +188,6 @@ class User_Register(APIView):
         if not is_checked :
             return Response({'errmsg':'请选择用户评论|发布新闻协议'})
 
-
-
         if password != confirm_pwd:
             return Response({'errmsg':'密码输入不一致'})
 
@@ -250,9 +248,9 @@ class User_Login(APIView):
         password = request.data.get('password')
         md5 = hashlib.md5()
         md5.update(password.encode())
-        #获取加密后的值
+        #获取MD5加密后的值
         passwd = md5.hexdigest()
-
+        #正则表达式
         mobile = re.match(r'1[356789]\d{9}$', login_text)
 
         email = re.match(r"[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,3}$",login_text)

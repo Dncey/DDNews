@@ -172,14 +172,12 @@ class Author_Newlist(ListAPIView):
 
 #搜索新闻
 class NewsSearchView(ListAPIView):
-
-    def get_queryset(self):
-
-        pk= self.request.query_params.get('keywords')
-        return News.objects.filter(Q(title__contains=pk)|Q(digest_label__contains=pk),status=0).order_by("-report_time")
-
     serializer_class = Get_Newslist_Serializer
     pagination_class = Newlist_Paginations
+
+    def get_queryset(self):
+        pk= self.request.query_params.get('keywords')
+        return News.objects.filter(Q(title__contains=pk)|Q(digest_label__contains=pk),status=0).order_by("-report_time")
 
     # 去掉self.request可以让图片没有本地域名的前缀
     def get_serializer_context(self):

@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'news.apps.NewsConfig',
     'user.apps.UserConfig',
     'passport.apps.PassportConfig',
+    'pandaNewAdmin.apps.PandanewadminConfig',
 
     'rest_framework',
     'rest_framework.authtoken', # 设置token
@@ -255,7 +256,8 @@ LOGGING = {
 # CORS 允许跨域请求的域名和端口
 CORS_ORIGIN_WHITELIST = (
     '127.0.0.1:8080',
-    '192.168.134.1:8080'
+    '192.168.134.1:8080',
+    "localhost:63342"
 
 )
 CORS_ALLOW_CREDENTIALS = True  # 允许携带cookie

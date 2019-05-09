@@ -150,7 +150,6 @@ class Childrens_Conten_Serializer(ModelSerializer):
 
     # def get_user(self,obj):
     #     return obj.instance.user.username
-
 #父级评论
 class New_Get_Comment_Serializer(ModelSerializer):
 

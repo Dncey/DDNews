@@ -120,6 +120,7 @@ $(function () {
 
     //搜索文章
     $(".article_search").click(function () {
+
         cur_page=1;
         current_id =1;
         $(".articles").html("");
@@ -138,7 +139,7 @@ $(function () {
 
     });
 
-    $(".xbox li").click(function () {
+    $(".xbox >li").click(function () {
         $(this).addClass("item_border").siblings().removeClass("item_border")
     });
 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新经资讯后台管理</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/admin_main.css">
+    <script src="js/host.js" type="text/javascript"></script>
+    <script src="js/jquery-1.12.4.min.js" type="text/javascript"></script>
+</head>
+<body>
+	<div class="login_logo">
+		<img src="img/logo.png" alt="">
+	</div>	
+	<form class="login_form">
+		<h1 class="login_title">用户登录</h1>
+		<input type="text" name="username" placeholder="用户名" class="input_txt">
+		<input type="password" name="password" placeholder="密码" class="input_txt">
+		<div class="error_tip">错误提示</div>
+		<input type="submit" value="登 录" class="input_sub">
+	</form>
+	<div class="login_bg"></div>
+</body>
+<script>
+
+    $(function () {
+
+        $(".login_form").submit(function (e) {
+            e.preventDefault();
+            username = $("input[name='username']").val();
+            password = $("input[name='password']").val();
+
+
+            if(! (username && password)){
+                $(".error_tip").html('请输入用户名或密码').show();
+                return;
+            }
+
+
+            params = {
+                username :username,
+                password:password
+            };
+
+            $.ajax({
+        url: host + "/admin/login/",
+                data:params,
+        type: "post",
+        ContentType:"application/json"
+
+        }).done(function (resp) {
+            sessionStorage.clear();
+            localStorage.clear();
+            localStorage["token"] = resp.token;
+            localStorage["username"] = resp.username;
+            localStorage["user_id"] = resp.user_id;
+            localStorage["avatar_url"] = resp.avatar_url;
+            localStorage["is_admin"] = resp.is_admin;
+            location.href = "admin_index.html"
+        }).fail(function (resp) {
+            $(".error_tip").html(resp.responseJSON.errmsg).show()
+        });
+
+    })
+
+    })
+
+
+</script>
+</html>

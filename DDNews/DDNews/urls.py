@@ -21,8 +21,14 @@ import news
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
     # url(r'^/', news.views.IndexView),
+    #新闻模块
     url(r'^news/', include('news.urls')),
+    #登录注册相关模块
     url(r'^passport/', include('passport.urls')),
+    #用户模块
     url(r'^user/', include('user.urls')),
+    #管理员
+    url(r'^admin/', include('pandaNewAdmin.urls')),
+    #验证jwt
     url(r'^judge_jwt/$', verify_jwt_token),
 ]
