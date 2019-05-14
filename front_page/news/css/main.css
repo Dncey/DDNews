@@ -468,15 +468,15 @@ h3{
     margin-left: 20px;
 }
 /* 审核通过 */
-.article_list li .pass {
+.article_list li .pass,.common_table .pass {
     color: green;
 }
 /* 审核中 */
-.article_list li .review {
+.article_list li .review,.common_table .reviewing {
     color: #dca80a;
 }
 /* 未通过 */
-.article_list li .nopass {
+.article_list li .nopass,.common_table .nopass  {
     color: #f00;
 }
 

@@ -9,7 +9,7 @@ $(function () {
 
     //判断用户是否登录
     if( !judge_user()){
-        alert("请登录后今日个人中心");
+        alert("请登录后进入个人中心");
         location.href="/";
     }
     //根据用户点击菜单添加效果事件

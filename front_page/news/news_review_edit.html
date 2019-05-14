@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新经资讯后台管理</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery.form.min.js"></script>
+	<script src="js/wangEditor.min.js" type="text/javascript"></script>
+    <script src="js/xss.js" type="text/javascript"></script>
+	<script src="js/host.js"></script>
+	<script src="js/news_edit_detail.js"></script>
+</head>
+<body>
+		<div class="pannel">
+			<form class="status_update">
+			<h3 class="review_title">新闻版式编辑</h3>
+	    	<div class="form_group">
+	    		<label>新闻标题：</label>
+	    		<input type="text" class="input_txt2" value="">
+	    	</div>
+	    	<div class="form_group">
+				<label>新闻分类：</label>
+				<select class="sel_opt">
+
+				</select>
+			</div>
+			<div class="form_group">
+				<label>新闻摘要：</label>
+				<textarea class="input_multxt"></textarea>
+			</div>
+			
+			<div class="form_group">
+				<label>新闻内容：</label>
+				<div id="new_detail">
+
+				</div>
+			</div>
+             <div class="form_group indent_group">
+                <input type="radio" name="action" checked="" value="accept"> 通过&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="action" value="reject"> 拒绝通过
+            </div>
+            <div class="form_group group_hide">
+                <label>拒绝原因：</label>
+                <textarea class="input_multxt_reason" name="reason"></textarea>
+            </div>
+			<div class="form_group indent_group line_top">
+				<input type="submit" value="确定" class="confirm">
+				<input type="button" value="取消" class="cancel" onclick="location.reload();">
+			</div>
+			</form>	
+		</div>
+</body>
+<script>
+//获取查询字符串的值
+    function GetNewUpdate() {
+    var url = location.search;
+            //获取url中"?"符后的字串
+    var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+        for(var i = 0; i < strs.length; i ++) {
+            theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+            }
+        }else {
+            //如果没有查询字符串跳转到首页
+            return false;
+        }
+        return theRequest;
+    }
+
+
+
+    $(function () {
+
+        //审核是否通过．
+        var $radio = $('input[name="action"]');
+        $radio.click(function () {
+            if ($(this).index() == 1) {
+                $('.group_hide').show();
+            }
+            else {
+                $('.group_hide').hide();
+            }
+        });
+
+
+        if (!GetNewUpdate().new_id) {
+            alert("新闻id缺失");
+        }
+        new_id = GetNewUpdate().new_id;
+
+        $(function () {
+            if (!GetNewUpdate().new_id) {
+                alert("新闻id缺失");
+            }
+            new_id = GetNewUpdate().new_id;
+
+            //发送获取修改新闻列表的详情信息
+            $.ajax({
+                url: host + "/admin/author/new/" + new_id + "/review/",
+                type: "get",
+                headers: {
+                    "Authorization": "JWT " + token
+                },
+                contentType: "application/json"
+
+            }).done(function (resp) {
+
+                new_info = resp.data;
+                $(".input_txt2").attr("value", new_info.title);
+                $(".sel_opt").val(new_info.category_id);
+
+                $(".input_multxt").html(new_info.digest);
+                editor.txt.html(new_info.content);
+
+            }).fail(function (resp) {
+
+                //如果签证token过期刷新页面
+                if (resp.status == 401) {
+                    location.reload();
+                    parent.location.reload();
+                }
+                if (resp.status == 400) {
+                    alert(resp.responseJSON.errmsg);
+                }
+
+            })
+        })
+    })
+
+
+</script>
+
+</html>

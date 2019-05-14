@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>熊猫资讯后台管理</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/admin_main.css">
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/host.js"></script>
+	<script type="text/javascript" src="js/jquery.pagination.min.js"></script>
+</head>
+<body>
+	<div class="breadcrub">
+			当前位置：新闻管理>新闻审核
+			<form class="news_filter_form">
+				<input type="text" placeholder="请输入关键字" class="input_txt">
+				<input type="submit" value="搜 索" class="input_sub">
+			</form>
+		</div>
+		<div class="pannel">
+			<table class="common_table">
+                <tr class='table_head'> <th width='3%'>id</th> <th width='70%'>标题</th> <th width='15%'>发布时间</th> <th width='5%'>状态</th> <th width='8%'>管理操作</th> </tr>
+
+			</table>
+		</div>
+
+		<div class="box">
+			<div id="pagination" class="page"></div>
+		</div>
+
+        <script>
+
+
+            var token = sessionStorage.token || localStorage.token;
+
+             function FirstGetAuthorNew() {
+                var data ={
+                        "ordering":"-report_time",
+                        "page":'1',
+                        "page_size":'10'
+                        };
+
+                        $.ajax({
+                    url: host+"/admin/author/news/",
+                            headers:{
+                "Authorization": "JWT " + token
+        },
+                    type: "GET",
+                    ContentType:"application/json",
+
+                    data:data
+                })
+                .done(function(resp){
+                    $("#pagination").pagination({
+                         currentPage: 1,
+                        totalPage: resp.total_page
+                    });
+                    $(".table_head").siblings().remove();
+                    for(var i=0;i<resp.data.length;i++){
+                         var news = resp.data[i];
+                         content = "<tr> <td>"+news.id+"</td> <td class='tleft'>"+news.title+"</td> <td>"+news.report_time+"</td>";
+
+                         if(news.status==0){
+                             content += "<td class='pass'>已通过</td>";
+                         }else if(news.status==1){
+                            content += "<td class='reviewing'>审核中</td>";
+                         }else {
+                content += "<td class='nopass'>未通过</td>";
+                         }
+                         content += "<td> <a href='news_review_edit.html?new_id="+news.id+"' class='review'>审核</a> </td> </tr>";
+                         $(".common_table").append(content);
+                    }
+                })
+
+            }
+
+            function GetAuthorNew(current) {
+                 var data ={
+                        "ordering":"-report_time",
+                        "page":String(current),
+                        "page_size":'10'
+                        };
+
+                        $.ajax({
+                    url: host+"/admin/author/news/",
+                            headers:{
+                "Authorization": "JWT " + token
+        },
+                    type: "GET",
+                    ContentType:"application/json",
+
+                    data:data
+                })
+                .done(function(resp){
+
+                    $(".table_head").siblings().remove();
+
+                    for(var i=0;i<resp.data.length;i++){
+                         var news = resp.data[i];
+                         content = "<tr> <td>"+news.id+"</td> <td class='tleft'>"+news.title+"</td> <td>"+news.report_time+"</td>";
+
+                         if(news.status==0){
+                             content += "<td class='pass'>已通过</td>";
+                         }else if(news.status==1){
+                            content += "<td class='reviewing'>审核中</td>";
+                         }else {
+                content += "<td class='nopass'>未通过</td>";
+                         }
+                         content += "<td> <a href='news_review_detail.html?new_id="+news.id+"' class='review'>审核</a> </td> </tr>";
+                         $(".common_table").append(content);
+                    }
+                })
+            }
+
+
+
+			$(function() {
+
+
+			     //加载页面
+			     FirstGetAuthorNew();
+
+
+			     $(document).on("click",".ui-pagination-page-item",function () {
+
+                    GetAuthorNew($(this).attr("data-current"));
+                });
+
+
+			});
+		</script>
+
+	
+</body>
+</html>

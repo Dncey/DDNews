@@ -1,4 +1,4 @@
-var token = sessionStorage.token || localStorage.token;
+var token = localStorage.token||sessionStorage.token  ;
 var E = window.wangEditor;
 var editor = new E('#new_detail');
 
@@ -102,7 +102,7 @@ $(function(){
     //符文本编辑器创建
     editor.create();
 
-
+    //新闻上传
     $(".news_edit").submit(function (e) {
         e.preventDefault();
         // TODO 新闻编辑提交
@@ -142,7 +142,7 @@ $(function(){
 
 
     });
-
+    //新闻修改
     $(".news_update").submit(function (e) {
         e.preventDefault();
         // TODO 新闻编辑提交
@@ -183,6 +183,49 @@ $(function(){
 
 
     });
+    //新闻审核
+    $(".status_update").submit(function (e) {
+        e.preventDefault();
+        // TODO 新闻编辑提交
+
+        // 获取url中的new_id,获取不到new_id直接返回
+        new_id = GetNewUpdate().new_id;
+        // //富文本新闻内容
+        new_content = editor.txt.html();
+        //防止xss攻击,过滤后的富文本内容
+        filter_content = filterXSS(new_content);
+        params = {
+            "title":$(".input_txt2").val(),
+            "category_id":$(".sel_opt").val(),
+            "digest":$(".input_multxt").html(),
+            "content":filter_content,
+            "review_status":$("input[name='action']").filter(":checked").val(),
+            "reason":$(".input_multxt_reason").html()
+        };
+        $.ajax({
+        url:host+"/admin/author/new/"+new_id+"/review/",
+        data:JSON.stringify(params),
+        type:"put",
+         headers: {
+                "Authorization": "JWT " + token
+            },
+        contentType:"application/json"
+
+    }).done(function (resp) {
+
+        alert("修改成功");
+        location.reload();
+        parent.location.reload();
+
+        }).fail(function (resp) {
+        if(resp.status==400){
+            alert(resp.responseJSON.errmsg)
+        }
+    });
+
+
+    });
+
 });
 
 // 点击取消，返回上一页

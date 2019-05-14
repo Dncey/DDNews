@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>新经资讯后台管理</title>
+	<title>熊猫资讯后台管理</title>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/admin_main.css">
-	<script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/host.js"></script>
+	<script type="text/javascript" src="js/echarts.js"></script>
 </head>
 <body>
 	<div class="breadcrub">
@@ -13,28 +15,32 @@
 	</div>
 	<div class="spannels">
 		<div class="spannel scolor01">
-			<em>36365</em><span>人</span>
+			<em></em><span>人</span>
 			<b>用户总数</b>
 		</div>
 		<div class="spannel scolor02">
-			<em>146</em><span>人</span>
+			<em></em><span>人</span>
 			<b>用户月新增数</b>
 		</div>
 		<div class="spannel2 scolor03">
-			<em>32</em><span>人</span>
+			<em></em><span>人</span>
 			<b>用户日新增数</b>
 		</div>		
 	</div>
-	
+
+
 	<div class="pannel">
 		<div id="chart_show" class="chart_show"></div>
 	</div>
 	<script>
+        var token = sessionStorage.token || localStorage.token;
+            //绘制月活跃人数
         var oChart = echarts.init(document.getElementById('chart_show'), null, {renderer: 'svg'});
 
-		var chartopt = {
+        oChart.showLoading();
+        var chartopt = {
 					    title:{
-					        text: '用户登录活跃数',
+					        text: '用户日登录活跃度',
 		                    left: 'center',
 		                    top: '10'
 					    },
@@ -55,28 +61,28 @@
 					            saveAsImage : {show: true}
 					        }
 					    },
-				    	calculable : true,               
+				    	calculable : true,
 					    xAxis : [
 					        {
 		                        name: '今天',
 					            type : 'category',
 					            boundaryGap : false,
-					            data : ["08:15","09:15","10:15","11:15","12:15","13:15","14:15","15:15","16:15","17:15","18:15","19:15"]
+					            data : []
 					        }
-					    ],        
+					    ],
 					    yAxis : [
 					        {
 		                        name: '活跃用户数量',
 					            type : 'value'
 					        }
-					    ],      
+					    ],
 					    series : [
 					        {
 					            name:'active',
 					            type:'line',
 					            smooth:true,
 					            itemStyle: {normal: {areaStyle: {type: 'default'}, color: '#f80'}, lineStyle: {color: '#f80'}},
-					            data:[14951,14861,7186,15861,14951,14861,7186,14951,14861,7186,15861,14951]
+					            data:[]
 					        }],
 					    areaStyle:{
 						        normal:{
@@ -95,8 +101,37 @@
 						    }
 
             			};
+        //显示标题图列和空的坐标轴
+        oChart.setOption(chartopt);
 
-            oChart.setOption(chartopt);
+        $(function () {
+        $.ajax({
+             url: host + "/admin/user_day_active/",
+              type: "GET",
+              headers:{
+                "Authorization": "JWT " + token
+        },
+        ContentType:"application/json"
+        }).done(function (resp) {
+
+            $(".scolor01 em").html(resp.total_count);
+            $(".scolor02 em").html(resp.mon_count);
+            $(".scolor03 em").html(resp.day_count);
+
+            oChart.hideLoading();
+            oChart.setOption({
+                xAxis:{
+                    data:resp.active_date
+                },
+                series:[{
+                    data:resp.active_count
+                }]
+            })
+        });
+        })
+
+
+
 
 	</script>
 </body>

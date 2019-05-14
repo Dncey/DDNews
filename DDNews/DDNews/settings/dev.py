@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'passport.apps.PassportConfig',
     'pandaNewAdmin.apps.PandanewadminConfig',
-
+    'django_filters', # 查询过滤
     'rest_framework',
     'rest_framework.authtoken', # 设置token
 ]
@@ -158,12 +158,17 @@ REST_FRAMEWORK = {
     #     'rest_framework.permissions.IsAuthenticated',
     # ),
     #
+    #配置过滤
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
+    ,
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ),
+    #设置分页
 'DEFAULT_PAGINATION_CLASS': 'DDNews.utils.pagination.Default_Paginations',
+
 }
 
 #token有效期

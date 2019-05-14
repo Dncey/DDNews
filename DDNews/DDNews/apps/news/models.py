@@ -85,7 +85,7 @@ class News(BaseModel):
         (2, "审核不通过"),
     )
 
-    title = models.CharField(max_length=256, null=False, verbose_name='新闻标题')
+    title = models.CharField(max_length=254, null=False, unique=True,verbose_name='新闻标题')
     source = models.CharField(max_length=64, null=False)
     index_image_url = models.CharField(max_length=256,null=True,verbose_name='新闻索引图片路径')
     index_image_url_list = models.CharField(max_length=256,verbose_name='新闻索引图片路径',null=True)

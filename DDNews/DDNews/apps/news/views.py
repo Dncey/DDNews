@@ -146,7 +146,7 @@ class New_Comment(ListAPIView,CreateAPIView):
         return Response(serializer.data)
 
 
-#作者新闻页新闻获取
+#作者个人新闻页新闻获取
 class Author_Newlist(ListAPIView):
     serializer_class = Get_Newslist_Serializer
     pagination_class = Newlist_Paginations
@@ -207,7 +207,7 @@ class NewsImageUpload(APIView):
         return Response({'errno':0,"url":image_url})
 
 
-#新闻内容上传
+#用户新闻内容上传
 class NewContent_upload(APIView):
     def post(self,request):
         title =request.data.get('title')

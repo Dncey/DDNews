@@ -10,7 +10,7 @@ from rest_framework.views import APIView
 from DDNews.lib.captcha.captcha import captcha
 import hashlib
 from rest_framework_jwt.settings import api_settings
-
+from datetime import datetime
 # Create your views here.
 
 #获取图片验证码
@@ -264,7 +264,8 @@ class User_Login(APIView):
 
         if not user:
             return Response({'errmsg':'用户或密码错误'})
-
+        user.last_login=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        user.save()
         # 生成token
         jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
         jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
@@ -320,6 +321,7 @@ class User_ResetPwd(APIView):
         try:
             user = User.objects.filter(mobile=mobile).first()
             user.password =passwd
+            user.last_login = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             user.save()
         except:
             return Response({'errmsg':'保存数据失败'})

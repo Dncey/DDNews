@@ -15,7 +15,7 @@ from fdfs_client.client import Fdfs_client
 class ToutiaoPipeline(object):
     def open_spider(self, spider):  # 在爬虫开启的时候仅执行一次
         # if spider.name == 'toutiao':
-        self.f = open('/home/python/Desktop/Scrapy/Toutiaojson2.txt', 'a', encoding='utf-8')
+        self.f = open('/home/python/Desktop/DDNews/Scrapy/Toutiao/news.txt', 'a', encoding='utf-8')
 
     def process_item(self, item, spider):
         # if spider.name == 'toutiao':
