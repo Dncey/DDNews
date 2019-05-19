@@ -54,6 +54,9 @@ SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 SCHEDULER_PERSIST = True
 REDIS_URL = "redis://127.0.0.1:6379"
 
+#每次执行时清空redis数据
+# SCHEDULER_FLUSH_ON_START = True
+
 
 
 # Disable cookies (enabled by default)
@@ -95,8 +98,6 @@ ITEM_PIPELINES = {
     'scrapy_redis.pipelines.RedisPipeline': 400,
 }
 
-# 娱乐、游戏、体育、财经、热文、科技、军事、国际
-channel_list = ['news_entertainment','news_game','news_sports','news_finance','news_hot','news_tech','news_military','funny','news_world']
 
 #代理ip池
 PROXY_LIST =[

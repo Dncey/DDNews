@@ -2,9 +2,8 @@
 import scrapy
 from scrapy.http import Request
 from scrapy_redis.utils import bytes_to_str
-
 from Toutiao.items import ToutiaoItem
-from Toutiao.settings import channel_list
+
 import json
 import time
 import execjs
@@ -101,6 +100,9 @@ class TouTiaoSpider(RedisSpider):
         # else:
         #     # 如果后期没有这个机制的话，那就恢复原来的处理机制，啥也不做
         #     pass
+        # 娱乐、游戏、体育、财经、热文、科技、军事、国际
+        channel_list = ['news_entertainment', 'news_game', 'news_sports', 'news_finance', 'news_hot', 'news_tech','news_military', 'funny', 'news_world']
+
         url = 'https://www.toutiao.com/api/pc/feed/?category={}&utm_source=toutiao&widen=1&max_behot_time={}&max_behot_time_tmp={}&tadrequire=true&as={}&cp={}&_signature={}'
 
         while True:
@@ -109,9 +111,8 @@ class TouTiaoSpider(RedisSpider):
             eas = Honey['as']
             ecp = Honey['cp']
             signature = Honey['_signature']
-            category = random.choice(channel_list)
 
-            yield scrapy.Request(url.format(category,'0','0',eas,ecp,signature),callback=self.process_category,dont_filter=True)
+            yield scrapy.Request(url.format(random.choice(channel_list),'0','0',eas,ecp,signature),callback=self.process_category,dont_filter=True)
 
 
     def process_category(self,response):

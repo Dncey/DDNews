@@ -4,11 +4,10 @@ from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework_jwt.settings import api_settings
-from news.models import News,NewsCategory
+from news.models import News,NewsCategory,User,Slide_image
 from django.db.models import Count
 from DDNews.utils.pagination import Newlist_Paginations
-from .serializers import All_author_Get_Newslist_Serializer
-from news.models import User
+from .serializers import All_author_Get_Newslist_Serializer,Slide_image_Serializer
 import hashlib
 import time
 from datetime import datetime, timedelta
@@ -108,11 +107,10 @@ class User_Day_Active(APIView):
 
 
 #新闻数据统计
-
 class News_Detail_Analysis(APIView):
     def get(self,request):
 
-        #-------获取用户-作者分布
+        #-------获取用户-作者分布-----------
         #查询所有用户发布的新闻个数
         author = News.objects.all().values('user_id').annotate(count=Count('user_id'))
         #获取作者的数量
@@ -126,43 +124,87 @@ class News_Detail_Analysis(APIView):
         author_user['author_count']=author_count
         author_user['user_count']=user_count
 
-        #------获取当前新闻分类数量
-        new_category = News.objects.all().values('category').annotate(count=Count('category_id'))
+        #------获取当前新闻分类数量-----------
+        new_category_count = News.objects.all().values('category').annotate(count=Count('category_id'))
 
         #遍历查到的分类ｉｄ,把分类id替换成分类名字
-        for x in new_category:
-            x['category'] = NewsCategory.objects.get(id=x['category']).name
-
-        #-------周作者新闻发布排行
+        new_category_data_distribute = []
+        for x in new_category_count:
+            dict_info = {}
+            #构造数据格式
+            dict_info['name'] = NewsCategory.objects.get(id=x['category']).name
+            dict_info['value'] = x['count']
+            new_category_data_distribute.append(dict_info)
+        #-------周作者新闻发布排行-----------
 
         # 获取到当天00:00:00时间
         now_date = datetime.strptime(datetime.now().strftime('%Y-%m-%d'), '%Y-%m-%d')
-
         #获取七天前的日期
         begin_date = now_date - timedelta(days=6)
         print(begin_date.strftime('%Y-%m-%d'))
         #获取新闻上传日期是７天前到今天新闻的作者的数量
-        wekkend_order_author = News.objects.filter(create_time__gte=begin_date).all().values('user_id').annotate(count=Count('user_id'))
+        week_order_author = News.objects.filter(create_time__gte=begin_date).all()[:12].values('user_id').annotate(count=Count('user_id'))
 
-        #把用户id换成用户姓名
-        for y in wekkend_order_author:
-            y['user_id']=User.objects.get(id=y['user_id']).username
+        author_name = []
+        author_release_count=[]
+        #把名字与数量分类
+        for y in week_order_author:
+            author_name.append(User.objects.get(id=y['user_id']).username)
+            author_release_count.append(y['count'])
+        week_author_rank = {}
+        week_author_rank['author_name'] = author_name
+        week_author_rank['author_release_count'] =author_release_count
+        #--------获取一周内各分类新闻的发布量-----------
+            # 获取到当天00:00:00时间
+        now_date = datetime.strptime(datetime.now().strftime('%Y-%m-%d'), '%Y-%m-%d')
+        #发布日期
+        release_date = []
+        #存储分类信息
+        new_category_list = []
 
-        #--------获取一周内各分类新闻的发布量
+        #存储所有发布数量数据
+        new_category_info = {}
 
+        #获取查询分类信息
+        new_category = NewsCategory.objects.all()[0:9]
+        #将分类信息添加到列表中
+        for x in new_category:
+            new_category_list.append(x.name)
 
+        # 遍历每个分类装入列表
+        #只需要一次日期，标记
+        flag = 1
+        for x in new_category_list:
+            #存储该分类每天发布数量
 
+            category_count = []
+            for i in range(0, 7):
+                begin_date = now_date - timedelta(days=i)
+                end_date = now_date - timedelta(days=(i - 1))
 
+                if flag==1:
+                    release_date.append(begin_date.strftime('%Y-%m-%d'))
+                day_new_count = News.objects.filter(category__name=x,report_time__gte=begin_date,report_time__lt=end_date).count()
+                category_count.append(day_new_count)
+            flag = 0
+            #倒推出，需要进行反转
+            category_count.reverse()
+            release_date.reverse()
+            new_category_info[x] = category_count
 
+        #把信息汇集一起
+        week_category_release = {}
+        week_category_release['date'] = release_date
+        week_category_release['week_count'] = new_category_info
+        week_category_release['category'] = new_category_list
 
         data = {
             'author_user':author_user,
-            'new_category':new_category,
-            'wekkend_order_author':wekkend_order_author,
+            'new_category_distribute':new_category_data_distribute,
+            'week_author_rank':week_author_rank,
+            'week_category_release':week_category_release
         }
         return Response(data)
-
-
 
 
 #所有作者新闻获取
@@ -239,3 +281,34 @@ class Author_New_Review(APIView):
         new.content =content
         new.save()
         return Response({'errmsg':'保存成功'})
+
+
+#新闻轮播图
+class New_Slide(APIView):
+    def post(self,request,pk):
+
+        #默认只能设置１０个
+        if Slide_image.objects.all().count()>=10:
+            return Response({'errmsg':'最多添加10个，如需添加请到轮播图管理页面删除'},status=400)
+        try:
+            new = News.objects.get(id=pk)
+        except:
+            return Response({'errmsg':'参数错误'},status=400)
+
+        if not new.index_image_url:
+            return Response({'errmsg':'该新闻没有索引图无法展示'},status=400)
+        #如果已经添加在返回错误信息
+        try:
+            Slide_image.objects.get(new=new)
+        except:
+            Slide_image.objects.create(new=new,title=new.title,url=new.index_image_url,is_recommend=True)
+            return Response({'errmsg':'已添加至轮播图，请到轮播图管理页面选择展示'})
+        else:
+            return Response({'errmsg':'请勿重复添加'})
+
+    def get(self,request):
+
+        slide_news = Slide_image.objects.all()[:10]
+        serializer = Slide_image_Serializer(slide_news,many=True)
+
+        return Response(serializer.data)

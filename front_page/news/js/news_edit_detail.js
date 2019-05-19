@@ -114,7 +114,7 @@ $(function(){
         params = {
             "title":$(".input_txt2").val(),
             "category_id":$(".sel_opt").val(),
-            "digest":$(".input_multxt").html(),
+            "digest":$(".input_multxt").val(),
             "content":filter_content,
             "text":editor.txt.text()
         };
@@ -150,20 +150,20 @@ $(function(){
         // 获取url中的new_id,获取不到new_id直接返回
         new_id = GetNewUpdate().new_id;
         // //富文本新闻内容
-        // new_content = editor.txt.html();
+        new_content = editor.txt.html();
         // //防止xss攻击,过滤后的富文本内容
-        // filter_content = filterXSS(new_content);
-        // params = {
-        //     "title":$(".input_txt2").val(),
-        //     "category_id":$(".sel_opt").val(),
-        //     "digest":$(".input_multxt").html(),
-        //     "content":filter_content,
-        //     "text":editor.txt.text()
-        // };
+        filter_content = filterXSS(new_content);
+        params = {
+            "title":$(".input_txt2").val(),
+            "category_id":$(".sel_opt").val(),
+            "digest":$(".input_multxt").val(),
+            "content":filter_content,
+            "text":editor.txt.text()
+        };
         $.ajax({
-        url:host+"/news/"+new_id+"/update/",
+        url:host+"/news/author/"+new_id+"/update/",
         data:JSON.stringify(params),
-        type:"post",
+        type:"put",
          headers: {
                 "Authorization": "JWT " + token
             },

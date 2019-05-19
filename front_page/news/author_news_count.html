@@ -15,12 +15,15 @@
 	</div>
  <div id="author_user" style="width: 400px;height:300px;margin-left: 29px;"></div>
 <div id="category_count" style="width: 400px;height:300px;margin-left: 429px;margin-top: -300px;"></div>
-<div id="user_release" style="width: 400px;height:300px;margin-left: 800px;margin-top: -300px;"></div>
+<div id="user_release" style="width: 800px;height:300px;margin-left: 800px;margin-top: -300px;"></div>
 <div id="category_release" style="height:500px;margin-left: 29px;margin-top:10px;"></div>
 </body>
 <script>
+    var token = sessionStorage.token || localStorage.token;
     //作者－用户分布饼图
-     echarts.init(document.getElementById('author_user'),null, {renderer: 'svg'}).setOption({
+     var author_user = echarts.init(document.getElementById('author_user'),null, {renderer: 'svg'});
+     author_user.showLoading();
+     author_user.setOption({
             series: {
                 type: 'pie',
                 data: [
@@ -77,8 +80,12 @@
         },
          backgroundColor: 'pink'
         });
+
+
      //当前新闻分类分布饼图
-     echarts.init(document.getElementById('category_count'),null, {renderer: 'svg'}).setOption({
+    var New_category = echarts.init(document.getElementById('category_count'),null, {renderer: 'svg'});
+     New_category.showLoading();
+     New_category.setOption({
            title : {
         text: '当前新闻分类分布',
         x:'center'
@@ -99,23 +106,15 @@
             name:'新闻分类',
             type:'pie',
             radius : '55%',
-            center: ['50%', '60%'],
-            data:[
-                {value:335, name:'游戏'},
-                {value:310, name:'科技'},
-                {value:234, name:'娱乐'},
-                {value:135, name:'军事'},
-                {value:300, name:'动漫'},
-                {value:200, name:'财经'},
-                {value:600, name:'搞笑'},
-                {value:400, name:'国际'}
-            ]
+            center: ['50%', '60%']
         }
     ]
      });
 
      //周作者发布排行柱状图
-     echarts.init(document.getElementById('user_release'),null, {renderer: 'svg'}).setOption({
+    var author_release = echarts.init(document.getElementById('user_release'),null, {renderer: 'svg'});
+    author_release.showLoading();
+     author_release.setOption({
           title : {
         text: '周作者新闻发布排行',
         x:'center'
@@ -130,7 +129,11 @@
     xAxis : [
         {
             type : 'category',
-            data : ['张三','李四','王五','snag','yy','zxy','小欣','小光','菜菜']
+            data : [] ,
+            axisLabel:{
+            interval:0,//横轴信息全部显示
+            rotate:-15//-15度角倾斜显示
+            }
         }
     ],
     yAxis : [
@@ -141,14 +144,15 @@
     series : [
         {
             name:'周文章发布',
-            type:'bar',
-            data:[55, 48, 46, 42, 38, 35,30,28,22],
-        },
+            type:'bar'
+        }
     ]
      });
 
-    //月分类文章发布量
-     echarts.init(document.getElementById('category_release'),null, {renderer: 'svg'}).setOption({
+    //周分类文章发布量
+    var category_release = echarts.init(document.getElementById('category_release'),null, {renderer: 'svg'});
+     category_release.showLoading();
+     category_release.setOption({
 
          title: {
             text: '分类新闻日发布对比折线图',
@@ -176,61 +180,70 @@
   }},
     label: {},
     tooltip: {trigger: 'axis'  }, // axis   item   none三个值 },
-    series: [  {
-            name:'游戏',
-            type:'line',
+    series: []
+     });
 
-            data:[120, 132, 101, 134, 90, 230, 210]
+    $(function () {
+        $.ajax({
+             url: host + "/admin/news_analysis/",
+              type: "GET",
+              headers:{
+                "Authorization": "JWT " + token
         },
-        {
-            name:'科技',
-            type:'line',
+        ContentType:"application/json"
+        }).done(function (resp) {
 
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'娱乐',
-            type:'line',
+            //作者－用户分布饼图------------
+            author_user_data = resp.author_user;
+            author_user.hideLoading();
+            author_user.setOption({
+                series:[{
+                    data:[{name: '作者', value: author_user_data.author_count},
+                    {name: '用户', value: author_user_data.user_count}]
+                }]
+            });
+            //新闻分类分布饼图-----------
+            New_category_data = resp.new_category_distribute;
+            New_category.hideLoading();
+            New_category.setOption({series:[{
+                    data:New_category_data
+                }]});
 
-            data:[150, 232, 201, 154, 190, 330, 410]
-        },
-        {
-            name:'体育',
-            type:'line',
+            //周作者发布排行柱状图-------
+            author_release_data = resp.week_author_rank;
+            author_release.hideLoading();
+            author_release.setOption({
+                xAxis :[{data:author_release_data.author_name}],
+                series:[{data:author_release_data.author_release_count}]
+                });
+            //周分类发布量折线图---------------
+            category_release_data = resp.week_category_release;
+                //用数组保存
+            var info_array = [];
+            for(var m=0;m<category_release_data.category.length;m++){
+                //获取名字
+                category_name = category_release_data.category[m];
 
-            data:[320, 332, 301, 334, 390, 330, 320]
-        },
-        {
-            name:'军事',
-            type:'line',
+                info_array.push({
+                    //通过分类取出该分类的数量添加到echarts插件中
+                    data:category_release_data.week_count[category_name],
+                    name:category_name,
+                    type:'line'
+                })
+            }
+            console.log(info_array);
+            category_release.hideLoading();
+            category_release.setOption({
+                legend: {data:category_release_data.category},
+                //日期
+                xAxis:{data:category_release_data.date},
+                //折线图数据
+                series:info_array
+            });
 
-            data:[520, 432, 201, 134, 500, 530, 620]
-        },
-        {
-            name:'动漫',
-            type:'line',
 
-            data:[220, 432, 301, 434, 690, 530, 820]
-        },
-        {
-            name:'财经',
-            type:'line',
-
-            data:[320, 432,201, 634, 590, 330, 720]
-        },
-        {
-            name:'搞笑',
-            type:'line',
-
-            data:[420, 832, 501, 734, 290, 430, 320]
-        },
-        {
-            name:'国际',
-            type:'line',
-
-            data:[420, 332,201, 634, 790, 730, 520]
-        }]
-     })
+            })
+        })
 
 
 </script>

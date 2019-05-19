@@ -18,4 +18,7 @@ urlpatterns = [
 
     #新闻审核
     url(r'^author/new/(?P<pk>\d+)/review/$',views.Author_New_Review.as_view()),
+
+    #广告轮播
+    url(r'^(?P<pk>\d+)/slide_new/$',views.New_Slide.as_view()),
 ]

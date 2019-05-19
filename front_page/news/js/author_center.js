@@ -85,11 +85,11 @@ function Get_Author_info() {
        //近期佳文
        for(var i=0;i<resp.good_articles.length;i++){
            new_list = resp.good_articles[i];
-           if(i%2==0){
+           if(!new_list.index_image_url){
                //样式一
                content = "<li> <div class='line'>  <div class='rbox'> <div class='rbox-inner'> <a target='_blank' title='"+new_list.title+"' href='detail.html?new_id="+new_list.id+"'>"+new_list.title+"</a> <span>"+new_list.clicks+"阅读</span>  </div> </div> </div> </li>"
            }else{
-               //样式二
+               //样式二有图
                content = "<li> <div class='line image'> <a class='lbox' target='_blank' href='detail.html?new_id="+new_list.id+"'> <img alt='' src='"+new_list.index_image_url+"'>   </a> <div class='rbox'> <div class='rbox-inner'> <a target='_blank' title='"+new_list.title+"detail.html?new_id="+new_list.id+"'>"+new_list.title+"</a> <span>"+new_list.clicks+"阅读</span>  </div> </div> </div> </li>"
            }
            $(".recent ul").append(content);

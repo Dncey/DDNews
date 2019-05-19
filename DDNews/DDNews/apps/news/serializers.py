@@ -63,20 +63,22 @@ class New_Detail_Serializer(ModelSerializer):
     user = User_Report_Serializer()
     report_time = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S")
 
+    comment_count= serializers.SerializerMethodField()
     #获取右侧相关新闻信息
     relate_news = serializers.SerializerMethodField()
     class Meta:
         model = News
         fields = (
-        'id', 'title', 'source', 'digest', 'report_time', 'user','content','digest_label','clicks','relate_news')
+        'id', 'title', 'source', 'digest', 'report_time', 'user','content','digest_label','clicks','relate_news','comment_count')
 
     def get_relate_news(self,obj):
-        num = random.randint(0,500)
+        new_count=News.objects.filter(category_id=obj.category_id).count()
+        num = random.randint(0,new_count)
         news = News.objects.filter(category_id=obj.category_id,status=0).order_by('-clicks').all()[num:num+5]
-
-
         return Relate_News(news,many=True).data
+    def get_comment_count(self,obj):
 
+        return Comment.objects.filter(new_id=obj.id).count()
 
 #新闻评论
 class New_Add_Comment_Serializer(ModelSerializer):

@@ -217,8 +217,8 @@
             color: white;
             cursor: pointer;
         }
-        .item_style{
-            border-bottom: 2px solid white;
+        a.item.item_style{
+            border-bottom: 2px solid yellow;
             color:#ffea94;
         }
         .item:hover{

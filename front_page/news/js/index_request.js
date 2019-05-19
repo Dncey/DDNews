@@ -31,6 +31,7 @@ $(function () {
 
 
         $(this).addClass("item_style").siblings().removeClass("item_style");
+        $("a[category_id='"+clickCid+"']").addClass("item_style").siblings().removeClass("item_style");
 
         if(clickCid ==0){
             $(".slide_show").css({"display":"block"});
@@ -169,7 +170,6 @@ function GetGoodNews() {
 }
 
 //获取推荐作者
-
 function GetGoodAuthor() {
      $.ajax({
         url:host+"/user/good/",

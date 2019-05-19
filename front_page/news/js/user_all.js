@@ -48,7 +48,6 @@ function uploadImg(element, tag) {
         var reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = function() {
-            console.log(this.result);
             imgSrc = this.result;
             element.attr("src", imgSrc);
         };
@@ -72,7 +71,7 @@ function UserImg() {
             headers: {
                 "Authorization": "JWT " + token
             }
-        }).done(function (resp){
+        ,success:function(resp){
                     sessionStorage.avatar_url = resp.avatar_url;
                     localStorage.avatar_url = resp.avatar_url;
                     //提示信息
@@ -82,8 +81,8 @@ function UserImg() {
                     $(".user_center_pic>img", parent.document).attr("src", resp.avatar_url);
                     $(".info_icon", parent.document).attr("src", resp.avatar_url);
                     parent.location.reload();
-                })
-        .fail(function (resp) {
+                },
+        error:function (resp){
             //如果签证token过期刷新页面
              if(resp.status==401){
                  location.reload();
@@ -92,9 +91,8 @@ function UserImg() {
         if(resp.status==400){
             alert(resp.responseJSON.errmsg);
         }
-
+        }
         });
-
     });
 }
 

@@ -22,7 +22,7 @@ class Category_info(APIView):
 
         categorys_list = []
         categorys = NewsCategory.objects.all()
-        for category in categorys[0:9]:
+        for category in categorys[:9]:
             dict = {}
             dict['id'] = category.id
             dict['name'] = category.name
@@ -33,6 +33,7 @@ class Category_info(APIView):
             'data':categorys_list
         }
         return Response(context)
+
 
 #获取首页轮播图信息
 class Get_Slideshow_Apiview(APIView):
@@ -295,4 +296,37 @@ class Author_News_Update(APIView):
 
 
     def put(self,request,pk):
-        pass
+        user = request.user
+        title = request.data.get('title')
+        category_id = request.data.get('category_id')
+        digest = request.data.get('digest')
+
+        try:
+            NewsCategory.objects.get(id=category_id)
+        except:
+            return Response({'errmsg': "参数错误"}, status=400)
+
+
+        new = News.objects.filter(user=user, id=pk).first()
+
+        if not new:
+            return Response({'errmsg': '参数错误'}, status=400)
+
+        # 带标签的新闻内容
+        content = request.data.get('content')
+
+        # 纯文本内容
+        text = request.data.get('text')
+        # 如果文章简要为空，则默认为标题
+        if not digest:
+            digest = text[:80]
+
+        new.title =title
+        new.category_id = category_id
+        new.digest=digest
+        new.content = content
+        try:
+            new.save()
+        except:
+            return Response({'errmsg':'保存失败'},status=400)
+        return Response({"data": 'ok'})

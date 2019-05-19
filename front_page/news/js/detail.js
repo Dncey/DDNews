@@ -37,13 +37,14 @@ function GetDetailNew() {
             var new_title = resp.title.replace("今日头条"," ");
             $(".news_content >h2").html(new_title);
             $(".time_source").html(resp.report_time+" 来源:"+resp.source);
-
+            $(".article_comment").html(resp.comment_count);
             //替换今日头条
             var new_content = resp.content.replace("今日头条"," ");
             $(".new_content").html(new_content);
             if(resp.user.avatar_url){
                 $(".author_image_box").attr("src",resp.user.avatar_url)
             }
+
             $(".author_image_box").attr("href","author_center.html?author_id="+resp.user.id);
             $(".author_nickname").attr("href","author_center.html?author_id="+resp.user.id).html(resp.user.username);
             $(".right_top >p").html(resp.user.signature);

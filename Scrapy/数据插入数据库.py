@@ -1,3 +1,5 @@
+from datetime import datetime
+
 dict = {
     '科技':1,
     '娱乐':2,
@@ -5,11 +7,9 @@ dict = {
     '体育':4,
     '军事':5,
     '动漫':6,
-    '新时代':7,
     '财经':8,
     '搞笑':9,
     '国际':10,
-    '热文':11,
 }
 
 user_id = [1,2,7,8,9,10,11,12,13,16,19,21,23]
@@ -20,10 +20,11 @@ import random
 def main():
     conn = pymysql.connect(host='localhost', port=3306, user='root', password='mysql', database='panda_new',charset='utf8')
     cursor = conn.cursor()
+    now_date = datetime.now().strftime('%Y-%m-%d')
 
-    sql ="""insert into tb_news(title,source,index_image_url,index_image_url_list,digest, content,report_time,digest_label,category_id,source_avatar_url ,create_time,update_time,clicks,status,reason,user_id,is_spider) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,'2019-05-12','2019-05-10',0,0,'',%s,1) """
+    sql ="""insert into tb_news(title,source,index_image_url,index_image_url_list,digest, content,report_time,digest_label,category_id,source_avatar_url ,create_time,update_time,clicks,status,reason,user_id,is_spider) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,0,0,'',%s,1) """
 
-    with open('/home/python/Desktop/DDNews/Scrapy/Toutiao/news.txt','r',encoding='utf-8')as f:
+    with open('/home/python/Desktop/DDNews/Scrapy/Toutiao/news.txt','r+',encoding='utf-8')as f:
 
         new_info_str = '1'
         #插入数目
@@ -51,8 +52,7 @@ def main():
                 #如果关键字标签的话提取前前15个字符串
                 digest_label = str(new_dict['digest_label'][:15]) if new_dict['digest_label'] else 'null'
                 count +=1
-
-                cursor.execute(sql,(title,source,index_image_url,index_image_url_list,digest,content,report_time,digest_label,category,source_avatar_url,userid))
+                cursor.execute(sql,(title,source,index_image_url,index_image_url_list,digest,content,report_time,digest_label,category,source_avatar_url,now_date,now_date,userid))
                 conn.commit()
             except Exception as e:
                 print(e)
