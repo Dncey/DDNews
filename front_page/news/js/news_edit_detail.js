@@ -197,10 +197,10 @@ $(function(){
         params = {
             "title":$(".input_txt2").val(),
             "category_id":$(".sel_opt").val(),
-            "digest":$(".input_multxt").html(),
+            "digest":$(".input_multxt").val(),
             "content":filter_content,
             "review_status":$("input[name='action']").filter(":checked").val(),
-            "reason":$(".input_multxt_reason").html()
+            "reason":$(".input_multxt_reason").val()
         };
         $.ajax({
         url:host+"/admin/author/new/"+new_id+"/review/",

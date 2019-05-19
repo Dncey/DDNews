@@ -246,6 +246,7 @@ class GetAuthor_Followed(ListAPIView):
 #搜索用户表
 class UserSearchView(ListAPIView):
     serializer_class = User_Avatar_Url_Serializer
+    pagination_class = Newlist_Paginations
     def get_queryset(self):
         pk = self.request.query_params.get("user")
         user= User.objects.filter(username__contains=pk)

@@ -22,6 +22,11 @@ function updateSearchNewsData() {
         ContentType:"application/json",
         data:data
     }).done(function (resp) {
+        if(resp.counts==0){
+            content = "<div class='tip'>搜索内容为空！！！</div>";
+            $(".articles").append(content);
+            return
+        }
         total_page = resp.total_page;
            if(cur_page==1){
                 $(".articles").html("");
@@ -53,6 +58,11 @@ function updateSearchUser() {
         type: "get",
         ContentType:"application/json"
     }).done(function (resp) {
+        if(resp.length==0){
+            content = "<div class='tip'>搜索内容为空！！！</div>";
+            $(".articles").append(content);
+            return
+        }
         total_page = resp.total_page;
            if(cur_page==1){
                 $(".articles").html("");

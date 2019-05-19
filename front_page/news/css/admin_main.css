@@ -194,11 +194,7 @@ body{
 	background-color:#fff;
 }
 
-.pannel img{
-	display:block;
-	width:90%;
-	margin:20px auto 0;
-}
+
 
 .spannels{
 	overflow:hidden;
@@ -636,5 +632,26 @@ body{
 	cursor:pointer;
   }
   .add_slide{
+	  cursor: pointer;
+  }
+  .common_table .index_image{
+	  width: 150px;
+	  height: 97px;
+	  padding: 0;
+  }
+  .index_image img{
+	  margin:0;
+	  width: 224px;
+    	height: 97px;
+	  padding: 0;
+  }
+
+  .show_slide{
+	  color:green;
+  }
+  .hide_show{
+	  color: blue;
+  }
+  .sold_out_new,.remove_slide,.sold_up_new{
 	  cursor: pointer;
   }

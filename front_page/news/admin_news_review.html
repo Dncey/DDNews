@@ -13,10 +13,10 @@
 <body>
 	<div class="breadcrub">
 			当前位置：新闻管理>新闻审核
-			<form class="news_filter_form">
+			<!-- <form class="news_filter_form">
 				<input type="text" placeholder="请输入关键字" class="input_txt">
-				<input type="submit" value="搜 索" class="input_sub">
-			</form>
+				<input type="submit" value="搜索" class="input_sub">
+			</form> -->
 		</div>
 		<div class="pannel">
 			<table class="common_table">
@@ -107,7 +107,7 @@
                          }else {
                 content += "<td class='nopass'>未通过</td>";
                          }
-                         content += "<td> <a href='admin_news_review_detail.html?new_id="+news.id+"' class='review'>审核</a> </td> <td class='add_slide' new_id='"+news.id+"'>添加</td></tr> ";
+                         content += "<td> <a href='admin_news_review_edit.html?new_id="+news.id+"' class='review'>审核</a> </td> <td class='add_slide' new_id='"+news.id+"'>添加</td></tr> ";
                          $(".common_table").append(content);
                     }
                 })

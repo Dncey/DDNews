@@ -1,4 +1,5 @@
 from django.conf.urls import url
+from rest_framework.routers import DefaultRouter
 from . import views
 
 
@@ -19,6 +20,11 @@ urlpatterns = [
     #新闻审核
     url(r'^author/new/(?P<pk>\d+)/review/$',views.Author_New_Review.as_view()),
 
-    #广告轮播
+    # 广告轮播图信息的获取
+    url(r'^slide_new/$', views.Get_New_Slide.as_view()),
+
+    #广告轮播添加和修改和删除
     url(r'^(?P<pk>\d+)/slide_new/$',views.New_Slide.as_view()),
+
 ]
+

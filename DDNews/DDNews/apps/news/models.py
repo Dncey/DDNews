@@ -189,7 +189,7 @@ class Search_keywords(models.Model):
     """
     搜索关键字表
     """
-    key_wrods = models.CharField(max_length=128,verbose_name='搜索关键字')
+    key_words = models.CharField(max_length=128,verbose_name='搜索关键字')
     search_times = models.IntegerField(verbose_name='搜索次数')
 
     class Meta:

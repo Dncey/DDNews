@@ -283,7 +283,7 @@ class Author_New_Review(APIView):
         return Response({'errmsg':'保存成功'})
 
 
-#新闻轮播图
+#新闻轮播图添加\修改\删除
 class New_Slide(APIView):
     def post(self,request,pk):
 
@@ -301,11 +301,60 @@ class New_Slide(APIView):
         try:
             Slide_image.objects.get(new=new)
         except:
-            Slide_image.objects.create(new=new,title=new.title,url=new.index_image_url,is_recommend=True)
+            Slide_image.objects.create(new=new,title=new.title,url=new.index_image_url)
             return Response({'errmsg':'已添加至轮播图，请到轮播图管理页面选择展示'})
         else:
             return Response({'errmsg':'请勿重复添加'})
 
+
+    def delete(self,request,pk):
+        try:
+            new = News.objects.get(id=pk)
+        except:
+            return Response({'errmsg': '参数错误'}, status=400)
+
+        try:
+            slide_new = Slide_image.objects.get(new=new)
+        except:
+            return Response({'errmsg':'新闻不在轮播表中'},status=400)
+        slide_new.delete()
+        return Response({'errmsg':'OK'})
+
+    def put(self,request,pk ):
+        data = request.data.get('action')
+        try:
+            new = News.objects.get(id=pk)
+        except:
+            return Response({'errmsg': '参数错误'}, status=400)
+        try:
+            slide_new = Slide_image.objects.get(new=new)
+        except:
+            return Response({'errmsg':'新闻不在轮播表中'},status=400)
+
+        #展示
+        if data=='show':
+            if slide_new.is_recommend:
+                return Response({'errmsg':'已经展示请勿重复添加'},status=400)
+
+            if Slide_image.objects.filter(is_recommend=True).count()>3:
+                return Response({'errmsg':'展示数量不能大于３个，请下架后重新添加'})
+            slide_new.is_recommend =True
+            slide_new.save()
+            return Response({'errmsg':'OK'})
+        #下架
+        elif data=='sold_out':
+            if not slide_new.is_recommend:
+                return Response({'errmsg':'该新闻未展示，无法下架'},status=400)
+
+            slide_new.is_recommend=False
+            slide_new.save()
+            return Response({'errmsg': 'OK'})
+        else:
+            return Response({'errmsg':'参数错误'},status=400)
+
+
+#新闻轮播图获取
+class Get_New_Slide(APIView):
     def get(self,request):
 
         slide_news = Slide_image.objects.all()[:10]

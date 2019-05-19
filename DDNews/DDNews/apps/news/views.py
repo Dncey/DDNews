@@ -12,10 +12,13 @@ from rest_framework.response import Response
 #使用fastdfs 存储图片
 from fdfs_client.client import Fdfs_client
 import re
+#分词
 import jieba
+#文章关键字提取
 from jieba import analyse
 import datetime
-
+#字符串相似度比较,莱文斯坦相似度计算
+import Levenshtein
 #获取菜单列表
 class Category_info(APIView):
     def get(self,request):
@@ -61,7 +64,7 @@ class Get_Search_Keyswords(APIView):
         search_keyword_list = []
         for search_keyword in search_keywords:
 
-            search_keyword_list.append(search_keyword.key_wrods)
+            search_keyword_list.append(search_keyword.key_words)
         data = {
             'errmsg':'OK',
             'data':search_keyword_list
@@ -178,6 +181,16 @@ class NewsSearchView(ListAPIView):
 
     def get_queryset(self):
         pk= self.request.query_params.get('keywords')
+
+        #如果能获取
+        search_keyword = Search_keywords.objects.filter(key_words__contains=pk).first()
+
+        #通过搜索出最相似的关键字，比较与搜索的内容相似度大于８０％则搜索次数+1
+        if search_keyword and Levenshtein.ratio(pk,search_keyword.key_words)>0.8:
+            search_keyword.search_times+=1
+        else:
+            Search_keywords.objects.create(key_words=pk,search_times=1)
+
         return News.objects.filter(Q(title__contains=pk)|Q(digest_label__contains=pk),status=0).order_by("-report_time")
 
     # 去掉self.request可以让图片没有本地域名的前缀
