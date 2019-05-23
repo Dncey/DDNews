@@ -11,6 +11,8 @@ from DDNews.lib.captcha.captcha import captcha
 import hashlib
 from rest_framework_jwt.settings import api_settings
 from datetime import datetime
+#导入发送短信验证码celery异步任务模块
+from Celery_tasks.sms import tasks as sms_tasks
 # Create your views here.
 
 #获取图片验证码
@@ -84,7 +86,10 @@ class Generate_Smscode_register(APIView):
         result = random.randint(0,999999)
         sms_code = '%06d' %result
 
-        #使用第三方发送短信
+        #使用第三方短信服务发送短信，有效期5分钟
+        sms_tasks.send_sms_code.delay(mobile,sms_code,5)
+
+
 
         print(sms_code)
 
@@ -158,7 +163,9 @@ class Generate_Smscode_forget(APIView):
         result = random.randint(0,999999)
         sms_code = '%06d' %result
 
-        #使用第三方发送短信
+
+        # 使用第三方短信服务发送短信，有效期5分钟
+        sms_tasks.send_sms_code.delay(mobile, sms_code, 5)
 
         print(sms_code)
 
